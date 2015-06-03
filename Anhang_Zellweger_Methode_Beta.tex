@@ -1,0 +1,113 @@
+%\documentclass{fhnwreport} %
+%\usepackage[ngerman]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc}
+%\usepackage{tikz}
+%\usepackage{amsmath}
+%\usetikzlibrary{arrows}
+%\usepackage{lmodern}   %Type1-Schriftart für nicht-englische Texte 
+%
+%\begin{document}
+\section{Anhang Elektrotechnik}
+
+\subsection{Herleitung der Berechnung von $\beta$ für die Zellweger Methode}\label{ZellwegerBeta}
+Für den offenen Regelkreis $Go$ gilt:
+
+\[
+\phi_{RE}=PhaseRegler
+\]
+\[
+\phi_S=PhaseStrecke
+\]
+\[
+\phi_O=PhaseOffenerRegelkreis
+\]
+\[
+\phi_{RE}(w_{PID})+\phi_S(w_{PID})=\phi_O(w_{PID})
+\]
+Für die Steigung (Ableitung) gilt:
+\begin{equation}
+\frac{d\phi_{RE}(w_{PID})}{dw}+\frac{d\phi_S(w_{PID})}{dw}=\frac{d\phi_O(w_{PID})}{dw}
+\label{eq:zellwegerPhaseOffenerRegelkreis}
+\end{equation}
+Der offene Regelkreis berechnet sich wie folgt:
+\[
+Go=\frac{1}{s\cdot T0\cdot (1+s\cdot T1)}
+\]
+Die Phase von $O$ berechnet sich wie folgt:
+\[
+Tk=\frac{1}{w_{PID}}
+\]
+\[
+\phi_O(w_{PID})=-\frac{\pi}{2}-\arctan \left(w\cdot \frac{1}{w_{PID}} \right)=
+-\frac{pi}{2}-\arctan \left(w\cdot Tk \right)
+\]
+$\phi_O$ wird nach $w$ abgeleitet und für $Tk$ wird 
+$\frac{1}{w_{PID}}$ eingesetzt. Da in $w_{PID}$ abgeleitet 
+wurde wird $w$ gleich $w_{PID}$ gesetzt:
+\begin{equation}
+\frac{d\phi_O(w_{PID})}{dw}=-\frac{Tk}{1+w^{2}\cdot {Tk}^{2}}=-\frac{Tk}{1+{w_{PID}}^{2}\cdot \left( \frac{1}{w_{PID}} 
+\right)^{2}}=-\frac{1}{2}Tk=-\frac{1}{2\cdot w_{PID}}
+\label{eq:zellwegerPhaseAbleitung}
+\end{equation}
+Aus der Ableitung der Phase des offenen Regelkreises \eqref{eq:zellwegerPhaseAbleitung} und der Phasengleichung \eqref{eq:zellwegerPhaseOffenerRegelkreis} des offenen Regelkreises folgt:
+\[
+\phi_{RE}(w_{PID})+\phi_S(w_{PID})=-\frac{1}{2\cdot w_{PID}}
+\]
+Mit $w_{PID}$ multipliziert
+\[
+w_{PID} \cdot \frac{d\phi_{RE}(w_{PID})}{dw}+w_{PID} \cdot \frac{d\phi_S(w_{PID})}{dw}=-0.5
+\]
+Wie man einfach erkennt folgt daraus:
+\[
+w_{PID} \cdot \frac{d\phi_{RE}(w_{PID})}{dw}=\frac{2\cdot \beta}{1+\beta^{2}}
+\]
+Eingesetzt in die Phasengleichung:
+\[
+\frac{2\cdot \beta}{1+\beta^{2}}+w_{PID} \cdot \frac{d\phi_S(w_{PID})}{dw}=-0.5
+\]
+Für $\phi_S(w_{PID})$ wird eingesetzt:
+\[
+\frac{2\cdot \beta}{1+\beta^{2}}+w_{PID} \cdot (-\arctan \left( w_{PID}\cdot T1 
+\right)-\arctan \left( w_{PID}\cdot T2 \right)-\arctan \left( w_{PID}\cdot Tz \right))=-0.5
+\]
+
+Als Summe geschrieben:
+\[
+\frac{2\cdot \beta}{1+\beta^{2}}-w_{PID} \cdot  \sum \limits_{m=1}^{n} \arctan \left( w_{PID}\cdot T_m\right) =-0.5
+\]
+
+$\phi_S(w_{PID})$ abgeleitet:
+
+\[
+\frac{2\cdot \beta}{1+\beta^{2}}-w_{PID} \cdot \left(\frac{T_{1}}{1+ (w_{PID} \cdot T_{2})^2}+\frac{T_{2}}{1+ (w_{PID} \cdot T_{2})^2}+\frac{T_{m}}{1+ (w_{PID} \cdot T_{m})^2}\right)=-0.5
+\]
+
+Als Summe geschrieben:
+
+\[
+\frac{2\cdot \beta}{1+\beta^{2}}-w_{PID} \cdot  \sum \limits_{m=1}^{n} \frac{T_m}{1+ (w_{PID} \cdot T_m)^2} =-0.5
+\]
+
+Nun wird so umgeformt, dass alle $\beta$ auf einer Seite stehen:
+
+\[
+\frac{2\cdot \beta}{1+\beta^{2}}=w_{PID} \cdot  \sum \limits_{m=1}^{n} \frac{T_m}{1+ (w_{PID} \cdot T_m)^2} -0.5
+\]
+
+Die rechte Seite wird mit $Z$ substituiert:
+
+\[
+Z=w_{PID} \cdot  \sum \limits_{m=1}^{n} \frac{T_m}{1+ (w_{PID} \cdot T_m)^2} -0.5
+\]
+
+\[
+Z=\frac{2\cdot \beta}{1+\beta^{2}}
+\]
+
+Nach $\beta$ aufgelöst:
+\[
+\beta = \frac{1}{Z} - \sqrt{\frac{1}{Z^2}-1}
+\]
+
+%\end{document}

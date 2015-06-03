@@ -1,0 +1,87 @@
+\documentclass[a4paper]{fhnwreport} %Legt grundlegende Formatierungen wie Schriftarten, Ort Seitenzahlen etc. fest.
+
+%-----------------------------Wichtigste/Zentrale Packages------------------------ 
+\usepackage[german]{babel}
+%\usepackage[latin9]{inputenc}
+\usepackage[babel, german=quotes]{csquotes}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{amsmath}		%Mathe-Package
+\usepackage{amsthm}			%Mathe-Package
+\usepackage{graphicx} 	%Paket für die Darstellung von Abbildungen
+\usepackage{fancyhdr}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{lmodern}
+\usepackage{listings}
+\lstset{language=Matlab}
+
+
+
+% Farben für Matlab-Listings
+\definecolor{hellgelb}{rgb}{1,1,0.85}     % Hintergrundfarbe
+\definecolor{colKeys}{RGB}{0,0,255}       % blau
+\definecolor{colIdentifier}{RGB}{0,0,0}	  % schwarz
+\definecolor{colComments}{RGB}{34,139,34} % gruen
+\definecolor{colString}{RGB}{160,32,240}  % violett
+
+\lstset{%
+    language=Matlab,%
+    %backgroundcolor={\color{hellgelb}},%
+		backgroundcolor={},%
+    basicstyle={\footnotesize\ttfamily},%
+    breakautoindent=true,%
+    breakindent=10pt,%
+    breaklines=true,%
+    captionpos=t,%
+    columns=fixed,%
+    %commentstyle={\itshape\color{colComments}},%
+		commentstyle={\color{colComments}},
+    extendedchars=true,%
+    float=hbp,%
+    frame=single,%
+    framerule=1pt,%
+    identifierstyle={\color{colIdentifier}},%
+    keywordstyle={\color{colKeys}},%
+    numbers=left,%
+    numbersep=1em,%
+    numberstyle={\tiny\ttfamily},%
+    showspaces=false,%
+    showstringspaces=false,%
+    stringstyle={\color{colString}},%
+    tabsize=4,%
+    xleftmargin=1em,%
+    xrightmargin=1em%
+} 
+
+
+%-----------------------------(Optionale) Pakete
+\usepackage{subfigure}	%Paket für die Darstellung zweier Abbildungen über oder nebeneinander
+\usepackage{booktabs}		%Paket für professionelle Tabellen
+\usepackage{todonotes}	%Paket für die Nutzung von Randnotitzen. 
+\usepackage{cite}				%Paket für die Zitation von Quellen
+%\uspackage{listings}		% Nicht erwähnt in Präsi. Nützliches Paket für die Dokumentierung von Software-Code
+
+\bibliographystyle{IEEEtran}	%Legt den Bibliographiestyle fest (Harvard, IEEE etc.)
+\graphicspath{{./graphics/}{./Anhang/}}	%Legt fest in welchen Ordnern Latex nach Bilder suchen soll (./ <- aktuelles Verzeichnis). Wichtig für die Strukturierung von Dokumenten
+\geometry{twoside=false}	% Für den einseitgen Druck. Falls doppelseitig gewünscht: Befehl löschen
+\overfullrule=1em	%Erzeugt schwarzen Balken falls Text über den Rand läuft (wenn Latex nicht autom. Silbentrennung macht). Vorallem für Debugging interessant.
+\pagestyle{empty}
+\begin{document}
+
+\section*{Abstract}
+%Was war die Aufgabe?
+Um in der Praxis einen geeigneten Regler zu dimensionieren ist oftmals viel Zeit und Erfahrung notwendig, was es schwierig macht, einen idealen Regler zu finden. Zwar gibt es zur Hilfe Faustformeln, diese liefern jedoch oftmals nur ungenügende Ergebnisse, sodass man schlussendlich auf grafischen Methoden mit Papier und Bleistift zurückgreifen muss. "`Easy-PID"' ist ein Softwaretool, welches im Rahmen des Projekt 2 der Fachhochschule Nordwestschweiz entwickelt wurde, das die Reglerdimensionierung mit der grafischen Phasengangmethode von Zellweger sowie mehreren Faustformeln automatisch durchführt und so hilft, einen idealen Regler zu finden. Mit Hilfe der Kenngrössen der Regelstrecke sowie weiteren Einstellungen wie beispielsweise dem maximalen Überschwingen und der Wahl des Reglertyps kann "`Easy-PID"' alle benötigten Reglerparameter bestimmen.
+
+%Wie wurde sie gelöst?
+Zur richtigen Reglerdimensionierung mussten zuerst die Formeln hergeleitet werden. Die damit erstellten Berechnungsalgorithmen wurden in Matlab implementiert und mit den Werten von Herr Niklaus verglichen, um die Korrektheit zu überprüfen. Um "`Easy-PID"' flexibel in Java programmieren zu können, wurde auf das Model-View-Controller Entwurfsmuster zurückgegriffen. Die von "`Easy-PID"' gelieferten Ergebnisse wurden ausserdem mit Matlab verifiziert. \\
+Das Java-Programmierung wurde anschliessend weiter optimiert, um ein ideales Verhältnis zwischen Geschwindigkeit und Genauigkeit zu finden. So wurden beispielsweise zur Berechnung der Schrittantworten zwei Vorgehensweisen implementiert: Residuen und IFFT. Dabei hat sich gezeigt, dass mit Residuen sowohl genauere als auch schnellere Resultate erzielt werden können.
+
+%Welche Resultate wurden erzielt?
+"`Easy-PID"' kann durchaus als erfolgreiches Projekt bezeichnet werden. Sämtliche vom Auftraggeber gewünschten Funktionen sowie einige optionale Funktionen wie beispielsweise der Export als PDF, eine Miniversion oder die nachträgliche Feinanpassung der Phasengangmethode sind fehlerfrei implementiert. Ausserdem kann der User mit einem Hilfe-Menü hilfreiche Links aufrufen, die auftretende Fragen zum Thema Regelungstechnik beantworten können. \\
+Sämtliche Daten werden dabei in einem einfach zu bedienenden User-Interface dargestellt. So kann der Benutzer die Eingabeparameter in Textfeldern eingeben und mittels einem Dropdown-Menü den Reglertyp wählen. Die mit diesen Daten berechneten Regler werden tabellarisch dargestellt. Die Sprungantwort der geschlossenen Regelstrecke wird ausserdem grafisch dargestellt, wobei auch einzelne Graphen ausgewählt werden können.
+
+\end{document}

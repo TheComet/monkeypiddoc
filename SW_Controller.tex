@@ -1,0 +1,38 @@
+\subsection{Controller}
+%Problem/Fragestellung:
+%- Welche Methoden muss der Controller enthalten?
+%Lösung: Model und View bestimmen, welche Methoden der Controller enthalten muss.
+Der $Controller$ ist sehr schlank gehalten und ist ein Teil des Model-View-Controller-Pattern. Der Controller hat dabei mehrere Aufgaben:
+\begin{itemize}
+	\item Beim Drücken des Simulationsschaltfläche im \textit{InputPanel} werden die entsprechenden Methoden des Models aufgerufen, um die neuen Regler mit den neuen Eingabeparametern zu berechnen, die alten Simulationen zu löschen und neue Simulationen zu starten. 
+	\item Wenn der Trimm-Slider im \textit{OutputPanel} verändert wird, so wird die entsprechende Methode im Model aufgerufen. 
+	\item Wenn der Anwender eine Checkbox im \textit{GraphDisplayPanel} anklickt, so wird die entsprechende Methode im Model aufgerufen, um eine Kurve ein- oder auszublenden.  
+\end{itemize}
+
+
+%TODO Murray 
+%Sehr viele 
+%- Korrigieren und ev. ergänzen.
+%- Falls möglich Text mit weiterem Inhalt ergänzen. Ev. die Methoden genauer beschreiben und auf die entsprechenden Methoden des Models referenzieren.
+
+%
+%\subsection{Ablauf einer Reglerberechnung}
+%Im folgenden Abschnitt wird die Dimensionierung eines Reglers mit Easy-PID an einem Beispiel erklärt. Als Beispiel dient eine Regelstrecke mit den Kenngrössen $Tu=??$, $Tg=??$ und $Ks=??$, die parasitäre Zeitkonstante $Tp$ wird bei 10\% belassen, was der Standardeinstellung entspricht. Gewünscht ist ein PID-Regler mit einem maximalen Überschwingen von 4.6\%.
+%
+%\textbf{1.} \\
+%Die Werte für $Tu$, $Tg$ und $Ks$ werden in den entsprechenden $JFormattedDoubleTextField$ eingegeben, für $Tp$ muss nichts eingegeben werden, da 10\% bereits die Standardeinstellung ist. Mit den beiden Dropdown-Menüs, welche mittels $JComboBox$ implementiert wurden, wird ausserdem der Reglertyp PID und das Überschwingen auf 4.6\% festgelegt.
+%
+%\textbf{2.} \\
+%Durch Drücken der Schaltfläche $Simulieren$ wird die Methode $actionPerformed$ aufgerufen, welche die Eingabeparameter in die entsprechenden Attribute speichert und die Methode $bt\-Simulate\-Action$ des $Controllers$ aufruft, welche wiederum die Methoden des Models aufruft. Bei nicht akzeptierten Eingabeparametern erscheint unter den Eingabefeldern ein $JLabel$ mit der entsprechenden Fehlermeldung. Bei akzeptierten Eingabeparametern wird die Simulation gestartet und es werden mit den Faustformeln und der Phasengangmethode die entsprechenden Regler berechnet. Die Schrittantworten der jeweiligen Regler erscheint im $GraphPanel$ auf der rechten Seite.
+%
+%\textbf{3.} \\
+%Im $GraphDisplayPanel$ kann mittels der Checkboxen ausgewählt werden, welche Schrittantworten visualisiert werden können, um so einen möglichst passenden provisorischen Regler zu finden. In unserem Beispiel ist dies der Graph des Reglers, welcher mit der Phasengang-Methode dimensioniert wurde.
+%%Bitte mit fachlichem Teil ergänzen.
+%
+%\textbf{4.} \\
+%Der provisorisch ausgesuchte Regler soll nun weiter verbessert werden. Dazu wird der Regler nach der Phasengang-Methode in der $JTable$-Tabelle im $OutputPanel$ ausgewählt und anschliessend auf den $JButton$ Übernehmen gedrückt, wodurch der $ActionListener$ mit der $Controller$-Methode $btAdoptAction$ aktiviert wird.
+%%Bitte mit fachlichem Teil ergänzen.
+%
+%\textbf{5.} \\
+%Mittels der $JSlider$ können nun die Reglerparameter angepasst werden, wobei sich der Graph im $GraphPanel$ in Echtzeit den Einstellungen anpasst.
+%%Bitte mit fachlichem Teil ergänzen.

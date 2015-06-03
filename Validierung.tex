@@ -1,0 +1,27 @@
+\section{Validierung}
+Im folgenden Abschnitt wird die Validierung beschrieben. Die Validierung dient zum Auffinden und Beheben von Fehlern, um so eine korrekte Funktion des Programms garantieren zu können. Zum einen wurden die Berechnungen und Simulationen von Matlab überprüft, zum anderen die Software, aufgeteilt in die Teilbereiche Benutzeroberfläche und Berechnungen.
+
+\subsection{Matlab-Programmierung}
+%Problem/Fragestellung:
+%- Wie kann die korrekte Funktion der Matlab-Programme überprüft werden?
+%Lösung: Die berechneten Antworten werden mit den Antworten von Herrn Niklaus verglichen.
+Die Berechnung der Regler wurde zuerst mittels m-Files in Matlab implementiert. Zur Überprüfung der von Matlab gelieferten Werte wurden diese mit den Werten vom Fachcoach Peter Niklaus verglichen.
+
+
+\subsection{Matlab-Simulation}
+%Problem/Fragestellung:
+%- Wie kann die Matlab-Simulation überprüft werden?
+%Lösung: Sie wird mit Simulink überprüft.
+Mittels Simulink wurde der geschlossene Regelkreis simuliert.
+
+\subsection{Benutzeroberfläche}
+%Problem/Fragestellung:
+%- Wie können Probleme oder Konflikte bei der Benutzeroberfläche ausgeschlossen werden?
+%Mehrere unabhängige User testen die Software.
+Um die einfache Handhabung der Software zu überprüfen wurde die Software im ganzen Projektteam sowie von mehreren unabhängigen Benutzern getestet. Die so gefundenen Unklarheiten oder Probleme wurden behoben.
+
+\subsection{Berechnungen Software}
+%Problem/Fragestellung:
+%- Wie wird die korrekte Funktion der Software überprüft?
+%Lösung: Die Software mit mit JUnit getestet, wobei die Resultate von Matlab erwartet werden.
+Die Plausibilität der Schrittantworten konnte relativ einfach optisch mit den Graphen überprüft werden, da das Verhalten der einzelnen Regler bekannt ist. Zur genauen Überprüfung der einzelnen Klassen wurden sämtliche Klassen des Models mittels JUnit mit den Ergebnissen von Matlab verglichen.

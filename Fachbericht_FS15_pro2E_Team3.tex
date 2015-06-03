@@ -1,0 +1,128 @@
+\documentclass[a4paper]{fhnwreport} 
+\usepackage[ngerman]{babel}
+\usepackage[babel, ngerman=quotes]{csquotes}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{amsmath}		
+\usepackage{amsthm}		
+\usepackage{graphicx} 	
+\usepackage{fancyhdr}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{subfigure}	
+\usepackage{booktabs}		
+\usepackage{todonotes}	
+\usepackage{cite}			
+%\usepackage{tabularx}
+%\uspackage{listings}		% Paket für die Dokumentierung von Software-Code
+\lstset{language=Matlab}
+
+
+
+% Farben für Matlab-Listings
+\definecolor{hellgelb}{rgb}{1,1,0.85}     % Hintergrundfarbe
+\definecolor{colKeys}{RGB}{0,0,255}       % blau
+\definecolor{colIdentifier}{RGB}{0,0,0}	  % schwarz
+\definecolor{colComments}{RGB}{34,139,34} % gruen
+\definecolor{colString}{RGB}{160,32,240}  % violett
+
+\lstset{%
+    language=Matlab,%
+    %backgroundcolor={\color{hellgelb}},%
+		backgroundcolor={},%
+    basicstyle={\footnotesize\ttfamily},%
+    breakautoindent=true,%
+    breakindent=10pt,%
+    breaklines=true,%
+    captionpos=t,%
+    columns=fixed,%
+    %commentstyle={\itshape\color{colComments}},%
+		commentstyle={\color{colComments}},
+    extendedchars=true,%
+    float=hbp,%
+    frame=single,%
+    framerule=1pt,%
+    identifierstyle={\color{colIdentifier}},%
+    keywordstyle={\color{colKeys}},%
+    numbers=left,%
+    numbersep=1em,%
+    numberstyle={\tiny\ttfamily},%
+    showspaces=false,%
+    showstringspaces=false,%
+    stringstyle={\color{colString}},%
+    tabsize=4,%
+    xleftmargin=1em,%
+    xrightmargin=1em%
+} 
+
+\bibliographystyle{IEEEtran}	
+%\graphicspath{{./graphics/}{./Anhang/}}	
+\geometry{twoside=false}	
+\overfullrule=1em	
+
+\title{Fachbericht Easy-PID}
+\date{Windisch, \today}
+
+\graphicspath{{./Bilder/}}
+
+\begin{document}
+\maketitle
+
+\vspace*{2cm}
+\begin{figure}[h]
+	\centering
+		\includegraphics[width=0.80\textwidth]{easypid-logo.png}
+	\label{fig:easypid-logo}
+\end{figure}
+\vfill
+\textsc{
+\begin{tabbing}
+Auftraggeber: \hspace{4em} \=   Peter Niklaus \\[2ex]
+Betreuer:  \>  Peter Niklaus (Elektrotechnik) \\ \> Richard Gut (Objektorientierte Programmierung) \\ \> Pascal Buchschacher (Projektmanagement) \\ \> Anita Gertiser (Kommunikation) \\[2ex]
+Gruppe:  \>  FS15 pro2E Team 3 \\[2ex]
+Teammitglieder:  \> Yanick Frei (Projektleiter) \\ \> Simon Wyss (Experte Elektrotechnik) \\ \> Josua Stierli (Experte Programmierung) \\ \> Alexander Murray (Stv. Projektleiter) \\ \> Simon Sturm \\[2ex]
+Studiengang: \> Elektro- und Informationstechnik
+\end{tabbing}}
+\vfill
+\hbox{}
+\clearpage
+
+\includepdf[pages=-]{Abstract.pdf}
+\includepdf[pages=-]{P2_FS_2015_Aufgabe_vom_Auftraggeber.pdf} 
+\setcounter{page}{1}
+\tableofcontents	
+\clearpage
+
+\include{Einleitung}
+
+%\include{Disposition}
+
+
+\include{ET_Elektrotechnische_Grundlagen}
+\include{ET_Faustformeln}
+\include{ET_Zellweger}
+\include{ET_Zellweger_PI}
+\include{ET_Zellweger_PID}
+
+
+\include{SW_Model}
+\include{SW_View}
+\include{SW_Controller}
+
+\include{Validierung}
+
+\include{Schlusswort}
+
+\begin{appendix}
+\include{Anhang_Zellweger_Methode_Beta}
+\include{Anhang_Bode_Reglerkonform}
+%\include{./Software/LatexSoftware/Anhang_Software}
+%\include{./Software/LatexSoftware/Anhang_Klassendiagramm}
+\include{Anhang_CDRom}
+\end{appendix}
+\end{document}

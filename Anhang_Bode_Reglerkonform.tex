@@ -1,0 +1,142 @@
+%\documentclass{fhnwreport} %
+%\usepackage[ngerman]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc}
+%\usepackage{tikz}
+%\usepackage{amsmath}
+%\usetikzlibrary{arrows}
+%\usepackage{lmodern}   %Type1-Schriftart für nicht-englische Texte 
+%
+%\begin{document}
+
+
+\subsection[Herleitung Bodekonforme Darstellung]{Herleitung der Bodekonformen und Reglerkonformen Darstellung}\label{Bodekonf}
+
+Regler können in verschieden Darstellungen abgebildet werden. Unterschieden werden hier die reglerkonforme und die bodekonforme Darstellung, wobei oftmals standartmässig die reglerkonforme Darstellung gewählt wird. Folgend sind beide Darstellungen von PI- und PID-Regler aufgeführt. Beim PID-Regler wird zudem die Beziehung zwischen den beiden Formen hergeleitet.
+
+\subsubsection{PI-Regler}
+Der PI-Regler hat die Parameter $Kr$ und $Tn$.
+\par \textbf{Reglerkonform:} %use \par for next line, use \\ or \newline for a new line
+\begin{equation}
+G_{R}(s) = K_{R}\left(1+\frac{1}{s\cdot Tn}\right)
+\end{equation}
+
+
+\textbf{Bodekonform:}
+\begin{equation}
+G_{R}(s) = K_{R}\left(\frac{1+s\cdot Tn}{s\cdot Tn}\right)
+\end{equation}
+
+\subsubsection{PID-Regler}
+\textbf{Reglerkonform:}
+\par Der PID-Regler hat in der reglerkonformen Darstellung die Parameter $Kr$, $Tn$, $Tv$ und $Tp$.
+\begin{equation}
+G_{R}(s) = K_{R}\left(1+\frac{1}{s\cdot Tn}+\frac{s\cdot Tv}{1+s\cdot Tp}\right)
+\end{equation}
+Umformung:
+
+\begin{equation}
+\begin{aligned} % use {aligned} and &= to aligne vertical all = 
+	G_{R}(s) &= K_{R}\left(\frac{s \cdot Tn(1+s \cdot Tp) + (1+s \cdot Tp)(s \cdot Tn \cdot s \cdot Tv)}{s \cdot Tn(1+s \cdot Tp)}\right) \\ 
+	&= K_{R}\left(\frac{s^2 \cdot Tn\cdot Tp + s^2 \cdot Tn \cdot Tv + s \cdot Tp + s \cdot Tn + 1}{s \cdot Tn(1+s \cdot Tp)}\right) \\
+	&= K_{R}\left(\frac{s^2(Tn\cdot Tp + Tn \cdot Tv) + s(Tp + Tn) + 1 }{s \cdot Tn(1+s \cdot Tp)}\right) 
+	\\
+	&= K_{R}\left(\frac{s^2\cdot Tn(Tp + Tv) + s(Tp + Tn) + 1 }{s \cdot Tn(1+s \cdot Tp)}\right)
+\end{aligned}
+\end{equation}
+
+
+\textbf{Bodekonform:}
+\par Der PID-Regler hat in der bodekonformen Darstellung die Parameter $Krk$, $Tn$, $Tv$ und $Tp$.
+\begin{equation}
+G_{R}(s) = K_{RK}\left(\frac{(1+s\cdot Tnk)(1+s\cdot Tvk)}{s\cdot Tnk(1+s\cdot Tp)}\right)
+\end{equation}
+Umformung:
+
+\begin{equation}
+\begin{aligned} 
+G_{R}(s) = K_{RK}\left(\frac{s^2(Tnk \cdot Tvk)+ s(Tnk + Tnk) + 1}{s\cdot Tnk(1+s\cdot Tp)}\right)
+\end{aligned}
+\end{equation}
+
+\par \textbf{Koeffizienten-Vergleich:}
+\\Damit ein Koeffizienten-Vergleich zwischen der reglerkonformen und der bodekonformen Darstellung des PID-Reglers durchgeführt werden kann, müssen die beiden Formen gleichgesetzt werden (links reglerkonform, rechts bodekonform):
+
+\begin{align}
+K_{R}\left(\frac{s^2\cdot Tn(Tp + Tv) + s(Tp + Tn) + 1 }{\textcolor[rgb]{1,0,0}{s} \cdot Tn(1+s \cdot Tp)}\right) &= K_{RK}\left(\frac{s^2(Tnk \cdot Tvk)+ s(Tnk + Tnk) + 1}{\textcolor[rgb]{1,0,0}{s}\cdot Tnk(1+s\cdot Tp)}\right) \nonumber \\
+\intertext{$s$  wird auf beiden Seiten im Nenner gekürzt:} \nonumber
+K_{R}\left(\frac{s^2\cdot Tn(Tp + Tv) + s(Tp + Tn) + 1 }{Tn(1+s \cdot Tp)}\right)&= K_{RK}\left(\frac{s^2(Tnk \cdot Tvk)+ s(Tnk + Tnk) + 1}{Tnk(1+s\cdot Tp)}\right) \\
+\intertext{Lässt man die Frequenz $w$ gegen Null gehen, strebt auch $s$ gegen Null und die Terme lassen sich wie folgt vereinfachen:} \nonumber 
+K_{R}\left(\frac{ 1 }{Tn}\right)&= K_{RK}\left(\frac{1}{Tnk}\right)
+\end{align}
+
+An der oben stehenden Umformung erkennt man, dass man einen Koeffizientenvergleich machen kann. Folgend werden zuerst die Koeffizienten mit $s$, danach die $s^2$ und am Ende die Koeffizienten ohne $s$ verglichen und nach den Parameter der reglerkonformen Darstellung umgeformt.
+
+2. Koeffizient
+\begin{equation}
+\begin{aligned}
+s(Tn+Tp) &= s(Tnk+Tvk) \\
+Tn+Tp &= Tnk+Tvk \\
+Tn &= Tnk+Tvk-Tp\\
+\label{eq:2koeffizient}
+\end{aligned}
+\end{equation}
+
+Damit ist $Tn$ bestimmt.
+
+1. Koeffizient:
+\begin{equation}
+\begin{aligned}
+s^2(Tn\cdot Tp + Tn \cdot Tv)&=s^2(Tnk \cdot Tvk)\\
+(Tn\cdot Tp + Tn \cdot Tv)&=(Tnk \cdot Tvk)\\
+Tn(Tv + Tp)&=Tnk \cdot Tvk
+\end{aligned}
+\end{equation}
+
+Obenstehende Gleichung wird nun nach $Tv$ umgeformt:
+
+\begin{equation*} %star after equations means NO automatic numbering
+\begin{aligned}
+Tv + Tp &= \frac{Tnk \cdot Tvk}{Tn}\\
+Tv &= \frac{Tnk \cdot Tvk}{Tn} - Tp
+\end{aligned}
+\end{equation*}
+
+Die Variable $Tn$ wird in der folgenden Gleichung durch die Beziehung von Formel \ref{eq:2koeffizient} ersetzt:
+
+\begin{equation}
+\begin{aligned}
+Tv &= \frac{Tnk \cdot Tvk}{Tnk+Tvk-Tp} - Tp
+\end{aligned}
+\end{equation}
+
+Damit ist $Tv$ bestimmt. $Kr$ wird wie folgt bestimmt:
+
+3. Koeffizient:
+\begin{align}
+\frac{Kr}{s \cdot Tn (1+s\cdot Tp)} &= \frac{Krk}{s\cdot Tnk(1+s\cdot Tp)}\nonumber \\  %\nonumber means no number on this line
+\intertext{$s$ und $(1+s\cdot Tp)$ werden gekürzt und $Tn$ ersetzt:}
+\frac{Kr}{Tnk+Tvk-Tp} &= \frac{Krk}{Tnk}\nonumber \\ 
+Kr &= \frac{Krk(Tnk+Tvk-Tp)}{Tnk}\nonumber \\ 
+\intertext{Das im Verhältnis zu $Tvk$ ca. zehn mal kleinere $Tp$ kann vernachlässigt werden:}
+Kr &= \frac{Krk(Tnk+Tvk)}{Tnk} \nonumber \\ 
+Kr &= \frac{Krk(1+Tvk)}{Tnk}
+\end{align}
+
+%\begin{equation}
+%Tn = \frac{Tnk \cdot Tvk}{Tvk + Tp}
+%\end{equation}
+
+
+
+%Jetzt wird $Tn$ in $Tv$ eingesetzt:
+%\begin{equation}
+%\begin{aligned}
+%Tv &= \frac{Tnk \cdot Tvk (Tv + Tp}{Tnk \cdot Tvk} - Tp
+%\end{aligned}
+%\end{equation}
+
+
+
+%\end{document}
+

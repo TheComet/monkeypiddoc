@@ -1,0 +1,258 @@
+%\documentclass{fhnwreport} %
+%\usepackage[ngerman]{babel}
+%\usepackage[T1]{fontenc}	
+%\usepackage[latin1]{inputenc}
+%\usepackage{tikz}
+%\usepackage{amsmath}
+%\usetikzlibrary{arrows}
+%\usepackage{lmodern}   %Type1-Schriftart für nicht-englische Texte 
+%\bibliographystyle{IEEEtran}
+%
+%\usepackage{listings}
+%\lstset{language=Matlab}
+%
+%\usepackage{cite}
+%\usepackage{hyperref}
+%%\usepackage{url}
+%\hypersetup{
+     %colorlinks   = true,
+     %urlcolor    = black
+%}
+%
+%% Farben für Matlab-Listings
+%\definecolor{hellgelb}{rgb}{1,1,0.85}     % Hintergrundfarbe
+%\definecolor{colKeys}{RGB}{0,0,255}       % blau
+%\definecolor{colIdentifier}{RGB}{0,0,0}	  % schwarz
+%\definecolor{colComments}{RGB}{34,139,34} % gruen
+%\definecolor{colString}{RGB}{160,32,240}  % violett
+%
+%\lstset{%
+    %language=Matlab,%
+    %%backgroundcolor={\color{hellgelb}},%
+		%backgroundcolor={},%
+    %basicstyle={\footnotesize\ttfamily},%
+    %breakautoindent=true,%
+    %breakindent=10pt,%
+    %breaklines=true,%
+    %captionpos=t,%
+    %columns=fixed,%
+    %%commentstyle={\itshape\color{colComments}},%
+		%commentstyle={\color{colComments}},
+    %extendedchars=true,%
+    %float=hbp,%
+    %frame=single,%
+    %framerule=1pt,%
+    %identifierstyle={\color{colIdentifier}},%
+    %keywordstyle={\color{colKeys}},%
+    %numbers=left,%
+    %numbersep=1em,%
+    %numberstyle={\tiny\ttfamily},%
+    %showspaces=false,%
+    %showstringspaces=false,%
+    %stringstyle={\color{colString}},%
+    %tabsize=4,%
+    %xleftmargin=1em,%
+    %xrightmargin=1em%
+%} 
+%\begin{document}
+\subsection{Zellweger Methode}\label{ZellwegerMethode}
+
+
+Der PI- oder PID-Regler wird aus dem Amplituden- und Phasengang mit der Phasengangmethode nach Zellweger berechnet. Der Amplituden- und 
+Phasengang kann aus der Übertragungsfunktion $H(s)$\eqref{Übertragungsfunktion} berechnet werden. 
+Folgend werden die dazu verwendeten Formeln aufgeführt:
+
+\[ %\label{Amplitudengang}
+Amplitudengang~Strecke~A_{s}(\omega)= Ks\cdot\prod\limits_{m=1}^Z\frac{1}{\sqrt{1+{(\omega\cdot T_{m})}^{2}}}
+\]
+
+\[ %\label{Phasengang}
+Phasengang~Strecke~\phi_{s}(\omega)=-1\cdot\sum\limits_{m=1}^Z\arctan \left( \omega\cdot T_{m}\right)
+\]
+
+Gemäss Zellweger wird nun nach folgendem Rezept vorgegangen:
+
+\textbf{1.} Aus dem Phasengang $\phi_{s}$ wird die Frequenz bei 
+einem bestimmten Winkel $\phi_{x}$ herausgesucht. Der Winkel 
+$\phi_{x}$ ist abhängig davon, welcher Regler-Typ 
+dimensioniert werden soll. Beim PI-Regler ist $\phi_{pi}$ 
+-90\textdegree, beim PID-Regler ist $\phi_{pid}$ -135\textdegree . 
+
+Gemäss dem Skript \glqq Regelkreise und Regelung\grqq\cite{Zellweger}
+von Zellweger gibt es für die Regler zwei Darstellungsvarianten: Die reglerkonforme und die bodekonforme Darstellung.
+
+Bei den weiteren Berechnungen des PID-Reglers muss für die 
+Phasengang-Methode nach Zellweger in die bodekonforme Darstellung gewechselt werden (siehe Anhang Seite \pageref{Bodekonf} Kapitel \ref{Bodekonf}).
+
+Für PI- und PID-Regler unterscheidet sich nun das weitere Vorgehen. Es ist nun in die folgenden zwei Kapitel aufgeteilt.
+
+\textbf{Weiteres Vorgehen PI Regler:}
+
+Die gefundene Frequenz $\omega_{pi}$ bei $phi_{pi}$ 
+entspricht $1/Tn$. 
+
+\[
+Tn=\frac{1}{\omega_{pi}}
+\]
+
+\textbf{2.} Mit dem gefundenen $Tn$ und $Kr=1$ wird der Amplituden- und 
+Frequenzgang des offenen Regelkreises $(Go)$ berechnet. Das heisst Regler $(Gr)$ 
+und Strecke $(Gs)$ in Serie, aber ohne Rückkoppelung. 
+\[
+Übertragungsfunktion\, PI-Regler\, \left( reglerkonform \right)Gr=Kr\cdot 
+\left[ 1+\frac{1}{s\cdot Tn} \right]
+\]
+
+\[
+Übertragungsfunktion\, PI-Regler\, (bodekonform)\, Gr=Kr\cdot 
+\frac{1+s\cdot Tn}{s\cdot Tn}
+\]
+
+\[
+Phasengang\, PI-Regler\, \phi_{r}=\arctan \left( \omega\cdot Tn 
+\right)-\frac{\pi}{2}
+\]
+
+\[
+Amplitudengang\, PI-Strecke\, A_{r}=\, Kr\frac{\sqrt {1+{(\omega\cdot 
+Tn)}^{2}} }{\omega\cdot Tn}
+\]
+
+
+\[
+Phasengang\, Regelkreis\, offen\, \, \, \phi_{o}=\, 
+\phi_{s}+\phi_{r}\, 
+\]
+
+\[
+Amplitudentang\, Regelkreis\, offen\, \, \, A_{ 
+o}=A_{s}\cdot A_{r}
+\]
+
+\textbf{3.} Jetzt wird abhängig vom gewünschten Überschwingen 
+des Reglers ein Winkel auf dem Phasengang des offenen Regelkreises gesucht. 
+Folgende Tabelle zeigt den Zusammenhang des für die Dimensionierung 
+gewählten Überschwingens und des dazu gehörigen Winkels.
+
+\begin{table}[h]
+
+\centering
+	\begin{tabular}{|p{106pt}|r|r|r|}
+	\hline
+	Dämpfmass d & $\phi_{rand}$ & $\phi_{st}$ & Überschwingen \\
+	\hline
+	0.42 & 45\textdegree & -135\textdegree & 23.3\% \\
+	\hline
+	0.5 & 51.5\textdegree & -128.5\textdegree & 16.3\% \\
+	\hline
+	0.7 & 65.5\textdegree & -114.6\textdegree & 4.6\% \\
+	\hline
+	1 & 76.3\textdegree & -103.7\textdegree & 0\% \\
+	\hline
+	\end{tabular}
+	\caption{Phasenwinkel abhängig vom gewünschten Überschwingen}
+	\label{table:TabÜberschwingen}
+\end{table}
+
+
+Bei 0\% Überschwingen muss beispielsweise der Winkel $\phi_{st}$ 
+gleich -103.7\textdegree ~auf dem Phasengang gesucht werden. Bei der 
+gefundenen Frequenz wird der dazu gehörige Wert aus dem Amplitudengang 
+des offenen Regelkreises herausgelesen. Um diesen Faktor muss die 
+Verstärkung des Reglers vermindert werden. Der aus dem Amplitudengang 
+herausgelesene Wert mit (-1) multipliziert ergibt also den Regler-Parameter 
+$Kr$.\\
+
+\textbf{Weiteres Vorgehen PID Regler:}
+
+Beim PID-Regler wird analog zum beim PI-Regler beschriebenen Vorgehen 
+gerechnet. Die gefundene Frequenz $\omega_{pid}$ für $\phi_{pid}$ 
+$=$ -135\textdegree ~entspricht aber nicht direkt $1/Tn$ wie beim PI-Regler.
+
+Die Zellweger'sche Phasengang-Methode berechnet beim PID-Regler $Tnk$, $Tvk$ und 
+$Krk$. Dies sind Parameter in der bodekonformen Darstellung. Diese Parameter 
+können schliesslich wieder in die Parameter $Tn$, $Tv$ und $Kr$ der 
+reglerkonformen Darstellung umgerechnet werden.
+
+\textbf{2.} Für die Berechnung von $Tnk$ und $Tvk$ wird ein Parameter $\beta$ 
+benötigt. Folgend wird die Berechnung davon aufgeführt:
+
+\[
+\frac{2\cdot \beta}{1+\beta^{2}}-w_{PID} \cdot  \sum \limits_{m=1}^{n} \frac{T_m}{1+ (w_{PID} \cdot T_m)^2} =-0.5
+\]
+
+Folgendes wird mit $Z$ substitutiert:
+
+\[
+Z=\frac{2\cdot \beta}{1+\beta^{2}}
+\]
+
+\[
+Z=w_{PID} \cdot  \sum \limits_{m=1}^{n} \frac{T_m}{1+ (w_{PID} \cdot T_m)^2} -0.5
+\]
+
+$\beta$ kann nun durch folgende Gleichung beschrieben werden:
+
+\[
+\beta = \frac{1}{Z} - \sqrt{\frac{1}{Z^2}-1}
+\]
+
+$\beta$ muss zwischen 0 und 1 liegen. Damit es keine komplexen Lösungen 
+gibt, wird $\beta$ für $Z$ \textgreater 1 gleich 1. Für eine detaillierte Herleitung von $\beta$ siehe Anhang \ref{ZellwegerBeta}.
+
+\textbf{3.} $Tnk$ und $Tvk$ können nun wie folgt mit $\beta$ berechnet werden:
+
+\[
+\frac{1}{Tnk}=\omega_{pid}\cdot \beta
+\]
+
+\[
+\frac{1}{Tvk}=\frac{\omega_{pid}}{\beta}
+\]
+
+\textbf{4. }Für die Berechnung des Dämpfungsfaktors $Krk$ muss beim 
+PID-Regler folglich die Formel der Übertragungsfunktion \eqref{Übertragungsfunktion} des PID-Reglers 
+verwendet werden. Der Regler-Parameter $Tp$ wird benötigt, weil der Regler 
+nicht über eine unendlich kurze Zeit differenzieren kann. $1/Tp$ muss ca. 
+1 Dekade höher als $1/Tvk$ gewählt werden. Beim PID-Regler wird die 
+Bodekonforme Darstellung verwendet, weil $Tnk$ und $Tvk$ vorhanden sind, $Tn$ und $Tk$ jedoch noch nicht. Eine genauere Erläueterung dieser ist im Anhang Seite \pageref{Bodekonf} Kapitel \ref{Bodekonf} zu finden. Für die Berechnung des Amplitudenganges wird $Krk=1$ verwendet: 
+
+\[
+\frac{1}{Tp}=10\cdot \frac{1}{Tnk}
+\]
+
+\[
+Übertragungsfunktion\, PID-Regler\, (Reglerkonform)\, Gr=Kr\cdot \left[ 
+1+\frac{1}{s\cdot Tn}+\frac{s\cdot Tv}{1+s\cdot Tp} \right]
+\]
+
+\[
+Übertragungsfunktion\, PID-Regler\, (bodekonform)\, Gr=Krk\cdot \left[ 
+\frac{\left( 1+s\cdot Tnk \right)\cdot (1+s\cdot Tvk)}{s\cdot Tnk\cdot (1+s\cdot 
+Tp)} \right]
+\]
+
+\[
+Phasengang\, PID-Regler\, \phi_{r}=\arctan {\left( \omega\cdot Tnk 
+\right)+arctan\left(\omega\cdot Tvk \right)-\mathrm{arctan}(\omega\cdot 
+Tp)}-\frac{\pi}{2}
+\]
+
+\[
+Amplitudengang\, PID-Regler\, A_{r}=\, Krk\frac{\sqrt {1+\left( 
+\omega\cdot Tnk \right)^{2}} \cdot \sqrt {1+{(\omega\cdot Tvk)}^{2}} }{\omega\cdot Tnk}
+\]
+
+\[
+Phasengang\, Regelkreis\, offen\, \, \, \, \phi_{o}=\, 
+\phi_{s}+\phi_{r}\, 
+\]
+
+\[
+Amplitudentang\, Regelkreis\, offen\, \, \, \, A_{ 
+o}=A_{s}\cdot A_{r}
+\]
+
+\textbf{5.} Abhängig vom gewählten Überschwingen wird wiederum ein Winkel auf dem Phasengang $\phi_{o}$ gesucht (Siehe Tabelle \ref{table:TabÜberschwingen} Seite \pageref{table:TabÜberschwingen}). Die Amplitude bei diesem Winkel mit (-1) multipliziert ergibt $Krk$.
+
+%\end{document}

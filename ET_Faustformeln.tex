@@ -1,0 +1,228 @@
+%\documentclass{fhnwreport} %
+%\usepackage[ngerman]{babel}
+%\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc}
+%\usepackage{tikz}
+%\usepackage{amsmath}
+%\usetikzlibrary{arrows}
+%\usepackage{lmodern}   %Type1-Schriftart für nicht-englische Texte 
+%
+%\usepackage{listings}
+%\lstset{language=Matlab}
+%
+%\usepackage{color}
+%
+%% Farben für Matlab-Listings
+%\definecolor{hellgelb}{rgb}{1,1,0.85}     % Hintergrundfarbe
+%\definecolor{colKeys}{RGB}{0,0,255}       % blau
+%\definecolor{colIdentifier}{RGB}{0,0,0}	  % schwarz
+%\definecolor{colComments}{RGB}{34,139,34} % gruen
+%\definecolor{colString}{RGB}{160,32,240}  % violett
+%
+%\lstset{%
+    %language=Matlab,%
+    %%backgroundcolor={\color{hellgelb}},%
+		%backgroundcolor={},%
+    %basicstyle={\footnotesize\ttfamily},%
+    %breakautoindent=true,%
+    %breakindent=10pt,%
+    %breaklines=true,%
+    %captionpos=t,%
+    %columns=fixed,%
+    %%commentstyle={\itshape\color{colComments}},%
+		%commentstyle={\color{colComments}},
+    %extendedchars=true,%
+    %float=hbp,%
+    %frame=single,%
+    %framerule=1pt,%
+    %identifierstyle={\color{colIdentifier}},%
+    %keywordstyle={\color{colKeys}},%
+    %numbers=left,%
+    %numbersep=1em,%
+    %numberstyle={\tiny\ttfamily},%
+    %showspaces=false,%
+    %showstringspaces=false,%
+    %stringstyle={\color{colString}},%
+    %tabsize=4,%
+    %xleftmargin=1em,%
+    %xrightmargin=1em%
+%} 
+%
+%
+%\begin{document}
+
+\subsection{Faustformeln}\label{FistFormula}
+
+Zum Dimensionieren von verschiedenen Reglertypen gibt es eine Vielzahl von fixen Einstellregeln. Diese sind einfach anzuwenden, da sie keine besonderen Vorkenntnisse benötigen, jedoch ist deren Genauigkeit oftmals ungenügend. Die für dieses Projekt relevanten Faustformeln sind:
+
+\begin{itemize}
+	\item Chien/Hrones und Reswick
+	\item Oppelt
+	\item Rosenberg
+\end{itemize}
+
+Diese Faustformeln wurden gewählt, da sie ebenfalls die Werte $Ks$, $Tu$ und $Tg$ verwenden, welche mittels Wendetangenten aus der Schrittantwort herausgelesen werden können, die uns vom Auftraggeber zur Verfügung gestellt wurde.
+
+Zur Verifizierung der Faustformeln wurden verschiedene Quellen verglichen und die Mehrheit wurde als richtig angesehen. %Quellenindex hinzufügen [3] [4] in Pflichtenheft
+
+\subsubsection{Chien/Hrones und Reswick}
+\paragraph{PI}
+\begin{itemize}
+	\item Aperiodischer Verlauf
+	\begin{itemize}
+		\item Gutes Störverhalten
+			
+			\[
+				Kr=0.6\cdot\frac{Tg}{Ks\cdot Tu}
+			\]
+						
+			\[
+				Tn=4\cdot Tu
+			\]
+			
+			\item Gutes Führungsverhalten
+			
+			\[
+				Kr=0.45\cdot\frac{Tg}{Ks\cdot Tu}
+			\]
+						
+			\[
+			Tn=1.2\cdot Tg
+			\]
+		
+		\end{itemize}
+	\item	20\% Überschwingen
+		\begin{itemize}
+			\item Gutes Störverhalten
+			
+			\[
+				Kr=0.7\cdot\frac{Tg}{Ks\cdot Tu}
+			\]
+			
+			\[
+			Tn=2.3\cdot Tu
+			\]
+			\item Gutes Führungsverhalten
+			
+			\[
+				Kr=0.6\cdot\frac{Tg}{Ks\cdot Tu}
+			\]
+			
+			\[
+			Tn=Tg
+			\]
+		\end{itemize}
+\end{itemize}
+\paragraph{PID}
+\begin{itemize}
+	\item Aperiodischer Verlauf
+	\begin{itemize}
+		\item Gutes Störverhalten
+		\[
+		Kr=0.95\cdot\frac{Tg}{Ks\cdot Tu}
+		\]
+		
+		\[
+		Tn=2.4\cdot Tu
+		\]
+		
+		\[
+		Tv=0.42\cdot Tu
+		\]
+		
+		\item Gutes Führungsverhalten
+		
+		\[
+		Kr=0.6\cdot\frac{Tg}{Ks\cdot Tu}
+		\]
+		
+		\[
+		Tn=Tg
+		\]
+		
+		\[
+		Tv=0.5\cdot Tu
+		\]
+		
+	\end{itemize}
+	\item 20\% Überschwingen
+	\begin{itemize}
+		\item Gutes Störverhalten
+		
+		\[
+		Kr=1.2\cdot\frac{Tg}{Ks\cdot Tu}
+		\]
+		
+		\[
+		Tn=2\cdot Tu
+		\]
+		
+		\[
+		Tv=0.42\cdot Tu
+		\]
+		
+		\item Gutes Führungsverhalten
+		
+		\[
+		Kr=0.95\cdot\frac{Tg}{Ks\cdot Tu}
+		\]
+		
+		\[
+		Tn=1.35\cdot Tg
+		\]
+		
+		\[
+		Tv=0.47\cdot Tu
+		\]
+		
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Oppelt}
+\paragraph{PI}
+\[
+Kr=0.8\cdot\frac{Tg}{Ks\cdot Tu}
+\]
+
+\[
+Tn=3\cdot Tu		
+\]
+\paragraph{PID}
+
+\[
+Kr=1.2\cdot\frac{Tg}{Ks\cdot Tu}		
+\]
+
+\[
+Tn=2\cdot Tu		
+\]
+
+\[
+Tv=0.42\cdot Tu		
+\]
+
+\subsubsection{Rosenberg}
+\paragraph{PI}
+
+\[
+Kr=0.91\cdot\frac{Tg}{Ks\cdot Tu}		
+\]
+
+\[
+Tn=3.3\cdot Tu		
+\]
+
+\paragraph{PID}
+
+\[
+Kr=1.2\cdot\frac{Tg}{Ks\cdot Tu}
+\]
+
+\[
+Tn=2\cdot Tu		
+\]
+
+\[
+Tv=0.44\cdot Tu
+\]
+%\end{document}
