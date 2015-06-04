@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.20)  1 JUN 2015 18:40
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.3.20)  3 JUN 2015 15:19
 entering extended mode
 **Fachbericht_FS15_pro2E_Team3.tex
-(C:\Users\Yanick\Desktop\LatexDefinitiv\Fachbericht_FS15_pro2E_Team3.tex
+(C:\Users\Yanick\Desktop\LatexFinal\Fachbericht_FS15_pro2E_Team3.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, arabic, armenian, assamese, basque, bengali
 , bokmal, bulgarian, catalan, coptic, croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, galic
@@ -10,7 +10,7 @@ ian, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, icelandic, 
 -x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, romanian, russian, sanskrit, serbian, slovak, sloven
 ian, spanish, swedish, swissgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usenglishmax, w
 elsh, loaded.
-(C:\Users\Yanick\Desktop\LatexDefinitiv\fhnwreport.cls
+(C:\Users\Yanick\Desktop\LatexFinal\fhnwreport.cls
 Document Class: fhnwreport 2013/10/07 v2.0 PDF-LaTeX class for FHNW reports
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
@@ -388,7 +388,7 @@ Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
-(C:\Users\Yanick\Desktop\LatexDefinitiv\pdfpages.sty
+(C:\Users\Yanick\Desktop\LatexFinal\pdfpages.sty
 Package: pdfpages 2002/04/23 v0.2h Insert pages of external PDF documents (AM)
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
@@ -784,20 +784,17 @@ Package csquotes Warning: Load 'inputenc' before 'csquotes' on input line 73.
 
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Fachbericht_FS15_pro2E_Team3.aux
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Einleitung.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\ET_Elektrotechnische_Grundlagen.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\ET_Faustformeln.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\ET_Zellweger.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\ET_Zellweger_PI.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\ET_Zellweger_PID.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\SW_Model.aux) (C:\Users\Yanick\Desktop\LatexDefinitiv\temp\SW_View.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\SW_Controller.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Validierung.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Schlusswort.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Anhang_Zellweger_Methode_Beta.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Anhang_Bode_Reglerkonform.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Anhang_CDRom.aux))
+(C:\Users\Yanick\Desktop\LatexFinal\temp\Fachbericht_FS15_pro2E_Team3.aux
+(C:\Users\Yanick\Desktop\LatexFinal\temp\Einleitung.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\ET_Elektrotechnische_Grundlagen.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\ET_Faustformeln.aux) (C:\Users\Yanick\Desktop\LatexFinal\temp\ET_Zellweger.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\ET_Zellweger_PI.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\ET_Zellweger_PID.aux) (C:\Users\Yanick\Desktop\LatexFinal\temp\SW_Model.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\SW_View.aux) (C:\Users\Yanick\Desktop\LatexFinal\temp\SW_Controller.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\Validierung.aux) (C:\Users\Yanick\Desktop\LatexFinal\temp\Schlusswort.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\Anhang_Zellweger_Methode_Beta.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\Anhang_Bode_Reglerkonform.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\Anhang_CDRom.aux))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
 LaTeX Font Info:    ... okay on input line 73.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
@@ -878,8 +875,8 @@ LaTeX Info: Redefining \ref on input line 73.
 LaTeX Info: Redefining \pageref on input line 73.
 LaTeX Info: Redefining \nameref on input line 73.
 
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Fachbericht_FS15_pro2E_Team3.out)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Fachbericht_FS15_pro2E_Team3.out)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\Fachbericht_FS15_pro2E_Team3.out)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\Fachbericht_FS15_pro2E_Team3.out)
 \@outlinefile=\write4
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
@@ -927,8 +924,9 @@ Package pdftex.def Info: easypid-logo.png used on input line 79.
 (pdftex.def)             Requested size: 364.19664pt x 100.16621pt.
  [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/Yanick/Desktop/LatexDefinitiv/fhnwlogo.pdf> <C:/Users/Yan
-ick/Desktop/LatexDefinitiv/easypid-logo.png>] <Abstract.pdf, id=174, page=1, 597.50829pt x 845.0471pt>
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map} <C:/Users/Yanick/Desktop/LatexFinal/fhnwlogo.pdf> <C:/Users/Yanick/
+Desktop/LatexFinal/easypid-logo.png>]
+<Abstract.pdf, id=174, page=1, 597.50829pt x 845.0471pt>
 File: Abstract.pdf Graphic file (type pdf)
  <use Abstract.pdf, page 1>
 Package pdftex.def Info: Abstract.pdf, page1 used on input line 95.
@@ -944,7 +942,7 @@ Package pdftex.def Info: Abstract.pdf, page1 used on input line 95.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
  [2
 
- <C:/Users/Yanick/Desktop/LatexDefinitiv/Abstract.pdf>]
+ <C:/Users/Yanick/Desktop/LatexFinal/Abstract.pdf>]
 <P2_FS_2015_Aufgabe_vom_Auftraggeber.pdf, id=191, page=1, 597.55246pt x 845.07718pt>
 File: P2_FS_2015_Aufgabe_vom_Auftraggeber.pdf Graphic file (type pdf)
 
@@ -960,19 +958,19 @@ File: P2_FS_2015_Aufgabe_vom_Auftraggeber.pdf Graphic file (type pdf)
 <use P2_FS_2015_Aufgabe_vom_Auftraggeber.pdf, page 1>
 Package pdftex.def Info: P2_FS_2015_Aufgabe_vom_Auftraggeber.pdf, page1 used on input line 96.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
- [3 <C:/Users/Yanick/Desktop/LatexDefinitiv/P2_FS_2015_Aufgabe_vom_Auftraggeber.pdf>] <P2_FS_2015_Aufgabe_vom_Auftraggeb
-er.pdf, id=215, page=2, 597.55246pt x 845.07718pt>
+ [3 <C:/Users/Yanick/Desktop/LatexFinal/P2_FS_2015_Aufgabe_vom_Auftraggeber.pdf>] <P2_FS_2015_Aufgabe_vom_Auftraggeber.p
+df, id=215, page=2, 597.55246pt x 845.07718pt>
 File: P2_FS_2015_Aufgabe_vom_Auftraggeber.pdf Graphic file (type pdf)
 
 <use P2_FS_2015_Aufgabe_vom_Auftraggeber.pdf, page 2>
 Package pdftex.def Info: P2_FS_2015_Aufgabe_vom_Auftraggeber.pdf, page2 used on input line 96.
 (pdftex.def)             Requested size: 597.57834pt x 845.1138pt.
- [4 <C:/Users/Yanick/Desktop/LatexDefinitiv/P2_FS_2015_Aufgabe_vom_Auftraggeber.pdf>]
+ [4 <C:/Users/Yanick/Desktop/LatexFinal/P2_FS_2015_Aufgabe_vom_Auftraggeber.pdf>]
 LaTeX Font Info:    Try loading font information for T1+lmss on input line 98.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmss.fd"
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Fachbericht_FS15_pro2E_Team3.toc
+(C:\Users\Yanick\Desktop\LatexFinal\temp\Fachbericht_FS15_pro2E_Team3.toc
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 4.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
@@ -985,15 +983,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has b
 <to be read again> 
                    \relax 
 l.99 \clearpage
-                [2] (C:\Users\Yanick\Desktop\LatexDefinitiv\Einleitung.tex)pdfTeX warning (ext4): destination with the s
-ame identifier (name{page.3}) has been already used, duplicate ignored
+                [2] (C:\Users\Yanick\Desktop\LatexFinal\Einleitung.tex)pdfTeX warning (ext4): destination with the same 
+identifier (name{page.3}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.101 \include{Einleitung}
                            [3
 
 
-] (C:\Users\Yanick\Desktop\LatexDefinitiv\ET_Elektrotechnische_Grundlagen.tex
+] (C:\Users\Yanick\Desktop\LatexFinal\ET_Elektrotechnische_Grundlagen.tex
 <./Bilder/./Einfacher_Regelkreis_Wikipedia.png, id=283, 501.875pt x 112.42pt>
 File: ./Bilder/./Einfacher_Regelkreis_Wikipedia.png Graphic file (type png)
 
@@ -1026,23 +1024,24 @@ l.85 \end{equation}
                     [4
 
 
- <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/Einfacher_Regelkreis_Wikipedia.png> <C:/Users/Yanick/Desktop/LatexDefini
-tiv/Bilder/Wendetangente.png>]
+ <C:/Users/Yanick/Desktop/LatexFinal/Bilder/Einfacher_Regelkreis_Wikipedia.png> <C:/Users/Yanick/Desktop/LatexFinal/Bild
+er/Wendetangente.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 87--88
 
  []
 
-) [5] (C:\Users\Yanick\Desktop\LatexDefinitiv\ET_Faustformeln.tex
+) [5] (C:\Users\Yanick\Desktop\LatexFinal\ET_Faustformeln.tex
 LaTeX Font Info:    Try loading font information for OMS+lmr on input line 59.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmr.fd"
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 59.
+
 [6
 
 
-] [7]) [8] (C:\Users\Yanick\Desktop\LatexDefinitiv\ET_Zellweger.tex
+] [7]) [8] (C:\Users\Yanick\Desktop\LatexFinal\ET_Zellweger.tex
 
 LaTeX Warning: Citation `Zellweger' on page 9 undefined on input line 81.
 
@@ -1067,7 +1066,7 @@ LaTeX Warning: Command \" invalid in math mode on input line 225.
 
 LaTeX Warning: Command \" invalid in math mode on input line 230.
 
-) [11] (C:\Users\Yanick\Desktop\LatexDefinitiv\ET_Zellweger_PI.tex
+) [11] (C:\Users\Yanick\Desktop\LatexFinal\ET_Zellweger_PI.tex
 Underfull \hbox (badness 10000) in paragraph at lines 56--60
 
  []
@@ -1095,8 +1094,8 @@ Package pdftex.def Info: ./Bilder/PI_Step_01.jpg used on input line 73.
  [12
 
 
- <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/PI_Step_01.jpg>] <./Bilder/PI_Step_02.jpg, id=349, 961.34157pt x 562.350
-94pt>
+ <C:/Users/Yanick/Desktop/LatexFinal/Bilder/PI_Step_01.jpg>] <./Bilder/PI_Step_02.jpg, id=349, 961.34157pt x 562.35094pt
+>
 File: ./Bilder/PI_Step_02.jpg Graphic file (type jpg)
 
 <use ./Bilder/PI_Step_02.jpg>
@@ -1114,14 +1113,14 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 94.
 
-[13 <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/PI_Step_02.jpg> <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/PI_Ste
-p_03.jpg>] <./Bilder/PI_Step_04.jpg, id=362, 956.82469pt x 560.8453pt>
+[13 <C:/Users/Yanick/Desktop/LatexFinal/Bilder/PI_Step_02.jpg> <C:/Users/Yanick/Desktop/LatexFinal/Bilder/PI_Step_03.jpg
+>] <./Bilder/PI_Step_04.jpg, id=362, 956.82469pt x 560.8453pt>
 File: ./Bilder/PI_Step_04.jpg Graphic file (type jpg)
  <use ./Bilder/PI_Step_04.jpg>
 Package pdftex.def Info: ./Bilder/PI_Step_04.jpg used on input line 103.
 (pdftex.def)             Requested size: 455.24408pt x 266.84073pt.
-) [14 <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/PI_Step_04.jpg>] (C:\Users\Yanick\Desktop\LatexDefinitiv\ET_Zellweg
-er_PID.tex
+) [14 <C:/Users/Yanick/Desktop/LatexFinal/Bilder/PI_Step_04.jpg>] (C:\Users\Yanick\Desktop\LatexFinal\ET_Zellweger_PID.t
+ex
 Underfull \hbox (badness 10000) in paragraph at lines 56--60
 
  []
@@ -1149,8 +1148,8 @@ Package pdftex.def Info: ./Bilder/PID_Step_01.jpg used on input line 75.
  [15
 
 
- <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/PID_Step_01.jpg>] <./Bilder/PID_Step_02.jpg, id=383, 958.3303pt x 563.85
-657pt>
+ <C:/Users/Yanick/Desktop/LatexFinal/Bilder/PID_Step_01.jpg>] <./Bilder/PID_Step_02.jpg, id=383, 958.3303pt x 563.85657p
+t>
 File: ./Bilder/PID_Step_02.jpg Graphic file (type jpg)
 
 <use ./Bilder/PID_Step_02.jpg>
@@ -1166,15 +1165,15 @@ Package pdftex.def Info: ./Bilder/PID_Step_03.jpg used on input line 99.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[16 <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/PID_Step_02.jpg>]
+[16 <C:/Users/Yanick/Desktop/LatexFinal/Bilder/PID_Step_02.jpg>]
 <./Bilder/PID_Step_04.jpg, id=395, 962.84718pt x 563.85657pt>
 File: ./Bilder/PID_Step_04.jpg Graphic file (type jpg)
  <use ./Bilder/PID_Step_04.jpg>
 Package pdftex.def Info: ./Bilder/PID_Step_04.jpg used on input line 109.
 (pdftex.def)             Requested size: 455.24408pt x 266.59572pt.
- [17 <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/PID_Step_03.jpg> <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/PID_
-Step_04.jpg>]) [18]
-(C:\Users\Yanick\Desktop\LatexDefinitiv\SW_Model.tex <./Bilder/model.png, id=407, 451.6875pt x 434.62375pt>
+ [17 <C:/Users/Yanick/Desktop/LatexFinal/Bilder/PID_Step_03.jpg> <C:/Users/Yanick/Desktop/LatexFinal/Bilder/PID_Step_04.
+jpg>]) [18]
+(C:\Users\Yanick\Desktop\LatexFinal\SW_Model.tex <./Bilder/model.png, id=407, 451.6875pt x 434.62375pt>
 File: ./Bilder/model.png Graphic file (type png)
 
 <use ./Bilder/model.png>
@@ -1187,32 +1186,33 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 [19
 
 
-] [20 <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/model.png>]
-<./Bilder/plant.png, id=419, 954.56625pt x 529.98pt>
+] [20 <C:/Users/Yanick/Desktop/LatexFinal/Bilder/model.png>] <./Bilder/plant.png, id=419, 954.56625pt x 529.98pt>
 File: ./Bilder/plant.png Graphic file (type png)
- <use ./Bilder/plant.png>
+
+<use ./Bilder/plant.png>
 Package pdftex.def Info: ./Bilder/plant.png used on input line 80.
 (pdftex.def)             Requested size: 455.24408pt x 252.75395pt.
- [21 <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/plant.png>] <./Bilder/controller.png, id=427, 993.7125pt x 586.19pt>
+ [21 <C:/Users/Yanick/Desktop/LatexFinal/Bilder/plant.png>]
+<./Bilder/controller.png, id=427, 993.7125pt x 586.19pt>
 File: ./Bilder/controller.png Graphic file (type png)
  <use ./Bilder/controller.png>
 Package pdftex.def Info: ./Bilder/controller.png used on input line 116.
 (pdftex.def)             Requested size: 455.24408pt x 268.55049pt.
- [22 <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/controller.png>]
-<./Bilder/controller-calculator.png, id=434, 1623.06375pt x 1147.28625pt>
+ [22 <C:/Users/Yanick/Desktop/LatexFinal/Bilder/controller.png>] <./Bilder/controller-calculator.png, id=434, 1623.06375
+pt x 1147.28625pt>
 File: ./Bilder/controller-calculator.png Graphic file (type png)
- <use ./Bilder/controller-calculator.png>
+
+<use ./Bilder/controller-calculator.png>
 Package pdftex.def Info: ./Bilder/controller-calculator.png used on input line 147.
 (pdftex.def)             Requested size: 455.24408pt x 321.79816pt.
-
-[23 <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/controller-calculator.png>]
+ [23 <C:/Users/Yanick/Desktop/LatexFinal/Bilder/controller-calculator.png>]
 <./Bilder/closed-loop.png, id=441, 1035.87pt x 672.5125pt>
 File: ./Bilder/closed-loop.png Graphic file (type png)
  <use ./Bilder/closed-loop.png>
 Package pdftex.def Info: ./Bilder/closed-loop.png used on input line 166.
 (pdftex.def)             Requested size: 455.24408pt x 295.55751pt.
-) [24 <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/closed-loop.png>] [25] (C:\Users\Yanick\Desktop\LatexDefinitiv\SW_V
-iew.tex [26
+) [24 <C:/Users/Yanick/Desktop/LatexFinal/Bilder/closed-loop.png>] [25] (C:\Users\Yanick\Desktop\LatexFinal\SW_View.tex 
+[26
 
 
 ]
@@ -1244,17 +1244,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 82--83
 
  []
 
-[27 <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/Panels.png>]
-<./Bilder/InputPanel.png, id=469, 156.1032pt x 93.951pt>
+[27 <C:/Users/Yanick/Desktop/LatexFinal/Bilder/Panels.png>] <./Bilder/InputPanel.png, id=469, 156.1032pt x 93.951pt>
 File: ./Bilder/InputPanel.png Graphic file (type png)
- <use ./Bilder/InputPanel.png>
+
+<use ./Bilder/InputPanel.png>
 Package pdftex.def Info: ./Bilder/InputPanel.png used on input line 90.
 (pdftex.def)             Requested size: 341.43306pt x 205.50298pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[28 <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/GUI.png>]
+[28 <C:/Users/Yanick/Desktop/LatexFinal/Bilder/GUI.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 105--108
 
  []
@@ -1269,8 +1269,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--117
 
  []
 
-[29 <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/InputPanel.png> <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/Output
-Panel.png>] <./Bilder/GraphPanel.png, id=491, 145.55177pt x 112.7412pt>
+[29 <C:/Users/Yanick/Desktop/LatexFinal/Bilder/InputPanel.png> <C:/Users/Yanick/Desktop/LatexFinal/Bilder/OutputPanel.pn
+g>] <./Bilder/GraphPanel.png, id=491, 145.55177pt x 112.7412pt>
 File: ./Bilder/GraphPanel.png Graphic file (type png)
  <use ./Bilder/GraphPanel.png>
 Package pdftex.def Info: ./Bilder/GraphPanel.png used on input line 120.
@@ -1295,7 +1295,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 143--144
 
  []
 
-[30 <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/GraphPanel.png>]
+[30 <C:/Users/Yanick/Desktop/LatexFinal/Bilder/GraphPanel.png>]
 <./Bilder/ResizeFrame.png, id=499, 899.61093pt x 574.39594pt>
 File: ./Bilder/ResizeFrame.png Graphic file (type png)
  <use ./Bilder/ResizeFrame.png>
@@ -1314,19 +1314,20 @@ Package pdftex.def Info: ./Bilder/Mini-Version.png used on input line 195.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [31 <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/GraphDisplayPanel.png>] [32 <C:/Users/Yanick/Desktop/LatexDefinitiv
-/Bilder/ResizeFrame.png> <C:/Users/Yanick/Desktop/LatexDefinitiv/Bilder/Mini-Version.png>]
-(C:\Users\Yanick\Desktop\LatexDefinitiv\SW_Controller.tex) [33
+) [31 <C:/Users/Yanick/Desktop/LatexFinal/Bilder/GraphDisplayPanel.png>] [32 <C:/Users/Yanick/Desktop/LatexFinal/Bilder/
+ResizeFrame.png> <C:/Users/Yanick/Desktop/LatexFinal/Bilder/Mini-Version.png>]
+(C:\Users\Yanick\Desktop\LatexFinal\SW_Controller.tex) [33
 
 
-] (C:\Users\Yanick\Desktop\LatexDefinitiv\Validierung.tex) [34
+] (C:\Users\Yanick\Desktop\LatexFinal\Validierung.tex)
+[34
 
 
-] (C:\Users\Yanick\Desktop\LatexDefinitiv\Schlusswort.tex) [35
+] (C:\Users\Yanick\Desktop\LatexFinal\Schlusswort.tex) [35
 
 
 ]
-(C:\Users\Yanick\Desktop\LatexDefinitiv\Anhang_Zellweger_Methode_Beta.tex
+(C:\Users\Yanick\Desktop\LatexFinal\Anhang_Zellweger_Methode_Beta.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 13.
@@ -1342,31 +1343,28 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 [36
 
 
-]) [37] (C:\Users\Yanick\Desktop\LatexDefinitiv\Anhang_Bode_Reglerkonform.tex [38
+]) [37] (C:\Users\Yanick\Desktop\LatexFinal\Anhang_Bode_Reglerkonform.tex [38
 
 
 ] [39]) [40]
-(C:\Users\Yanick\Desktop\LatexDefinitiv\Anhang_CDRom.tex) [41
+(C:\Users\Yanick\Desktop\LatexFinal\Anhang_CDRom.tex) [41
 
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 128.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 128.
 
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Fachbericht_FS15_pro2E_Team3.aux
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Einleitung.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\ET_Elektrotechnische_Grundlagen.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\ET_Faustformeln.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\ET_Zellweger.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\ET_Zellweger_PI.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\ET_Zellweger_PID.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\SW_Model.aux) (C:\Users\Yanick\Desktop\LatexDefinitiv\temp\SW_View.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\SW_Controller.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Validierung.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Schlusswort.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Anhang_Zellweger_Methode_Beta.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Anhang_Bode_Reglerkonform.aux)
-(C:\Users\Yanick\Desktop\LatexDefinitiv\temp\Anhang_CDRom.aux))
+(C:\Users\Yanick\Desktop\LatexFinal\temp\Fachbericht_FS15_pro2E_Team3.aux
+(C:\Users\Yanick\Desktop\LatexFinal\temp\Einleitung.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\ET_Elektrotechnische_Grundlagen.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\ET_Faustformeln.aux) (C:\Users\Yanick\Desktop\LatexFinal\temp\ET_Zellweger.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\ET_Zellweger_PI.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\ET_Zellweger_PID.aux) (C:\Users\Yanick\Desktop\LatexFinal\temp\SW_Model.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\SW_View.aux) (C:\Users\Yanick\Desktop\LatexFinal\temp\SW_Controller.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\Validierung.aux) (C:\Users\Yanick\Desktop\LatexFinal\temp\Schlusswort.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\Anhang_Zellweger_Methode_Beta.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\Anhang_Bode_Reglerkonform.aux)
+(C:\Users\Yanick\Desktop\LatexFinal\temp\Anhang_CDRom.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 128.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 128.
 Package rerunfilecheck Info: File `Fachbericht_FS15_pro2E_Team3.out' has not changed.
@@ -1379,7 +1377,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 128.
  ) 
 Here is how much of TeX's memory you used:
  22110 strings out of 493921
- 404748 string characters out of 3147279
+ 404336 string characters out of 3147279
  518412 words of memory out of 3000000
  24730 multiletter control sequences out of 15000+200000
  69266 words of font info for 51 fonts, out of 3000000 for 9000
@@ -1397,7 +1395,7 @@ ublic/lm/lmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr12.pfb>
 1/public/lm/lmri10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmro10.pfb><C:/Program Files/MiKTeX 2.9/fonts/
 type1/public/lm/lmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/lm/lmsy8.pfb>
-Output written on Fachbericht_FS15_pro2E_Team3.pdf (45 pages, 3629522 bytes).
+Output written on Fachbericht_FS15_pro2E_Team3.pdf (45 pages, 3629815 bytes).
 PDF statistics:
  661 PDF objects out of 1000 (max. 8388607)
  129 named destinations out of 1000 (max. 500000)
