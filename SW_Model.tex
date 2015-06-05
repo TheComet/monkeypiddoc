@@ -171,8 +171,7 @@ Mit der Klasse \textit{ClosedLoop} kann mit einem \textit{Plant}-Objekt und eine
 
 Immer wenn sich das \textit{Plant}-Objekt oder das \textit{AbstractController}-Objekt ändern, sei es durch eine Instanzierung oder durch Aufrufen der Methode \textit{ClosedLoop::setPlantAndController()}, wird aus den beiden Übertragungsfunktionen des \textit{Plant}-Objektes und des \textit{AbstractController}-Objektes die Übertragungsfunktion des geschlossenen Regelkreises berechnet.
 
-Durch Aufrufen der Methode \textit{ClosedLoop::calculateStepResponse()} wird dann die Sprungantwort mittels der Residuenmethode berechnet. Die resultierende Schrittantwort kann mit der Methode \textit{ClosedLoop::getStepResponse()} als \textit{XYSeires} für
-JFreeChart geholt werden.
+Durch Aufrufen der Methode \textit{ClosedLoop::calculateStepResponse()} wird dann die Sprungantwort mittels der Residuenmethode berechnet. Die resultierende Schrittantwort kann mit der Methode \textit{ClosedLoop::getStepResponse()} als \textit{XYSeires} für JFreeChart geholt werden. Die Residuenmethode wurde gewählt, da sie robuster und schneller ist. Ein Vergleich mit IFFT ist im Abschnitt Validierung unter \ref{residuenvsifft} aufgeführt.
 
 Weiter wird bei der Berechnung der Sprungantwort das maximale Überschwingen gemessen. Dieser Wert kann mit der Methode \textit{ClosedLoop::getOverswing()} geholt werden.
 
