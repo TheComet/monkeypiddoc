@@ -17,3 +17,6 @@ Fachbericht_FS15_pro2E_Team3.pdf
 
 # ignore swap files
 *.swp
+
+# ignore texmaker project files
+*.synctex.gz
