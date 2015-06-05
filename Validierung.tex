@@ -32,4 +32,15 @@ Mittels Simulink wurde der geschlossene Regelkreis simuliert.
 Die Plausibilität der Schrittantworten konnte relativ einfach optisch mit den Graphen überprüft werden, da das Verhalten der einzelnen Regler bekannt ist. Zur genauen Überprüfung der einzelnen Klassen wurden sämtliche Klassen des Models mittels JUnit mit den Ergebnissen von Matlab verglichen.
 
 \subsubsection{Performancevergleich Partialbruchzerlegung und IFFT}\label{residuenvsifft}
-%
+Es wurde festgestellt dass das Berechnen des Schrittantwortes mittels IFFT-Methode merkbar langsam ist - vorallem dann, als das iterative Approximieren des Überschwingens implementiert wurde, was dazu führte, dass die Schrittantwortberechnung mehrmals ausgeführt werden musste.
+
+Durch Reduzieren der Anzahl Pünkte zu beschleunigen. 
+
+\centering
+\includegraphics[width=0.8\textwidth]{./.png}
+\caption{Regler und Regelstrecke\cite{RegelKreisWikipedia}}
+\label{fig:Reglerstrecke}
+\end{figure}
+
+Es wurde entschieden, eine alternative Berechnungsmethode zu implementieren: Schrittantwortberechnung mittels Partialbruchzerlegung.
+
