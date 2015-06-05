@@ -1,40 +1,40 @@
 \section{Validierung}
-Im folgenden Abschnitt wird die Validierung beschrieben. Die Validierung dient zum Auffinden und Beheben von Fehlern, um so eine korrekte Funktion des Programms garantieren zu kÃ¶nnen. Zum einen wurden die Berechnungen und Simulationen von Matlab Ã¼berprÃ¼ft, zum anderen die Software, aufgeteilt in die Teilbereiche BenutzeroberflÃ¤che und Berechnungen.
+Im folgenden Abschnitt wird die Validierung beschrieben. Die Validierung dient zum Auffinden und Beheben von Fehlern, um so eine korrekte Funktion des Programms garantieren zu können. Zum einen wurden die Berechnungen und Simulationen von Matlab überprüft, zum anderen die Software, aufgeteilt in die Teilbereiche Benutzeroberfläche und Berechnungen.
 
 \subsection{Matlab}
 
 \subsubsection{Programmierung}
 %Problem/Fragestellung:
-%- Wie kann die korrekte Funktion der Matlab-Programme Ã¼berprÃ¼ft werden?
-%LÃ¶sung: Die berechneten Antworten werden mit den Antworten von Herrn Niklaus verglichen.
-Die Berechnung der Regler wurde zuerst mittels m-Files in Matlab implementiert. Zur ÃœberprÃ¼fung der von Matlab gelieferten Werte wurden diese mit den Werten vom Fachcoach Peter Niklaus verglichen.
+%- Wie kann die korrekte Funktion der Matlab-Programme überprüft werden?
+%Lösung: Die berechneten Antworten werden mit den Antworten von Herrn Niklaus verglichen.
+Die Berechnung der Regler wurde zuerst mittels m-Files in Matlab implementiert. Zur Überprüfung der von Matlab gelieferten Werte wurden diese mit den Werten vom Fachcoach Peter Niklaus verglichen.
 
 
 \subsubsection{Simulation}
 %Problem/Fragestellung:
-%- Wie kann die Matlab-Simulation Ã¼berprÃ¼ft werden?
-%LÃ¶sung: Sie wird mit Simulink Ã¼berprÃ¼ft.
+%- Wie kann die Matlab-Simulation überprüft werden?
+%Lösung: Sie wird mit Simulink überprüft.
 Mittels Simulink wurde der geschlossene Regelkreis simuliert.
 
 \subsection{Java Software}
 
-\subsubsection{BenutzeroberflÃ¤che}
+\subsubsection{Benutzeroberfläche}
 %Problem/Fragestellung:
-%- Wie kÃ¶nnen Probleme oder Konflikte bei der BenutzeroberflÃ¤che ausgeschlossen werden?
-%Mehrere unabhÃ¤ngige User testen die Software.
+%- Wie können Probleme oder Konflikte bei der Benutzeroberfläche ausgeschlossen werden?
+%Mehrere unabhängige User testen die Software.
 
-%Um die einfache Handhabung der Software zu Ã¼berprÃ¼fen wurde die Software im ganzen Projektteam sowie von mehreren unabhÃ¤ngigen Benutzern getestet. Die so gefundenen Unklarheiten oder Probleme wurden behoben.
+%Um die einfache Handhabung der Software zu überprüfen wurde die Software im ganzen Projektteam sowie von mehreren unabhängigen Benutzern getestet. Die so gefundenen Unklarheiten oder Probleme wurden behoben.
 
 \subsubsection{Model}
 %Problem/Fragestellung:
-%- Wie wird die korrekte Funktion der Software Ã¼berprÃ¼ft?
-%LÃ¶sung: Die Software mit mit JUnit getestet, wobei die Resultate von Matlab erwartet werden.
-Die PlausibilitÃ¤t der Schrittantworten konnte relativ einfach optisch mit den Graphen Ã¼berprÃ¼ft werden, da das Verhalten der einzelnen Regler bekannt ist. Zur genauen ÃœberprÃ¼fung der einzelnen Klassen wurden sÃ¤mtliche Klassen des Models mittels JUnit mit den Ergebnissen von Matlab verglichen.
+%- Wie wird die korrekte Funktion der Software überprüft?
+%Lösung: Die Software mit mit JUnit getestet, wobei die Resultate von Matlab erwartet werden.
+Die Plausibilität der Schrittantworten konnte relativ einfach optisch mit den Graphen überprüft werden, da das Verhalten der einzelnen Regler bekannt ist. Zur genauen Überprüfung der einzelnen Klassen wurden sämtliche Klassen des Models mittels JUnit mit den Ergebnissen von Matlab verglichen.
 
 \subsubsection{Performancevergleich Partialbruchzerlegung und IFFT}\label{residuenvsifft}
-Es wurde festgestellt dass das Berechnen des Schrittantwortes mittels IFFT-Methode merkbar langsam ist - vorallem dann, als das iterative Approximieren des Ãœberschwingens implementiert wurde, was dazu fÃ¼hrte, dass die Schrittantwortberechnung mehrmals ausgefÃ¼hrt werden musste.
+Es wurde festgestellt dass das Berechnen des Schrittantwortes mittels IFFT-Methode merkbar langsam ist - vorallem dann, als das iterative Approximieren des Überschwingens implementiert wurde, was dazu führte, dass die Schrittantwortberechnung mehrmals ausgeführt werden musste.
 
-Durch Reduzieren der Anzahl PÃ¼nkte zu beschleunigen. 
+Durch Reduzieren der Anzahl Pünkte zu beschleunigen. 
 
 \centering
 \includegraphics[width=0.8\textwidth]{./.png}
