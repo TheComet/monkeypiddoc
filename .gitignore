@@ -1,2 +1,10 @@
 Fachbericht_FS15_pro2E_Team3.pdf
+/temp
+*.aux
+*.bbl
+*.log
+*.out
+*.toc
+*.blg
 *.synctex
+*.bak
