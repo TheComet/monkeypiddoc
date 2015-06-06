@@ -1,4 +1,6 @@
 \documentclass[a4paper]{fhnwreport} 
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage[german]{babel}
 \usepackage[babel, german=quotes]{csquotes}
 \usepackage{hyperref}
@@ -14,12 +16,11 @@
 \usetikzlibrary{arrows}
 \usepackage{lmodern}
 \usepackage{listings}
-\usepackage{subfigure}	
 \usepackage{booktabs}		
 \usepackage{todonotes}	
 \usepackage{cite}			
 %\usepackage{tabularx}
-%\uspackage{listings}		% Paket für die Dokumentierung von Software-Code
+%\uspackage{listings}		% Paket fÃ¼r die Dokumentierung von Software-Code
 \lstset{language=Matlab}
 \hypersetup{
      colorlinks   = true,
@@ -27,7 +28,7 @@
 }
 
 
-% Farben für Matlab-Listings
+% Farben fÃ¼r Matlab-Listings
 \definecolor{hellgelb}{rgb}{1,1,0.85}     % Hintergrundfarbe
 \definecolor{colKeys}{RGB}{0,0,255}       % blau
 \definecolor{colIdentifier}{RGB}{0,0,0}	  % schwarz
