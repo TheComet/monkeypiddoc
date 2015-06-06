@@ -9,7 +9,6 @@ Im folgenden Abschnitt wird die Validierung beschrieben. Die Validierung dient z
 %Lösung: Die berechneten Antworten werden mit den Antworten von Herrn Niklaus verglichen.
 Die Berechnung der Regler wurde zuerst mittels m-Files in Matlab implementiert. Zur Überprüfung der von Matlab gelieferten Werte wurden diese mit den Werten vom Fachcoach Peter Niklaus verglichen.
 
-
 \subsubsection{Simulation}
 %Problem/Fragestellung:
 %- Wie kann die Matlab-Simulation überprüft werden?
@@ -34,31 +33,51 @@ Die Plausibilität der Schrittantworten konnte relativ einfach optisch mit den Gr
 \subsubsection{Performancevergleich Partialbruchzerlegung und IFFT}\label{residuenvsifft}
 Es wurde festgestellt dass das Berechnen des Schrittantwortes mittels IFFT-Methode merkbar langsam ist - vorallem dann, als das iterative Approximieren des Überschwingens implementiert wurde, was dazu führte, dass die Schrittantwortberechnung mehrmals ausgeführt werden musste.
 
-Durch Reduzieren der Anzahl PÃ¼nkte kann die Berechnung beschleunigt werden, jedoch kommt dies auf Kosten von Genauigkeit.
+Durch Reduzieren der Anzahl Punkte kann die Berechnung beschleunigt werden, jedoch kommt dies auf Kosten von Genauigkeit, was in den Figuren \ref{fig:ifft_genauigkeit} zu sehen ist. Weiter sind die Anzahl Punkte bei der IFFT-Methode auf Zahlen der Basis 2 limitiert, was eine genaue Optimierung der Anzahl Punkte unmöglich macht. Durch Ausprobieren stellten wir fest, dass ein Minimum von 4096 Punkte für ein visuell genaues Resultat gebraucht wird. Dabei konnten wir auf 2048 Punkte für das iterative Approximieren des Überschwingens zurückfallen. Die Berechnungszeit war aber immer noch merkbar langsam.
 
-\begin{figure}
+\begin{figure}[h]
 \centering
-\begin{subfigure}{.6\textwidth}
+\begin{subfigure}{.4\textwidth}
 	\centering
 	\includegraphics[width=1\linewidth]{./ifft_4096.jpg}
-	\caption{A subfigure}
-	\label{fig:sub1}
+	\caption{Schrittantwort mit 4096 Samples}
+	\label{fig:ifft_genauigkeit_4096}
 \end{subfigure}
-\begin{subfigure}{.6\textwidth}
+\begin{subfigure}{.4\textwidth}
 	\centering
 	\includegraphics[width=1\linewidth]{./ifft_2048.jpg}
-	\caption{A subfigure}
-	\label{fig:sub2}
+	\caption{Schrittantwort mit 2048 Samples}
+	\label{fig:ifft_genauigkeit_2048}
 \end{subfigure}
-\begin{subfigure}{.6\textwidth}
+\begin{subfigure}{.4\textwidth}
 	\centering
 	\includegraphics[width=1\linewidth]{./ifft_1024.jpg}
-	\caption{A subfigure}
-    \label{fig:sub3}
+	\caption{Schrittantwort mit 1024 Samples}
+    \label{fig:ifft_genauigkeit_1024}
 \end{subfigure}
-\caption{A figure with three subfigures}
-\label{fig:test}
+\caption{Vergleich einer Schrittantwort mit verschiedene Anzahl Punkte}
+\label{fig:ifft_genauigkeit}
 \end{figure}
 
-Es wurde entschieden, eine alternative Berechnungsmethode zu implementieren: Schrittantwortberechnung mittels Partialbruchzerlegung.
+Es wurde entschieden, eine alternative Berechnungsmethode zu implementieren: Die Schrittantwortberechnung mittels Partialbruchzerlegung.
+
+Um die Berechnungsgeschwindigkeit beider Methoden messen und vergleichen zu können, wurden mehrere Tests durchgefürht, welche hier in Detail dargelegt werden.
+
+Die Berechnungszeit wurde mit der Methode \textit{System::currentTimeMillis()} gemessen. Weil die Messresultate stark varieren, wurde die Messung mehrmals mittels einer For-Schleife ausgeführt, wie in der Figur \ref{fig:time_measurement_simulate_all} zu sehen ist.
+
+\begin{figure}[h]
+	\includegraphics[width=1\linewidth]{./code_for_timing_simulations.png}
+	\caption{Zeitmessung der Methode \textit{Model::simulateAll()}}
+	\label{fig:time_measurement_simulate_all}
+\end{figure}
+
+Wichtig zu bemerkin ist dass das programm für jede Messung neu gestartet wurde, damit das \textit{Java Virtual Machine} (JVM) "frish" bleibt.
+
+Die Messungen wurden auf ein System ausgeführt mit folgenden Eigenschaften.
+\begin{itemize}
+	\item \textbf{OS:} Linux twilight 3.18.12-gentoo
+	\item \textbf{Arch:} x86_64
+	\item \textbf{CPU:} AMD Phenom(tm) II X6 1090T Processor
+	\item \textbf{Java:} Oracle JDK 1.8.0.45, Java HotSpot(TM) 64-Bit Server VM
+\end{itemize}
 
