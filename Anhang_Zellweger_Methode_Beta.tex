@@ -13,18 +13,16 @@
 \subsection{Herleitung der Berechnung von $\beta$ für die Zellweger Methode}\label{ZellwegerBeta}
 Für den offenen Regelkreis $Go$ gilt:
 
-\[
-\phi_{RE}=PhaseRegler
-\]
-\[
-\phi_S=PhaseStrecke
-\]
-\[
-\phi_O=PhaseOffenerRegelkreis
-\]
-\[
-\phi_{RE}(w_{PID})+\phi_S(w_{PID})=\phi_O(w_{PID})
-\]
+\begin{center}
+	$\phi_{RE}$ Phase Regler
+
+	$\phi_S$ Phase Strecke
+
+	$\phi_O$ Phase offener Regelkreis
+	\[
+	\phi_{RE}(w_{PID})+\phi_S(w_{PID})=\phi_O(w_{PID})
+	\]
+\end{center}
 Für die Steigung (Ableitung) gilt:
 \begin{equation}
 \frac{d\phi_{RE}(w_{PID})}{dw}+\frac{d\phi_S(w_{PID})}{dw}=\frac{d\phi_O(w_{PID})}{dw}
