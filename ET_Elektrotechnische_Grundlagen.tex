@@ -80,7 +80,7 @@ Mithilfe dieser Werte und der Sani Methode, welche vom Auftraggeber in Form eine
 s=j\cdot w
 \]
 
-\begin{equation}\label{Übertragungsfunktion}
+\begin{equation}\label{eq:ÜbertragungsfunktionStrecke}
 H(s)=\prod\limits_{i=1}^Z \frac{1}{(1+s\cdot T_{i})}
 \end{equation}
 
@@ -89,28 +89,28 @@ Für die Übertragungsfunktion eines PI/PID Reglers gilt es zu beachten, dass es z
 
 PI Reglerkonform:
 
-\[
+\begin{equation}\label{eq:PITransmit}
 G_{R}(s) = K_{R}\left(1+\frac{1}{s\cdot Tn}\right)
-\]
+\end{equation}
 
 PI Bodekonform:
 
-\[
+\begin{equation}\label{eq:PITransmitBode}
 G_{R}(s) = K_{R}\left(\frac{1+s\cdot Tn}{s\cdot Tn}\right)
-\]
+\end{equation}
 
 PID Reglerkonform:
 
-\[
+\begin{equation}\label{eq:PIDTransmit}
 G_{R}(s) = K_{R}\left(1+\frac{1}{s\cdot Tn}+\frac{s\cdot Tv}{1+s\cdot Tp}\right)
-\]
+\end{equation}
 
 
 PID Bodekonform:
 
-\[
+\begin{equation}\label{eq:PIDTransmitBode}
 G_{R}(s) = K_{RK}\left(\frac{(1+s\cdot Tnk)(1+s\cdot Tvk)}{s\cdot Tnk(1+s\cdot Tp)}\right)
-\]
+\end{equation}
 
 Auf die Verwendung dieser Funktionen sowie deren Herleitung wird im Kapitel \ref{ZellwegerMethode}, Zellweger Methode sowie auch im Anhang \ref{Bodekonf} genauer eingegangen.
 %\end{document}

@@ -1,63 +1,200 @@
-%\documentclass{fhnwreport} %
-%\usepackage[ngerman]{babel}
-%\usepackage[T1]{fontenc}
-%\usepackage[latin1]{inputenc}
-%\usepackage{tikz}
-%\usepackage{amsmath}
-%\usetikzlibrary{arrows}
-%\usepackage{lmodern}   %Type1-Schriftart für nicht-englische Texte 
-%
-%%\usepackage{listings}
-%%\lstset{language=Matlab}
-%
-%\usepackage{color}
+\documentclass{fhnwreport} %
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{arrows}
+\usepackage{lmodern}   %Type1-Schriftart für nicht-englische Texte 
+\graphicspath{{./Bilder/}}
 
-%% Farben für Matlab-Listings
-%\definecolor{hellgelb}{rgb}{1,1,0.85}     % Hintergrundfarbe
-%\definecolor{colKeys}{RGB}{0,0,255}       % blau
-%\definecolor{colIdentifier}{RGB}{0,0,0}	  % schwarz
-%\definecolor{colComments}{RGB}{34,139,34} % gruen
-%\definecolor{colString}{RGB}{160,32,240}  % violett
+\begin{document}
 
-%\lstset{%
-    %language=Matlab,%
-    %%backgroundcolor={\color{hellgelb}},%
-		%backgroundcolor={},%
-    %basicstyle={\footnotesize\ttfamily},%
-    %breakautoindent=true,%
-    %breakindent=10pt,%
-    %breaklines=true,%
-    %captionpos=t,%
-    %columns=fixed,%
-    %%commentstyle={\itshape\color{colComments}},%
-		%commentstyle={\color{colComments}},
-    %extendedchars=true,%
-    %float=hbp,%
-    %frame=single,%
-    %framerule=1pt,%
-    %identifierstyle={\color{colIdentifier}},%
-    %keywordstyle={\color{colKeys}},%
-    %numbers=left,%
-    %numbersep=1em,%
-    %numberstyle={\tiny\ttfamily},%
-    %showspaces=false,%
-    %showstringspaces=false,%
-    %stringstyle={\color{colString}},%
-    %tabsize=4,%
-    %xleftmargin=1em,%
-    %xrightmargin=1em%
-%} 
+\subsection{Übertragungsfunktion des geschlossenen Regelkreises}\label{StepResponse}
 
-%\begin{document}
+Die Berechnung des geschlossenen Regelkreises erfolgt mittels der Übertragungsfunktionen der Strecke (Formel \ref{eq:ÜbertragungsfunktionStrecke}) und der des Reglers (Formel \ref{eq:PITransmit} und \ref{eq:PIDTransmit}):
 
-\subsection{Schrittantwort des geschlossenen Reglekreises}\label{StepResponse}
+\begin{equation}
+G(s)=\frac{G_{R}(s)\cdot G_{s}(s)}{1+G_{R}(s)\cdot G_{s}(s)}
+\label{eq:GsStepResponse}
+\end{equation}
 
-Für die Berechnung der Schrittantwort des geschlossenen Regelkreises geht man nach grundlegender Formel vor:
 
-\begin{align*}
-G(s)&=\frac{G_{r}(s)\cdot G_{s}(s)}{1+G_{r}(s)\cdot G_{s}(s)} \\ \\
- &=\frac{\frac{B_{R}(s)\cdot B_{S}(s)}{A_{R}(s)\cdot A_{S}(s)}}{1+\frac{B_{R}(s)\cdot B_{S}(s)}{A_{R}(s)\cdot A_{S}(s)}} \\ \\
-&=\frac{B_{R}(s)\cdot B_{S}(s)}{A_{R}(s)\cdot A_{S}(s)+B_{R}(s)\cdot B_{S}(s)} \\ \\
-&=\frac{B_{S}}{A_{S}}
-\end{align*}
-%\end{document}
+Die Funktionen $G_{R}(s)$ und $G_{s}(s)$ werden nun in $B_{R}(s)$, $A_{R}(s)$, $B_{S}(s)$, $A_{S}(s)$ aufgeteilt, wobei $B_{R}(s)$ und $A_{R}(s)$ das Zähler bzw. das Nennerpolynom von $G_{R}(s)$ ist. Analog sind $B_{S}(s)$ und $A_{S}(s)$ die jeweiligen Polynome von $G_{s}(s)$.\\
+
+
+Eingesetzt in die Formel \ref{eq:GsStepResponse} ergigbt uns dies folgende Gleichung:
+
+\begin{equation}
+G(s)=\frac{\frac{B_{R}(s)\cdot B_{S}(s)}{A_{R}(s)\cdot A_{S}(s)}}{1+\frac{B_{R}(s)\cdot B_{S}(s)}{A_{R}(s)\cdot A_{S}(s)}}
+\label{eq:GsStepAB}
+\end{equation}
+
+Ausmultipliziert erhalten wir:
+
+\begin{equation}
+G(s)=\frac{B_{R}(s)\cdot B_{S}(s)}{A_{R}(s)\cdot A_{S}(s)+B_{R}(s)\cdot B_{S}(s)}
+\label{eq:GsStepABshort}
+\end{equation}
+
+Nun setzen wir $B_{R}(s)\cdot B_{S}(s)$ mit $B_{S}$ und $A_{R}(s)\cdot A_{S}(s)$ mit $A_{S}$ gleich, welches folgendes Resultat ergibt:
+
+\begin{equation}
+G(s)=\frac{B(s)}{A(s)}
+\label{eq:ABstep}
+\end{equation}
+
+\textbf{Polynom Bestimmung beim PI-Regler}
+
+Als Grundllage werden die Übertragungsfunktionen der Strecke und die des PI-Reglers genommen (Formeln \ref{eq:ÜbertragungsfunktionStrecke} und \ref{eq:PITransmit}), es wird hierbei angenommen, dass die Strecke erster Ordnung sei.
+
+Für die Strecke kann direkt das Zählerpolynom von 0 herausgelesen werden. Die Nennerpolynome sind $Ti$ und 0. Eingesetzt ergibt das:
+
+\[
+B_{S}(s)= 
+\begin{bmatrix}
+0
+\end{bmatrix}
+\]
+
+\[
+A_{S}(s)=
+\begin{bmatrix}
+Ti & 0
+\end{bmatrix}
+\]
+
+Die Funktion der Strecke muss hierfür aber noch umgeformt werden:
+
+\[
+G_{R}(s)=\frac{s\cdot Tn\cdot Kr+Kr}{s\cdot Tn}
+\]
+
+\newpage
+Daraus können wiederum $B_{R}(s)$ und $A_{R}(s)$ bestimmt werden:
+
+\[
+B_{R}(s)= 
+\begin{bmatrix}
+Tn\cdot Kr & Kr
+\end{bmatrix}
+\]
+
+\[
+A_{R}(s)=
+\begin{bmatrix}
+Tn
+\end{bmatrix}
+\]
+
+\textbf{Polynom Bestimmung beim PID-Regler}
+
+Die Strecke des PID-Reglers wird als gleich angenommmen wie die des PI-Reglers, woraus sich direkt die Strecken Polynome bestimmen lassen:
+
+\[
+B_{S}(s)= 
+\begin{bmatrix}
+0
+\end{bmatrix}
+\]
+
+\[
+A_{S}(s)=
+\begin{bmatrix}
+Ti & 0
+\end{bmatrix}
+\]
+
+Die Formel \ref{eq:PIDTransmit} muss zuerst noch umgeformt werden:
+
+\[
+G_{R}(s)=\frac{s^{2}\cdot\left(Kr\cdot Tp \cdot Tn+Kr\cdot Tn\cdot Tv\right)+s\cdot\left(Kr\cdot Tn+Kr\cdot Tp\right)+Kr}{s^{2}\cdot\left(Tp\cdot Tn\right)+s\cdot Tn}
+\]
+
+Folgende Polynome können herausgelesen werden:
+
+\[
+B_{R}(s)= 
+\begin{bmatrix}
+Kr\cdot Tp \cdot Tn+Kr\cdot Tn\cdot Tv & Kr\cdot Tn+Kr\cdot Tp & Kr
+\end{bmatrix}
+\]
+
+\[
+A_{R}(s)=
+\begin{bmatrix}
+Tp\cdot Tn & Tn
+\end{bmatrix}
+\]
+
+\subsubsection{Berechnungsarten}
+
+Zur weiteren Berechnung der Schrittantwort wurden folgende Methoden verwendet: IFFT (Fast Fourier Transformation) und Residuenberechnung.
+
+\textbf{IFFT}
+
+Zuerst wird bei der IFFT der Freuenzgang berechnet. Aus diesem kann nun die Impulsantwort berechnet werden. Die Werte der Impulsantwort aufsummiert ergeben die Schrittantwort.
+
+\textbf{Residuen}
+
+Als erstes weren die Führenden Nullstellen von $A(s)$ und $B(s)$ entfernt. Danach bestimmt man die Ordnung der Zähler und Nennerpolynome, falls diese die gleiche Ordnung haben, muss zuerst eine Polynomdivision durchgeführt werden um die Konstante $K$ zu bestimmen. 
+Nun werden die Nullstellen von $A(s)$ und $B(s)$ berechnet, worauf nun die Residuen bestimmt werden können. 
+Mittels dieser Residuen wird nun die Impulsantwoert bestimmt. Aufsummiert ergibt diese die Schrittantwort.
+\newpage
+\textbf{Schrittantwort PI-Regler}
+
+Für die Simulation der Schrittantwort eines PI-Reglers, werden wieder genau die gleichen Werte verwendet wie beim Beispiel in Kapitel \ref{PIExample}:
+
+$Ks$ = 0.5\\
+$Tu$ = 2.5\\
+$Tg$ = 18.3\\
+$\phi_{st}$ = -114.6\textdegree (entspricht 4,6\% Überschwingen)\\
+$Tn = 7.0647s$\\
+$Kr = 0.9625$\\
+
+\begin{figure}[h]	
+	\centering		
+	\includegraphics[width=1.0\textwidth]{PI_StepResponse.png}
+	\caption{Simulation Schrittantwort}	
+	\label{fig:PI_StepResponse}	
+\end{figure}
+
+\newpage
+Als Vergleich wurde die step Funktion von Matlab verwendet. Abweichungen sind fast nicht zu erkennen, erst wenn man die Abbildung vergrössert sind Ungenauigkeiten festzustellen:
+
+\begin{figure}[h]	
+	\centering		
+	\includegraphics[width=1.0\textwidth]{PI_Step_Difference.png}
+	\caption{Abweichungen der Berechnungsarten}	
+	\label{fig:PI_Step_Difference}	
+\end{figure}
+
+\newpage
+\textbf{Schrittantwort PID-Regler}
+
+Für die Simulation der Schrittantwort eines PID-Reglers, werden wiederum die gleichen Werte verwendet wie beim Beispiel in Kapitel \ref{PIDExample}:
+
+$Ks=0.5$\\
+$Tu=2.5$\\
+$Tg=18.3$\\
+$\phi_{st}$=-114.6\textdegree\\
+$Tn =11.4521$\\
+$Tv =0.8721$\\
+$Kr =3.2963$\\
+
+\begin{figure}[h]	
+	\centering		
+	\includegraphics[width=1.0\textwidth]{PID_StepResponse.png}
+	\caption{Simulation Schrittantwort}	
+	\label{fig:PID_StepResponse}	
+\end{figure}
+\newpage
+Als Vergeleichswert wurde auch wieder die step Funktion von Matlab verwendet. Um Abweichungen zu veredeutlichen muss die Abbildung vergrössert werden:
+
+\begin{figure}[h]	
+	\centering		
+	\includegraphics[width=1.0\textwidth]{PID_Step_Difference.png}
+	\caption{Abweichungen der Berechnungsarten}	
+	\label{fig:PID_Step_Difference}	
+\end{figure}
+\end{document}
