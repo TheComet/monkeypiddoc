@@ -56,7 +56,7 @@ Im folgenden Abschnitt wird ein Berechnungsbeispiel zum PI-Regler gemacht. Folge
 $Ks$ = 0.5\\
 $Tu$ = 2.5\\
 $Tg$ = 18.3\\
-$\phi_{st}$ = -114.6\textdegree (entspricht 4,6\% ‹berschwingen)\\
+$\phi_{Strecke}$ = -114.6\textdegree (entspricht 4,6\% ‹berschwingen)\\
 
 Zun‰chst werden nun die Zeitkonstanten sowie die Ordnung der Strecke  mithilfe der Sani Methode bestimmt. Bei unserer Strecke ergibt dies eine Strecke 3. Ordnung und die folgenden Zeitkonstanten:
 
@@ -66,7 +66,7 @@ $T2=3.3484s$\\
 \\
 $T3=10.4901s$\\
 \\
-Nun wird der Frequenzgang aus der ‹bertragungsfunktion \eqref{eq:‹bertragungsfunktionStrecke} berechnet und in einem Plot aufgezeichnet (siehe Abbildung \ref{fig:PIStep1}). Danach wird der -90\textdegree ~Punkt auf dem Phasengang gesucht(mit blau gestrichelter Linie in Abbildung \ref{fig:PIStep1} dargestellt). Dies ergibt uns eine Frequenz $\omega_{pi}$ von $0.1415s^{-1}$. Daraus berechnet sich die Zeitkonstante $Tn=7.0647s$.
+Nun wird der Frequenzgang aus der ‹bertragungsfunktion \eqref{eq:‹bertragungsfunktionStrecke} berechnet und in einem Plot aufgezeichnet (siehe Abbildung \ref{fig:PIStep1}). Danach wird der -90\textdegree ~Punkt auf dem Phasengang gesucht(mit blau gestrichelter Linie in Abbildung \ref{fig:PIStep1} dargestellt). Dies ergibt uns eine Frequenz $\omega_{PI}$ von $0.1415s^{-1}$. Daraus berechnet sich die Zeitkonstante $Tn=7.0647s$.
 
 \begin{figure}[h]	
 \centering		
@@ -86,7 +86,7 @@ Im n‰chsten Schritt berechnet man mithilfe von $Tn$ und mit $Kr=1$ den offenen R
 \label{fig:PIStep2}
 \end{figure}
 
-Auf dem offenen Regelkreis (Abbildung \ref{fig:PIStep3}) wird nun die Frequenz bei $\phi_{st}$ mithilfe der Tabelle \ref{table:Tab‹berschwingen} auf Seite \pageref{table:Tab‹berschwingen} gesucht (rot gestrichelte Linie). Die gefundene Frequenz ist $0.0611s^{-1}$.
+Auf dem offenen Regelkreis (Abbildung \ref{fig:PIStep3}) wird nun die Frequenz bei $\phi_{Strecke}$ mithilfe der Tabelle \ref{table:Tab‹berschwingen} auf Seite \pageref{table:Tab‹berschwingen} gesucht (rot gestrichelte Linie). Die gefundene Frequenz ist $0.0611s^{-1}$.
 
 \begin{figure}[h!]	
 \centering		
