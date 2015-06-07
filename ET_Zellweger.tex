@@ -59,15 +59,15 @@
 
 
 Der PI- oder PID-Regler wird aus dem Amplituden- und Phasengang mit der Phasengangmethode nach Zellweger berechnet. Der Amplituden- und 
-Phasengang kann aus der Übertragungsfunktion $H(s)$\eqref{Übertragungsfunktion} berechnet werden. 
+Phasengang kann aus der Übertragungsfunktion $H(s)$ (Formel \eqref{eq:ÜbertragungsfunktionStrecke}) berechnet werden. 
 Folgend werden die dazu verwendeten Formeln aufgeführt:
 
 \[ %\label{Amplitudengang}
-Amplitudengang~Strecke~A_{s}(\omega)= Ks\cdot\prod\limits_{m=1}^Z\frac{1}{\sqrt{1+{(\omega\cdot T_{m})}^{2}}}
+\text{Amplitudengang Strecke}~A_{s}(\omega)= Ks\cdot\prod\limits_{m=1}^Z\frac{1}{\sqrt{1+{(\omega\cdot T_{m})}^{2}}}
 \]
 
 \[ %\label{Phasengang}
-Phasengang~Strecke~\phi_{s}(\omega)=-1\cdot\sum\limits_{m=1}^Z\arctan \left( \omega\cdot T_{m}\right)
+\text{Phasengang Strecke}~\phi_{s}(\omega)=-1\cdot\sum\limits_{m=1}^Z\arctan \left( \omega\cdot T_{m}\right)
 \]
 
 Gemäss Zellweger wird nun nach folgendem Rezept vorgegangen:
@@ -97,35 +97,41 @@ Tn=\frac{1}{\omega_{pi}}
 
 \textbf{2.} Mit dem gefundenen $Tn$ und $Kr=1$ wird der Amplituden- und 
 Frequenzgang des offenen Regelkreises $(Go)$ berechnet. Das heisst Regler $(Gr)$ 
-und Strecke $(Gs)$ in Serie, aber ohne Rückkoppelung. 
-\[
-Übertragungsfunktion\, PI-Regler\, \left( reglerkonform \right)Gr=Kr\cdot 
-\left[ 1+\frac{1}{s\cdot Tn} \right]
-\]
+und Strecke $(Gs)$ in Serie, aber ohne Rückkoppelung.\\
+
+ 
+%\[
+%\text{Übertragungsfunktion PI-Regler (Reglerkonform)}~Gr=Kr\cdot 
+%\left[ 1+\frac{1}{s\cdot Tn} \right]
+%\]
+\begin{center}
+Übertragungsfunktion PI-Regler (Reglerkonform) siehe Formel \eqref{eq:PITransmit}
+
+%\[
+%\text{Übertragungsfunktion PI-Regler (Bodekonform)}~Gr=Kr\cdot 
+%\frac{1+s\cdot Tn}{s\cdot Tn}
+%\]
+Übertragungsfunktion PI-Regler (Bodekonform) siehe Formel \eqref{eq:PITransmitBode}
+\end{center}
 
 \[
-Übertragungsfunktion\, PI-Regler\, (bodekonform)\, Gr=Kr\cdot 
-\frac{1+s\cdot Tn}{s\cdot Tn}
-\]
-
-\[
-Phasengang\, PI-Regler\, \phi_{r}=\arctan \left( \omega\cdot Tn 
+\text{Phasengang PI-Regler}~\phi_{r}=\arctan \left( \omega\cdot Tn 
 \right)-\frac{\pi}{2}
 \]
 
 \[
-Amplitudengang\, PI-Strecke\, A_{r}=\, Kr\frac{\sqrt {1+{(\omega\cdot 
+\text{Amplitudengang PI-Strecke}~A_{r}=\, Kr\frac{\sqrt {1+{(\omega\cdot 
 Tn)}^{2}} }{\omega\cdot Tn}
 \]
 
 
 \[
-Phasengang\, Regelkreis\, offen\, \, \, \phi_{o}=\, 
+\text{Phasengang Regelkreis offen}~\phi_{o}=\, 
 \phi_{s}+\phi_{r}\, 
 \]
 
 \[
-Amplitudentang\, Regelkreis\, offen\, \, \, A_{ 
+\text{Amplitudentang Regelkreis offen}~A_{ 
 o}=A_{s}\cdot A_{r}
 \]
 
@@ -211,7 +217,7 @@ gibt, wird $\beta$ für $Z$ \textgreater 1 gleich 1. Für eine detaillierte Herlei
 \]
 
 \textbf{4. }Für die Berechnung des Dämpfungsfaktors $Krk$ muss beim 
-PID-Regler folglich die Formel der Übertragungsfunktion \eqref{Übertragungsfunktion} des PID-Reglers 
+PID-Regler folglich die Formel der Übertragungsfunktion \eqref{eq:ÜbertragungsfunktionStrecke} des PID-Reglers 
 verwendet werden. Der Regler-Parameter $Tp$ wird benötigt, weil der Regler 
 nicht über eine unendlich kurze Zeit differenzieren kann. $1/Tp$ muss ca. 
 1 Dekade höher als $1/Tvk$ gewählt werden. Beim PID-Regler wird die 
@@ -219,37 +225,42 @@ Bodekonforme Darstellung verwendet, weil $Tnk$ und $Tvk$ vorhanden sind, $Tn$ un
 
 \[
 \frac{1}{Tp}=10\cdot \frac{1}{Tnk}
-\]
+\]\\
+
+
+\begin{center}
+%\[
+%\text{Übertragungsfunktion PID-Regler (Reglerkonform)}~Gr=Kr\cdot \left[ 
+%1+\frac{1}{s\cdot Tn}+\frac{s\cdot Tv}{1+s\cdot Tp} \right]
+%\]
+Übertragungsfunktion PID-Regler (Reglerkonform) siehe Formel \eqref{eq:PIDTransmit}
+
+%\[
+%\text{Übertragungsfunktion PID-Regler (Bodekonform)}~Gr=Krk\cdot \left[ 
+%\frac{\left( 1+s\cdot Tnk \right)\cdot (1+s\cdot Tvk)}{s\cdot Tnk\cdot (1+s\cdot 
+%Tp)} \right]
+%\]
+Übertragungsfunktion PID-Regler (Bodekonform) siehe Formel \eqref{eq:PIDTransmitBode}
+\end{center}
 
 \[
-Übertragungsfunktion\, PID-Regler\, (Reglerkonform)\, Gr=Kr\cdot \left[ 
-1+\frac{1}{s\cdot Tn}+\frac{s\cdot Tv}{1+s\cdot Tp} \right]
-\]
-
-\[
-Übertragungsfunktion\, PID-Regler\, (bodekonform)\, Gr=Krk\cdot \left[ 
-\frac{\left( 1+s\cdot Tnk \right)\cdot (1+s\cdot Tvk)}{s\cdot Tnk\cdot (1+s\cdot 
-Tp)} \right]
-\]
-
-\[
-Phasengang\, PID-Regler\, \phi_{r}=\arctan {\left( \omega\cdot Tnk 
+\text{Phasengang PID-Regler}~\phi_{r}=\arctan {\left( \omega\cdot Tnk 
 \right)+arctan\left(\omega\cdot Tvk \right)-\mathrm{arctan}(\omega\cdot 
 Tp)}-\frac{\pi}{2}
 \]
 
 \[
-Amplitudengang\, PID-Regler\, A_{r}=\, Krk\frac{\sqrt {1+\left( 
+\text{Amplitudengang PID-Regler}~A_{r}=\, Krk\frac{\sqrt {1+\left( 
 \omega\cdot Tnk \right)^{2}} \cdot \sqrt {1+{(\omega\cdot Tvk)}^{2}} }{\omega\cdot Tnk}
 \]
 
 \[
-Phasengang\, Regelkreis\, offen\, \, \, \, \phi_{o}=\, 
+\text{Phasengang Regelkreis offen}~\phi_{o}=\, 
 \phi_{s}+\phi_{r}\, 
 \]
 
 \[
-Amplitudentang\, Regelkreis\, offen\, \, \, \, A_{ 
+\text{Amplitudentang Regelkreis offen}~A_{ 
 o}=A_{s}\cdot A_{r}
 \]
 
