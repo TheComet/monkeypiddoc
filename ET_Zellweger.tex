@@ -58,7 +58,7 @@
 \subsection{Zellweger Methode}\label{ZellwegerMethode}
 
 
-Der PI- oder PID-Regler wird aus dem Amplituden- und Phasengang mit der Phasengangmethode nach Zellweger berechnet. Der Amplituden- und 
+Der PI- oder PID-Regler wird aus dem Amplituden- und Phasengang mit der Phasengang-Methode nach Zellweger berechnet. Der Amplituden- und 
 Phasengang kann aus der Übertragungsfunktion $H(s)$ (Formel \eqref{eq:ÜbertragungsfunktionStrecke}) berechnet werden. 
 Folgend werden die dazu verwendeten Formeln aufgeführt:
 
@@ -80,7 +80,7 @@ von Zellweger gibt es für die Regler zwei Darstellungsvarianten: Die reglerkonfo
 Bei den weiteren Berechnungen des PID-Reglers muss für die 
 Phasengang-Methode nach Zellweger in die bodekonforme Darstellung gewechselt werden (siehe Anhang Seite \pageref{Bodekonf} Kapitel \ref{Bodekonf}).
 
-Für PI- und PID-Regler unterscheidet sich nun das weitere Vorgehen. Es ist nun in die folgenden zwei Kapitel aufgeteilt.
+Für PI- und PID-Regler unterscheidet sich das weitere Vorgehen. Es ist in die folgenden zwei Kapitel aufgeteilt.
 
 \textbf{Weiteres Vorgehen PI Regler:}
 
@@ -127,14 +127,14 @@ Tn)}^{2}} }{\omega\cdot Tn}
 \]
 
 \[
-\text{Amplitudentang Regelkreis offen}~A_{ 
+\text{Amplitudengang Regelkreis offen}~A_{ 
 O}=A_{S}\cdot A_{R}
 \]
 
 \textbf{3.} Jetzt wird abhängig vom gewünschten Überschwingen 
 des Reglers ein Winkel auf dem Phasengang des offenen Regelkreises gesucht. 
 Folgende Tabelle zeigt den Zusammenhang des für die Dimensionierung 
-gewählten Überschwingens und des dazu gehörigen Winkels.
+gewählten Überschwingens und des dazu gehörenden Winkels.
 
 \begin{table}[h]
 
@@ -159,7 +159,7 @@ gewählten Überschwingens und des dazu gehörigen Winkels.
 
 Bei 0\% Überschwingen muss beispielsweise der Winkel $\phi_{Strecke}$ 
 gleich -103.7\textdegree ~auf dem Phasengang gesucht werden. Bei der 
-gefundenen Frequenz wird der dazu gehörige Wert aus dem Amplitudengang 
+gefundenen Frequenz wird der dazu gehörende Wert aus dem Amplitudengang 
 des offenen Regelkreises herausgelesen. Um diesen Faktor muss die 
 Verstärkung des Reglers vermindert werden. Der aus dem Amplitudengang 
 herausgelesene Wert mit (-1) multipliziert ergibt also den Regler-Parameter 
@@ -172,7 +172,7 @@ Beim I Regler entspricht $\omega_I$  bei $\phi_I$ direkt dem Kehrwert des Parame
 Ti = \frac{1}{\omega_I}
 \]
 
-Damit ist die Berechnung des I-Reglers abgeschlossen. Die weiteren Schritte Entfallen für den I-Regler
+Damit ist die Berechnung des I-Reglers abgeschlossen. Die weiteren Schritte entfallen für den I-Regler.
 
 \textbf{Weiteres Vorgehen PID Regler:}
 
@@ -192,7 +192,7 @@ benötigt. Folgend wird die Berechnung davon aufgeführt:
 \frac{2\cdot \beta}{1+\beta^{2}}-w_{PID} \cdot  \sum \limits_{m=1}^{n} \frac{T_m}{1+ (w_{PID} \cdot T_m)^2} =-0.5
 \]
 
-Folgendes wird mit $Z$ substitutiert:
+Folgendes wird mit $Z$ substituiert:
 
 \[
 Z=\frac{2\cdot \beta}{1+\beta^{2}}
@@ -221,12 +221,11 @@ gibt, wird $\beta$ für $Z$ \textgreater 1 gleich 1. Für eine detaillierte Herlei
 \frac{1}{Tvk}=\frac{\omega_{PID}}{\beta}
 \]
 
-\textbf{4. }Für die Berechnung des Dämpfungsfaktors $Krk$ muss beim 
+\textbf{4.} Für die Berechnung des Dämpfungsfaktors $Krk$ muss beim 
 PID-Regler folglich die Formel der Übertragungsfunktion \eqref{eq:ÜbertragungsfunktionStrecke} des PID-Reglers 
 verwendet werden. Der Regler-Parameter $Tp$ wird benötigt, weil der Regler 
 nicht über eine unendlich kurze Zeit differenzieren kann. $1/Tp$ muss ca. 
-1 Dekade höher als $1/Tvk$ gewählt werden. Beim PID-Regler wird die 
-Bodekonforme Darstellung verwendet, weil $Tnk$ und $Tvk$ vorhanden sind, $Tn$ und $Tk$ jedoch noch nicht. Eine genauere Erläueterung dieser ist im Anhang Seite \pageref{Bodekonf} Kapitel \ref{Bodekonf} zu finden. Für die Berechnung des Amplitudenganges wird $Krk=1$ verwendet: 
+1 Dekade höher als $1/Tvk$ gewählt werden. Beim PID-Regler wird die bodekonforme Darstellung verwendet, weil $Tnk$ und $Tvk$ vorhanden sind, $Tn$ und $Tk$ jedoch noch nicht. Eine genauere Erläuterung dieser ist im Anhang Seite \pageref{Bodekonf} Kapitel \ref{Bodekonf} zu finden. Für die Berechnung des Amplitudenganges wird $Krk=1$ verwendet: 
 
 \[
 \frac{1}{Tp}=10\cdot \frac{1}{Tnk}
@@ -265,10 +264,10 @@ Tp)}-\frac{\pi}{2}
 \]
 
 \[
-\text{Amplitudentang Regelkreis offen}~A_{ 
+\text{Amplitudengang Regelkreis offen}~A_{ 
 o}=A_{S}\cdot A_{R}
 \]
 
-\textbf{5.} Abhängig vom gewählten Überschwingen wird wiederum ein Winkel auf dem Phasengang $\phi_{o}$ gesucht (Siehe Tabelle \ref{table:TabÜberschwingen} Seite \pageref{table:TabÜberschwingen}). Die Amplitude bei diesem Winkel mit (-1) multipliziert ergibt $Krk$.
+\textbf{5.} Abhängig vom gewählten Überschwingen wird wiederum ein Winkel auf dem Phasengang $\phi_{o}$ gesucht (Siehe Tabelle \ref{table:TabÜberschwingen} Seite \pageref{table:TabÜberschwingen}). Die Amplitude bei diesem Winkel mit (-1) multipliziert, ergibt $Krk$.
 
 %\end{document}
