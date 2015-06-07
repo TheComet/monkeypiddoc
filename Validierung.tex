@@ -7,13 +7,13 @@ Im folgenden Abschnitt wird die Validierung beschrieben. Die Validierung dient z
 %Problem/Fragestellung:
 %- Wie kann die korrekte Funktion der Matlab-Programme überprüft werden?
 %Lösung: Die berechneten Antworten werden mit den Antworten von Herrn Niklaus verglichen.
-Die Berechnung der Regler wurde zuerst mittels m-Files in Matlab implementiert. Zur Überprüfung der von Matlab gelieferten Werte wurden diese mit den Werten vom Fachcoach Peter Niklaus verglichen.
+Die Berechnung der Regler wurde zuerst mittels m-Files in Matlab implementiert. Zur Überprüfung der von Matlab gelieferten Werte wurden diese mit den Werten vom Fachcoach Herr Prof. Peter Niklaus verglichen.
 
 \subsubsection{Simulation}
 %Problem/Fragestellung:
 %- Wie kann die Matlab-Simulation überprüft werden?
 %Lösung: Sie wird mit Simulink überprüft.
-Mittels Simulink wurde der geschlossene Regelkreis simuliert.
+Mittels Simulink und Matlab wurde der geschlossene Regelkreis simuliert.
 
 \subsection{Java Software}
 
@@ -30,10 +30,10 @@ Mittels Simulink wurde der geschlossene Regelkreis simuliert.
 %Lösung: Die Software mit mit JUnit getestet, wobei die Resultate von Matlab erwartet werden.
 Die Plausibilität der Schrittantworten konnte relativ einfach optisch mit den Graphen überprüft werden, da das Verhalten der einzelnen Regler bekannt ist. Zur genauen Überprüfung der einzelnen Klassen wurden sämtliche Klassen des Models mittels JUnit mit den Ergebnissen von Matlab verglichen.
 
-\subsubsection{Performancevergleich Partialbruchzerlegung und IFFT}\label{residuenvsifft}
-Es wurde festgestellt dass das Berechnen des Schrittantwortes mittels IFFT-Methode merkbar langsam ist - vorallem dann, als das iterative Approximieren des Überschwingens implementiert wurde, was dazu führte, dass die Schrittantwortberechnung mehrmals ausgeführt werden musste.
+\subsubsection{Performancevergleich von Partialbruchzerlegung und IFFT}\label{residuenvsifft}
+Es wurde festgestellt, dass das Berechnen der Schrittantwort mittels IFFT-Methode langsam ist, vor allem dann, als das iterative Approximieren des Überschwingens implementiert wurde, was dazu führte, dass die Schrittantwortberechnung mehrmals ausgeführt werden musste.
 
-Durch Reduzieren der Anzahl Punkte kann die Berechnung beschleunigt werden, jedoch kommt dies auf Kosten von Genauigkeit, was anhand des immer zunehmende Unterschwinngens in den Figuren \ref{fig:ifft_genauigkeit} zu sehen ist. Weiter sind die Anzahl Punkte bei der IFFT-Methode auf Zahlen der Basis 2 limitiert, was eine genaue Optimierung der Anzahl Punkte unmöglich macht. Durch Experimentieren stellten wir fest, dass ein Minimum von 4096 Punkte für ein visuell genaues Resultat gebraucht wird. Dabei konnten wir auf 2048 Punkte für das iterative Approximieren des Überschwingens zurückfallen. Die Berechnungszeit war aber immer noch merkbar langsam.
+Durch Reduzieren der Anzahl Punkte kann die Berechnung beschleunigt werden, jedoch geht dies auf Kosten von Genauigkeit, was anhand des immer zunehmenden Unterschwingens in den Figuren \ref{fig:ifft_genauigkeit} zu sehen ist. Weiter sind die Anzahl Punkte bei der IFFT-Methode auf Zahlen der Basis 2 limitiert, was eine genaue Optimierung der Anzahl Punkte unmöglich macht. Durch Experimentieren stellten wir fest, dass ein Minimum von 4096 Punkte für ein visuell genaues Resultat gebraucht wird. Dabei konnten wir auf 2048 Punkte für das iterative Approximieren des Überschwingens zurückgehen. Die Berechnungszeit war aber immer noch merkbar langsam.
 
 \begin{figure}[h]
 \centering
@@ -55,15 +55,15 @@ Durch Reduzieren der Anzahl Punkte kann die Berechnung beschleunigt werden, jedo
 	\caption{Schrittantwort mit 1024 Samples}
     \label{fig:ifft_genauigkeit_1024}
 \end{subfigure}
-\caption{Vergleich einer IFFT Schrittantwort mit verschiedene Anzahl Punkte}
+\caption{Vergleich einer IFFT Schrittantwort mit verschiedener Anzahl Punkte}
 \label{fig:ifft_genauigkeit}
 \end{figure}
 
 Es wurde entschieden, eine alternative Berechnungsmethode zu implementieren: Die Schrittantwortberechnung mittels Partialbruchzerlegung.
 
-Um die Berechnungsgeschwindigkeit beider Methoden messen und vergleichen zu können, wurden mehrere Tests durchgefürht, welche hier in Detail dargelegt werden.
+Um die Berechnungsgeschwindigkeit beider Methoden messen und vergleichen zu können, wurden mehrere Tests durchgeführt, welche hier im Detail dargelegt werden.
 
-Die Berechnungszeit wurde mit der Methode \textit{System::currentTimeMillis()} gemessen. Weil die Messresultate stark varieren, wurde die Messung mehrmals mittels einer For-Schleife ausgeführt, wie im Java-Code in der Figur \ref{fig:code_for_timing_simulations} zu sehen ist.
+Die Berechnungszeit wurde mit der Methode \textit{System::currentTimeMillis()} gemessen. Weil die Messresultate stark variieren, wurde die Messung mehrmals mittels einer For-Schleife ausgeführt, wie im Java-Code in der Figur \ref{fig:code_for_timing_simulations} zu sehen ist.
 
 \begin{figure}[h]
 	\includegraphics[scale=1]{./code_for_timing_simulations.png}
@@ -71,9 +71,9 @@ Die Berechnungszeit wurde mit der Methode \textit{System::currentTimeMillis()} g
 	\label{fig:code_for_timing_simulations}
 \end{figure}
 
-Wichtig zu bemerken ist dass das Programm für jede Messung neu gestartet wurde, damit das \textit{Java Virtual Machine} (JVM) ``frish'' bleibt.
+Wichtig zu bemerken ist, dass das Programm für jede Messung neu gestartet wurde, damit die \textit{Java Virtual Machine} (JVM) ``frisch'' bleibt.
 
-Aus Gründen der Reproduzierbarkeit und/oder Vergleichsmöglichkeit wurden die Messungen auf ein System mit folgenden Eigenschaften ausgeführt.
+Aus Gründen der Reproduzierbarkeit und/oder Vergleichsmöglichkeit wurden die Messungen auf einem System mit folgenden Eigenschaften ausgeführt.
 \begin{itemize}
 	\item \textbf{OS:} Linux twilight 3.18.12-gentoo
 	\item \textbf{Arch:} x86\textunderscore 64
@@ -81,12 +81,12 @@ Aus Gründen der Reproduzierbarkeit und/oder Vergleichsmöglichkeit wurden die Mes
 	\item \textbf{Java:} Oracle JDK 1.8.0.45, Java HotSpot(TM) 64-Bit Server VM
 \end{itemize}
 
-Als erstes wurden beide Methoden mit fix 2048 Punkte verglichen. Das sind bei der IFFT-Methode das Minimum das gebraucht wird, um ein relativ genaues Überschwingen der Zellweger Methode approximieren zu können; deswegen die Entscheidung, 2048 Punkte zu testen. Wie in der Figur \ref{fig:ifft_vs_pbz_2048} zu sehen ist, leistet die Methode mit Partialbruchzerlegung das gleiche Resultat innert halber Zeit.
+Als erstes wurden beide Methoden mit fix 2048 Punkten verglichen. Das sind bei der IFFT-Methode das Minimum, das gebraucht wird, um ein relativ genaues Überschwingen der Zellweger Methode approximieren zu können; deswegen die Entscheidung, mit 2048 Punkten zu testen. Wie in der Figur \ref{fig:ifft_vs_pbz_2048} zu sehen ist, leistet die Methode mit Partialbruchzerlegung das gleiche Resultat innert halber Zeit.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=.8\linewidth]{./ifft-vs-partialbruchzerlegung-2048-single-threaded.png}
-	\caption{IFFT vs Partialbruchzerlegung mit fix 2048 Samples und kein Threadpool. Partialbruchzerlegung ist etwa 2 mal schneller.}
+	\caption{IFFT vs Partialbruchzerlegung mit fix 2048 Samples und keinem Threadpool. Partialbruchzerlegung ist etwa zweimal schneller.}
 	\label{fig:ifft_vs_pbz_2048}
 \end{figure}
 
@@ -95,15 +95,15 @@ Ein Nachteil der IFFT Methode ist, dass ihre Komplexität quadratisch skaliert. D
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=.8\linewidth]{./ifft-vs-partialbruchzerlegung-8192-single-threaded.png}
-	\caption{IFFT vs Partialbruchzerlegung mit 8192 Samples und kein Threadpool. Berechungszeit von IFFT skaliert quadratisch, Partialbruchzerlegung nur linear.}
+	\caption{IFFT vs Partialbruchzerlegung mit 8192 Samples und keinem Threadpool. Berechnungszeit von IFFT skaliert quadratisch, Partialbruchzerlegung nur linear.}
 	\label{fig:ifft_vs_pbz_8192}
 \end{figure}
 
-In Realität braucht die Partialbruchzerlegungsmethode aber viel weniger Punkte als 2048. Jenachdem was für eine Strecke vorliegt, ändern sich die Anzahl Punkte. Mit einer Strecke von $T_u=2$ und $T_g=6$ wurden in der Figur \ref{fig:pbz-single-vs-multi} nur 145 Punkte gebraucht, was zu einer Berechnungszeit von etwa 8ms führte. Die Berechnung kann mittels Multithreading weiter beschleunigt werden. In diesem Beispiel konnte sie auf weniger als 1ms reduziert werden, wie in Figur \ref{fig:pbz-single-vs-multi} auch zu sehen ist. Man beachte dass nur 7 Berechnungen parallel liefen. Das heisst, es ist nicht auszuschliessen, dass Multithreading noch schneller sein könnte wenn mehr Berechnungen vorhanden wären.
+In Realität braucht die Partialbruchzerlegungsmethode aber viel weniger als 2048 Punkte. Je nachdem was für eine Strecke vorliegt, ändern sich die Anzahl Punkte. Mit einer Strecke von $T_u=2$ und $T_g=6$ wurden in der Figur \ref{fig:pbz-single-vs-multi} nur 145 Punkte gebraucht, was zu einer Berechnungszeit von etwa 8ms führte. Die Berechnung kann mittels Multithreading weiter beschleunigt werden. In diesem Beispiel konnte sie auf weniger als 1ms reduziert werden, wie in Figur \ref{fig:pbz-single-vs-multi} auch zu sehen ist. Man beachte, dass nur 7 Berechnungen parallel liefen. Das heisst, es ist nicht auszuschliessen, dass Multithreading noch schneller sein könnte, wenn mehr Berechnungen vorhanden wären.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=.8\linewidth]{./partialbruchzerlegung-145-single-vs-multi.png}
-	\caption{Single Threaded vs Multi Threaded: Partialbruchzerlegung mit variabler anzahl Samples}
+	\caption{Single Threaded vs Multi Threaded: Partialbruchzerlegung mit variabler Anzahl Samples}
 	\label{fig:pbz-single-vs-multi}
 \end{figure}

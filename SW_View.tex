@@ -10,7 +10,7 @@ Die Klasse \textit{View} und ihre Unterklassen sind zuständig für die Darstellun
 %- Welche Zusatzfunktionen wurden implementiert?
 %- Was wurde beachtet, damit das Tool intuitiv bedient werden kann?
 %Lösung: Die Anforderungen wurden gemeinsam im Team und im Gespräch mit dem Auftraggeber besprochen. Die einzelnen Entscheidungen werden jeweils begründet.
-Die Benutzeroberfläche wurde so umgesetzt, dass der Anwender das Tool intuitiv bedienen kann und es einen grafisch ansprechenden Eindruck hinterlässt. Des Weiteren wird nach Wunsch des Auftraggebers das Programm in einem einzelnen Fenster dargestellt. Dies ermöglicht es dem Anwender alles zu überblicken und mit einem einzigen Printscreen das gesamte Programm (Einstellungen, Graph) in einer Dokumentation festzuhalten oder mit anderen Methoden zu vergleichen. Dies führt zu einer einfacheren Handhabung der erstellten Simulationen.
+Die Benutzeroberfläche wurde so umgesetzt, dass der Anwender das Tool intuitiv bedienen kann und es einen grafisch ansprechenden Eindruck hinterlässt. Des Weiteren wird nach Wunsch des Auftraggebers das Programm in einem einzelnen Fenster dargestellt. Dies ermöglicht es dem Anwender, alles zu überblicken und mit einem einzigen Printscreen das gesamte Programm (Einstellungen, Graph) in einer Dokumentation festzuhalten oder mit anderen Methoden zu vergleichen. Dies führt zu einer einfacheren Handhabung der erstellten Simulationen.
 
 Vom Auftraggeber wurden folgende Punkte für die Benutzeroberfläche gewünscht:
 \begin{itemize}
@@ -46,19 +46,19 @@ Vom Auftraggeber wurden folgende Punkte für die Benutzeroberfläche gewünscht:
 %Lösung: Die Benutzeroberfläche wurde im Team besprochen und dem Auftraggeber präsentiert. Die
 %technische Umsetzbarkeit der einzelnen Wünsche wurde überprüft.
 Für die Erstellung der Benutzeroberfläche wurden hauptsächlich die Swing-Klassen der Java Foundation Classes (JFC) verwendet. Sie enthalten die notwendigen Komponenten wie Textfelder, Buttons usw., mit denen grafische Oberflächen erstellt werden können. Erkennbar sind sie auch durch das "`J"', welches dem Namen vorangestellt ist (beispielsweise JButton). Auf die ausführliche Beschreibung dieser Standardkomponenten wird bewusst verzichtet und es werden nur die zusätzlichen Komponenten erläutert, welche verwendet wurden.\\
-Für die Platzierung der Komponenten gibt es in Java verschiedene Layoutmanager, um die Komponenten anzuordnen. Um einen kurzen Überblick über diese Manager zu geben, werden die Verwendeten in der folgenden Aufzählung kurz beschrieben:
+Für die Platzierung der Komponenten gibt es in Java verschiedene Layoutmanager, um die Komponenten anzuordnen. Um einen kurzen Überblick über diese Manager zu geben, werden die verwendeten in der folgenden Aufzählung kurz beschrieben:
 
 \begin{enumerate}
 	\item \textit{GridBagLayout}: Er ist der mächtigste LayoutMangager aus dem Java AWT-Package und ermöglicht es, die Komponenten in ein anpassbares Raster (Grid) zu setzen. Die einzelnen Spalten können dabei unterschiedlich breit und die einzelnen Zeilen unterschiedlich hoch sein. Die Komponenten werden in eine Zelle gesetzt und können von dort in X- und Y-Richtung weitere Zellen überlappen. Weiter gibt es viele zusätzliche Anpassungsmöglichkeiten.
 	\item \textit{GridLayout}: Setzt die Komponenten in ein gleichmässiges Raster (Grid), bei dem alle Zellen die selbe Grösse haben.
 	\item \textit{BorderLayout}: Besitzt fünf Bereiche (Norden, Süden, Osten, Westen, Zentrum), in welche Komponenten platziert werden können.
-	\item \textit{WrapLayout}: Alle Komponenten werden nacheinander von links nach rechts eingefüllt. Beim verändern der Fenstergrösse gibt es Zeilenumbrüche, wenn die Breite des Panels nicht mehr ausreicht. Dieses Layout gehört nicht zu den Standard-Typen und wird bei der Erläuterung des \textit{GraphDisplayPanels} genauer beschrieben.
+	\item \textit{WrapLayout}: Alle Komponenten werden nacheinander von links nach rechts eingefüllt. Beim Verändern der Fenstergrösse gibt es Zeilenumbrüche, falls die Breite des Panels nicht mehr ausreicht. Dieses Layout gehört nicht zu den Standard-Typen und wird bei der Erläuterung des \textit{GraphDisplayPanels} genauer beschrieben.
 \end{enumerate}
 
-Für weitere Informationen zu Layoutmanagern wird auf die Dokumentation von Oracle verwiesen(QUELLE https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html).
+Für weitere Informationen zu Layoutmanagern wird auf die Dokumentation von Oracle verwiesen (QUELLE https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html).
 
-\textbf{Aufbau der Benutzerfläche}\\
-Der Aufbau des GUIs wurde so erstellt, dass die gesamte grafische Benutzeroberfläche in einem JFrame platziert ist. Dieses Frame enthält jeweils eine Instanz der  Klasse \textit{MenuBar} und \textit{View}. Die \textit{View} besteht wiederum aus den vier JPanels \textit{InputOutputPanel}, \textit{GraphPanel}, \textit{GraphDisplayPanel} und \textit{GraphSettingPanel}. Das \textit{InputOutputPanel} fasst das \textit{InputPanel} und das \textit{OutputPanel} zu einem gemeinsamen JPanel zusammen. Auf die Layoutmanager wird bei der Beschreibung der Einzelnen Panels genauer eingegangen. \\
+\textbf{Aufbau der Benutzeroberfläche}\\
+Der Aufbau des GUIs wurde so erstellt, dass die gesamte grafische Benutzeroberfläche in einem JFrame platziert ist. Dieses Frame enthält jeweils eine Instanz der  Klasse \textit{MenuBar} und \textit{View}. Die \textit{View} besteht wiederum aus den vier JPanels \textit{InputOutputPanel}, \textit{GraphPanel}, \textit{GraphDisplayPanel} und \textit{GraphSettingPanel}. Das \textit{InputOutputPanel} fasst das \textit{InputPanel} und das \textit{OutputPanel} zu einem gemeinsamen JPanel zusammen. Auf die Layoutmanager wird bei der Beschreibung der einzelnen Panels genauer eingegangen. \\
 
 In der folgenden Grafik wurde der gesamte Zusammenhang dargestellt: 
 
@@ -81,7 +81,7 @@ Die Benutzeroberfläche beinhaltet, wie vorhin beschrieben, mehrere Panels. Das \
 
 \textbf{InputOutputPanel:} Die Aufgabe dieses im GridBagLayout erstellten Panels besteht einzig darin, das \textit{InputPanel} und das \textit{OutputPanel} in einem gemeinsamen Panel zu vereinen. Dieses Panel wurde erstellt, um die Handhabung im GridBagLayout der Klasse \textit{View} zu verbessern. \\
 
-\textbf{InputPanel:} Dieses Panel wurde im GridBagLayout erstellt und besitzt einen Rahmen mit dem Titel "`Eingabe"'. Es enthält zuoberst die drei Eingabefelder für die Parameter \textit{Tu} (1), \textit{Tg} (2) und \textit{Ks} (3) der Regelstrecke. Anschliessend folgt eine leere Zeile, die zu Beginn keinen Inhalt hat. Sie zeigt nach einer Simulation den Grad der Berechnung an und bei fehlerhaften Eingaben rote Hinweise für den Anwender. Als nächstes folgt das Dropdown-Menü für die Auswahl des Reglers (4) (\textit{I}, \textit{PI} oder \textit{PID}). In den nächsten beiden Textfeldern(4 und 5) kann das Überschwingen und die Parasitäre Zeitkonstante eingetragen werden. Diese beiden Eingaben  sind abhängig von der Auswahl des Reglers und deshalb nicht für alle Regler aktiviert. Wenn die Felder deaktiviert sind, so werden sie ausgegraut und es können keine Werte eingetragen werden. Beim I-Regler werden beide und beim PI-Regler nur das Feld für die parasitäre Zeitkonstante deaktiviert. Beim PID-Regler sind beide aktiviert. Am Ende dieses Panels befindet sich über die gesamte Breite die Schaltfläche zum Starten der Simulation (7).
+\textbf{InputPanel:} Dieses Panel wurde im GridBagLayout erstellt und besitzt einen Rahmen mit dem Titel "`Eingabe"'. Es enthält zuoberst die drei Eingabefelder für die Parameter \textit{Tu} (1), \textit{Tg} (2) und \textit{Ks} (3) der Regelstrecke. Anschliessend folgt eine leere Zeile, die zu Beginn keinen Inhalt hat. Sie zeigt nach einer Simulation den Grad der Berechnung an und bei fehlerhaften Eingaben rote Hinweise für den Anwender. Als nächstes folgt das Dropdown-Menü für die Auswahl des Reglers (4) (\textit{I}, \textit{PI} oder \textit{PID}). In den nächsten beiden Textfeldern (4 und 5) kann das Überschwingen und die parasitäre Zeitkonstante eingetragen werden. Diese beiden Eingaben  sind abhängig von der Auswahl des Reglers und deshalb nicht für alle Regler aktiviert. Wenn die Felder deaktiviert sind, werden sie ausgegraut und es können keine Werte eingetragen werden. Beim I-Regler werden beide und beim PI-Regler nur das Feld für die parasitäre Zeitkonstante deaktiviert. Beim PID-Regler sind beide aktiviert. Am Ende dieses Panels befindet sich über die gesamte Breite die Schaltfläche zum Starten der Simulation (7).
 
 Alle Beschriftungen sind JLabels, alle Textfelder sind JFormatedDoubleTextfields, die Schaltfläche ist ein JButton und für die Wahl des Reglers wurde eine JComboBox verwendet. Weiter verfügen alle Textfelder über ToolTips (Zusatzinformationen bei Objekten), welche dem Nutzer zusätzliche Informationen bieten. 
 
@@ -94,8 +94,8 @@ Alle Beschriftungen sind JLabels, alle Textfelder sind JFormatedDoubleTextfields
 
 \textbf{OutputPanel:} Dieses Panel wurde im GridBagLayout erstellt und besitzt einen Rahmen mit dem Titel "`Ausgabe"'. In einer übersichtlichen Tabelle werden alle Kennwerte jeder simulierten Kurve aufgelistet. Diese Tabelle besteht aus den sechs Spalten mit den folgenden Inhalten:
 \begin{enumerate}
-	\item \textit{Name}: Als erstes steht ein grosser farbiger Kreis in der Farbe der dazugehörigen Kurve. Dadurch kann der Anwender den Zusammenhang zwischen Tabelle, Graph und Auswahl der Kurven leicht erkennen. Nach dem Kreis folgt im selben Feld der Name des Reglers. 
-	\item \textit{Kr}: Enthält den berechneten Wert für die Reglerverstärkung.
+	\item \textit{Name}: Als erstes steht ein grosser farbiger Kreis in der Farbe der dazugehörenden Kurve. Dadurch kann der Anwender den Zusammenhang zwischen Tabelle, Graph und Auswahl der Kurven leicht erkennen. Nach dem Kreis folgt im selben Feld der Name des Reglers. 
+	\item \textit{Kr}: Enthält den berechneten Wert für die Reglerverstärkung
 	\item \textit{Tn}: Enthält den berechneten Tn-Reglerparameter 
 	\item \textit{Tv}: Enthält den berechneten Tv-Reglerparameter
 	\item \textit{Tp}: Enthält den berechneten Tp-Reglerparameter
@@ -124,14 +124,14 @@ Die Tabelle des \textit{OutputPanels} ist eine JTable mit einem TableHeader und 
 
 \textbf{GraphDisplayPanel und GraphSettingPanel:} Im \textit{GraphDisplayPanel} können mit Hilfe der Checkboxen die Regler ausgewählt werden, welche im \textit{GraphPanel} angezeigt werden sollen (1). Rechts daneben wurde das \textit{GraphSettingPanel} platziert. Dieses zusätzliche Panel verfügt über drei Buttons mit den folgenden Funktionen:
 \begin{itemize}
-	\item (2) Zur original Ansicht wechseln (Zoom auf 100\%).
+	\item (2) Zur Original-Ansicht wechseln (Zoom auf 100\%).
 	\item (3) Alle Kurven ein-/ausblenden.
 	\item (4) Alle Faustformeln ein-/ausblenden.
 \end{itemize}
 
-Alle Checkboxen sind JCheckBoxen der Swing-Klassen und die drei Button JButtons mit selbst erstellten Icons.
+Alle Checkboxen sind JCheckBoxen der Swing-Klassen und die drei Button sind JButtons mit selbst erstellten Icons.
 
-Beim \textit{GraphDisplayPanel} wurde der \textit{WrapLayoutManager} verwendet. Dies ist kein standard Layoutmanager und wurde auf einem Web-Blog gefunden (QUELLE https://tips4java.wordpress.com/2008/11/06/wrap-layout/). Dieser Manager ist von der Funktion her vergleichbar mit dem FlowLayout und füllt alle Komponenten von links nach rechts in ein JPanel. Speziell an ihm ist jedoch, dass er beim Verändern der Fenstergrösse den Umbruch der Zeilen richtig handhabt, auch wenn das Panel in einem GridBagLayout platziert ist. 
+Beim \textit{GraphDisplayPanel} wurde der \textit{WrapLayoutManager} verwendet. Dies ist kein Standard Layoutmanager und wurde auf einem Web-Blog gefunden (QUELLE https://tips4java.wordpress.com/2008/11/06/wrap-layout/). Dieser Manager ist von der Funktion her vergleichbar mit dem FlowLayout und füllt alle Komponenten von links nach rechts in ein JPanel. Speziell an ihm ist jedoch, dass er beim Verändern der Fenstergrösse den Umbruch der Zeilen richtig handhabt, auch wenn das Panel in einem GridBagLayout platziert ist. 
 
 \begin{figure}[h]
 	\centering
@@ -145,7 +145,7 @@ Ausserdem befindet sich am oberen Rand des Fensters die \textit{MenuBar} mit den
 Das Menü \textit{Datei} besteht aus den folgenden Menüeinträgen:
 \begin{itemize}
 	\item \textit{Zur Mini-Version wechseln}: Wechselt von der Gesamtansicht zur Mini-Version. Elemente wie das \textit{GraphPanel}, das \textit{GraphDisplayPanel} und der Trimmer werden dabei ausgeblendet. Der Name dieses Menüeintrages ändert sich von Mini-Version zu Normal-Version.
-	\item \textit{Export als PDF}: Öffnet ein Fenster, mit dem der Pfad und der Dokumentname ausgewählt werden kann. Nach der Bestätigung mit dem Button Speichern wird ein PDF generiert, welches die gesamte Ansicht des Tools exportiert.
+	\item \textit{Export als PDF}: Öffnet ein Fenster, mit dem der Pfad und der Dokumentname ausgewählt werden kann. Nach der Bestätigung mit dem Button "`Speichern"' wird ein PDF generiert, welches die gesamte Ansicht des Tools exportiert.
 	\item \textit{Schliessen}: Beendet die gesamte Applikation.
 \end{itemize}
 
@@ -168,8 +168,8 @@ Das gesamte Menü wurde mit Komponenten der Swing-Klassen erstellt.
 %- Welche Elemente müssen ausgeblendet oder verändert werden, wenn zur Miniversion gewechselt
 %wird?
 %Lösung: Zu jedem Punkt wird die Lösung präsentiert und die Lösungswahl begründet.
-\textbf{Eingabewerte}
-Für alle Textfelder wurden JDoubleTextFields verwendet. Diese Klasse bekamen wir im Rahmen des Fachinputs durch Herrn Prof. Richard Gut empfohlen. Sie handhabt die unerlaubten Eingaben der Textfelder. Dabei wurden folgende Einstellungen vorgenommen:
+\textbf{Eingabewerte}\\
+Für alle Textfelder wurden JDoubleTextFields verwendet. Diese Klasse bekamen wir im Rahmen des Fachinputs durch Herrn Prof. Dr. Richard Gut empfohlen. Sie handhabt die unerlaubten Eingaben der Textfelder. Dabei wurden folgende Einstellungen vorgenommen:
 \begin{enumerate}
 	\item Die Felder werden nicht gerundet, verfügen also über keinen Formater.
 	\item Es können nur Zahlen, keine Buchstaben und keine anderen Zeichen eingegeben werden (Ausnahme dabei ist das "`e"' für Engineering-Eingaben).
@@ -177,7 +177,7 @@ Für alle Textfelder wurden JDoubleTextFields verwendet. Diese Klasse bekamen wir
 \end{enumerate}
 
 \textbf{Fenstermanagement}\\
-Wenn das Tool gestartet wird, öffnet sich das Programm in der Normalansicht (alle Panels werden angezeigt) mit der kleinstmöglichen Fenstergrösse. Dazu wird das Frame so gepackt, dass alle Komponenten mit ihrer Minimalgrösse platziert werden. Um auch bei unterschiedlichen Bildschirmauflösungen das Tool verwenden zu können, wurden dafür keine absoluten Pixelwerte verwendet.\\
+Wenn das Tool gestartet wird, öffnet sich das Programm in der Normalansicht (alle Panels werden angezeigt) mit der kleinstmöglichen Fenstergrösse. Dazu wird das Frame so gepackt, dass alle Komponenten mit ihrer Minimalgrösse platziert werden. Um das Tool auch bei unterschiedlichen Bildschirmauflösungen verwenden zu können, wurden dafür keine absoluten Pixelwerte eingesetzt.\\
 Wenn die Fenstergrösse durch den Anwender verändert wird, hat dies einen unterschiedlichen Einfluss auf die einzelnen Panels. Das \textit{OutputPanel} wird nur in der Vertikalen und das \textit{GraphDisplayPanel} und die \textit{MenuBar} nur in der Horizontalen verändert. Weiter wird das \textit{GraphPanel} in beide Richtungen gestreckt oder gestaucht. Das \textit{InputPanel} und das \textit{GraphSettingPanel} bleiben dabei unverändert. Zur Veranschaulichung wurde dieses Verhalten in der folgenden Grafik dargestellt. Die roten Pfeile zeigen dabei, in welche Richtungen sich die Panels verändern können.
 
 \begin{figure}[h]
