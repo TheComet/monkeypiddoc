@@ -51,14 +51,14 @@
 %
 %\begin{document}
 \subsubsection{Numerisches Beispiel PI-Regler}\label{PIExample}
-Im folgenden Abschnitt wird ein Berechnungsbeispiel zum PI-Regler gemacht. Folgende Werte werden verwendet:
+Im folgenden Abschnitt wird ein Berechnungsbeispiel zum PI-Regler durchgeführt. Folgende Werte werden verwendet:
 
 $Ks$ = 0.5\\
 $Tu$ = 2.5\\
 $Tg$ = 18.3\\
 $\phi_{Strecke}$ = -114.6\textdegree (entspricht 4,6\% Überschwingen)\\
 
-Zunächst werden nun die Zeitkonstanten sowie die Ordnung der Strecke  mithilfe der Sani Methode bestimmt. Bei unserer Strecke ergibt dies eine Strecke 3. Ordnung und die folgenden Zeitkonstanten:
+Zunächst werden die Zeitkonstanten sowie die Ordnung der Strecke  mithilfe der Sani Methode bestimmt. Bei unserer Strecke ergibt dies eine Strecke 3. Ordnung und die folgenden Zeitkonstanten:
 
 $T1=1.0688s$\\
 \\
@@ -66,7 +66,7 @@ $T2=3.3484s$\\
 \\
 $T3=10.4901s$\\
 \\
-Nun wird der Frequenzgang aus der Übertragungsfunktion \eqref{eq:ÜbertragungsfunktionStrecke} berechnet und in einem Plot aufgezeichnet (siehe Abbildung \ref{fig:PIStep1}). Danach wird der -90\textdegree ~Punkt auf dem Phasengang gesucht(mit blau gestrichelter Linie in Abbildung \ref{fig:PIStep1} dargestellt). Dies ergibt uns eine Frequenz $\omega_{PI}$ von $0.1415s^{-1}$. Daraus berechnet sich die Zeitkonstante $Tn=7.0647s$.
+Nun wird der Frequenzgang aus der Übertragungsfunktion \eqref{eq:ÜbertragungsfunktionStrecke} berechnet und in einem Plot aufgezeichnet (siehe Abbildung \ref{fig:PIStep1}). Danach wird der -90\textdegree ~Punkt auf dem Phasengang gesucht (mit blau gestrichelter Linie in Abbildung \ref{fig:PIStep1} dargestellt). Dies ergibt eine Frequenz $\omega_{PI}$ von $0.1415s^{-1}$. Daraus berechnet sich die Zeitkonstante $Tn=7.0647s$.
 
 \begin{figure}[h]	
 \centering		
@@ -76,7 +76,7 @@ Nun wird der Frequenzgang aus der Übertragungsfunktion \eqref{eq:Übertragungsfun
 \end{figure}
 
 \newpage
-Im nächsten Schritt berechnet man mithilfe von $Tn$ und mit $Kr=1$ den offenen Regelkreis (rot dargestellt in Abbildung \ref{fig:PIStep2})
+Im nächsten Schritt berechnet man mithilfe von $Tn$ und mit $Kr=1$ den offenen Regelkreis (rot dargestellt in Abbildung \ref{fig:PIStep2}).
 
 
 \begin{figure}[h]	
@@ -86,17 +86,17 @@ Im nächsten Schritt berechnet man mithilfe von $Tn$ und mit $Kr=1$ den offenen R
 \label{fig:PIStep2}
 \end{figure}
 
-Auf dem offenen Regelkreis (Abbildung \ref{fig:PIStep3}) wird nun die Frequenz bei $\phi_{Strecke}$ mithilfe der Tabelle \ref{table:TabÜberschwingen} auf Seite \pageref{table:TabÜberschwingen} gesucht (rot gestrichelte Linie). Die gefundene Frequenz ist $0.0611s^{-1}$.
+Auf dem Phasengang des offenen Regelkreises (Abbildung \ref{fig:PIStep3}) wird nun die Frequenz bei $\phi_{Strecke}$ mithilfe der Tabelle \ref{table:TabÜberschwingen} auf Seite \pageref{table:TabÜberschwingen} gesucht (rot gestrichelte Linie). Die gefundene Frequenz ist $0.0611s^{-1}$.
 
 \begin{figure}[h!]	
 \centering		
 \includegraphics[width=1.0\textwidth]{PI_Step_03.jpg}
-\caption{$\omega$ bei $\phi_{st}$}	
+\caption{$\omega$ bei $\phi_{Strecke}$}	
 \label{fig:PIStep3}	
 \end{figure}
 
 \newpage
-Schlussendlich wird nun die entsprechenede Verstärkung zur gefundenen Frequenz aus dem offenen Amplitudengang herausgelesen (Abbildung \ref{fig:PIStep4}). In unserem Beispiel ergibt dies eine Verstärkung von 1.0390.  Um diesen Faktor wird die Verstärkung des Reglers gemindert, dies ergibt den letzten benötigten Parameter $Kr$.
+Schliesslich wird die entsprechende Verstärkung zur gefundenen Frequenz aus dem Amplitudengang des offenen Regelkreises herausgelesen (Abbildung \ref{fig:PIStep4}). In unserem Beispiel ergibt dies eine Verstärkung von 1.0390.  Um diesen Faktor wird die Verstärkung des Reglers gemindert, dies ergibt den letzten benötigten Parameter $Kr$.
 
 \begin{figure}[h]	
 \centering	
