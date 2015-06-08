@@ -50,13 +50,13 @@
 %\graphicspath{{./PrettyPictures/}}
 %
 %\begin{document}
-\subsubsection{Vorgehen PID-Regler mit Matlab}\label{PIDExample}
-Die Berechnung eines PID-Reglers verläuft ähnlich wie die eines PI-Reglers. Folglich trifft dies auch in Matlab zu. Für das Beispiel werden wieder die gleichen Eingabeparameter verwendet wie schon beim PI-Regler:
+\subsubsection{Numerisches Beispiel PID-Regler }\label{PIDExample}
+Die Berechnung eines PID-Reglers verläuft ähnlich wie die eines PI-Reglers. Für das Beispiel werden die gleichen Eingabeparameter verwendet wie beim PI-Regler:
 
 $Ks=0.5$\\
 $Tu=2.5$\\
 $Tg=18.3$\\
-$\phi_{st}$=-114.6\textdegree\\
+$\phi_{Strecke}$=-114.6\textdegree\\
 
 Im Gegensatz zum PI-Regler sind alle Ausgabeparameter in der bodekonformen Darstellung. Eine genauere Erklärung dazu ist im Anhang, Sektor \ref{Bodekonf}, Seite \pageref{Bodekonf} zu finden.
 
@@ -68,7 +68,7 @@ $T2=3.3484s$\\
 \\
 $T3=10.4901s$\\
 \\
-Nun wird nach dem -135\textdegree ~Punkt auf dem Phasengang gesucht. Dies ist in Abbildung \ref{fig:PIDStep1} ersichtlich und ergibt uns folgende Frequenz: $0.2987s^{-1}$. 
+Nun wird der Frequenzgang aus der Übertragungsfunktion der Strecke \eqref{eq:ÜbertragungsfunktionStrecke} berechnet und in einem Plot aufgezeichnet (siehe Abbildung \ref{fig:PIDStep1}). Danach wird nach dem -135\textdegree ~Punkt auf dem Phasengang gesucht. Dieser ist mit der horizontalen blau gestrichelten Linie eingezeichnet und ergibt folgende Frequenz: $0.2987s^{-1}$.
 
 \begin{figure}[h]	
 \centering		
@@ -78,31 +78,31 @@ Nun wird nach dem -135\textdegree ~Punkt auf dem Phasengang gesucht. Dies ist in
 \end{figure}
 
 \newpage
-Bevor nun jedoch der offene Frequenzgang berechnet wird, muss $\beta$ bestimmt werden. Die genaue Berechnung dazu ist im Anhang, Kapitel \ref{ZellwegerBeta} auf Seite \pageref{ZellwegerBeta} ersichtlich. Nach Ausführen dieser Berechnung erhält man $\beta=0.3192$.
+Bevor der Frequenzgang des offenen Regelkreises berechnet wird, muss $\beta$ bestimmt werden. Die Berechnung dazu ist im Anhang, Kapitel \ref{ZellwegerBeta} auf Seite \pageref{ZellwegerBeta} ersichtlich. Nach Ausführen dieser Berechnung erhält man $\beta=0.3192$.
 
-Mit $\beta$ ist es einem möglich, $Tnk=10.4902s$ und $Tvk=1.0688s$ zu berechnen.
+Mit $\beta$ ist es möglich, $Tnk=10.4902s$ und $Tvk=1.0688s$ zu berechnen.
 Weiter wird noch $Tp$ bestimmt (siehe Kapitel \ref{ZellwegerMethode}, Seite \pageref{ZellwegerMethode}). In diesem Beispiel wurde $Tp$ eine Dekade kleiner als $Tvk$ gewählt, folglich ist der Wert von $Tp=0.107s$. 
 Mit diesen Werten und $Krk =1$ wird nun der offene Amplituden- und Phasengang berechnet (Abbildung \ref{fig:PIDStep2}).
 
 \begin{figure}[h]	
 \centering		
 \includegraphics[width=1.0\textwidth]{PID_Step_02.jpg}
-\caption{Frequenzgang der offenen Strecke}	
+\caption{Frequenzgang der offenen Regelstrecke}	
 \label{fig:PIDStep2}	
 \end{figure}
 
 %\newpage
-Als nächster Schritt wird wieder die Tabelle \ref{table:TabÜberschwingen} auf Seite \pageref{table:TabÜberschwingen} zu Hilfe genommen. Daraus wird das gewünschte Überschwingen ausgewählt und die entsprechende Frequenz auf dem offenen Phasengang gesucht (siehe Abbildung \ref{fig:PIDStep3}). Die gefundene Frequenz lautet: $0.1317s^{-1}$.
+Als nächster Schritt wird die Tabelle \ref{table:TabÜberschwingen} auf Seite \pageref{table:TabÜberschwingen} zu Hilfe genommen. Daraus wird das gewünschte Überschwingen ausgewählt und die entsprechende Frequenz auf dem Phasengang des offenen Regelkreises gesucht (siehe Abbildung \ref{fig:PIDStep3}). Die gefundene Frequenz lautet: $0.1317s^{-1}$.
 
 \begin{figure}[h!]	
 \centering		
 \includegraphics[width=1.0\textwidth]{PID_Step_03.jpg}
-\caption{$\omega$ bei $\phi_{st}$}	
+\caption{$\omega$ bei $\phi_{Strecke}$}	
 \label{fig:PIDStep3}	
 \end{figure}
 
 \newpage
-Zu der gefunden Frequenz liest man nun die Verstärkung von $0.3312$ heraus. Der Kehrwert davon ergibt den letzten Faktor $Krk=3.0194$. (Abbildung \ref{fig:PIDStep4})
+Zur gefundenen Frequenz liest man die Verstärkung von $0.3312$ heraus. Der Kehrwert davon ergibt den letzten Faktor $Krk=3.0194$. (Abbildung \ref{fig:PIDStep4})
 
 \begin{figure}[h!]	
 \centering		
@@ -111,18 +111,19 @@ Zu der gefunden Frequenz liest man nun die Verstärkung von $0.3312$ heraus. Der 
 \label{fig:PIDStep4}	
 \end{figure}
 
+\pagebreak
 Die Endresultate dieser Berechnung sind:
 
 $Tnk$ = 10.4902\\
 $Tvk$ = 1.0688\\
 $Krk$ = 3.0194
 
-Wie schon erwähnt sind diese Angaben alle in der Bodekonformen Darstellung. Umgewandelt in die Reglerkonforme Darstellung ergibt dies folgende Werte:
+Wie schon erwähnt, sind diese Angaben alle in der bodekonformen Darstellung. Umgewandelt in die reglerkonforme Darstellung ergibt dies folgende Werte:
 
 $Tn =11.4521$\\
 $Tv =0.8721$\\
 $Kr =3.2963$
 
-Den genauen Verlauf für die Umrechnung zur Regelkonfomren Darstellung ist im Anhang, Sektor \ref{Bodekonf}, Seite \pageref{Bodekonf} zu finden.
+Den genauen Verlauf für die Umrechnung zur reglerkonformen Darstellung ist im Anhang, Sektor \ref{Bodekonf}, Seite \pageref{Bodekonf} zu finden.
 	
 %\end{document}

@@ -51,7 +51,7 @@
 %
 %\begin{document}
 \section{Elektrotechnische Problemlösung}\label{ETProblemsolving}
-In diesem Kapitel wird das Vorgehen zur Elektrotechnischen Problemlösung genauer erläutert. Dabei wird näher auf die Grundlagen der Regelungstechnik, die Zellweger-Methode, einige Faustformeln und das Berechnen des geschlossenen Regelkreises eingegangen.
+In diesem Kapitel wird das Vorgehen zur elektrotechnischen Problemlösung genauer erläutert. Dabei wird näher auf die Grundlagen der Regelungstechnik, die Zellweger-Methode, einige Faustformeln und das Berechnen des geschlossenen Regelkreises eingegangen.
 
 \subsection{Regelungstechnische Grundlagen}\label{RegelGrundlagen}
 Ein Regelkreis besteht aus einer Strecke und einem Regler.
@@ -63,9 +63,9 @@ Ein Regelkreis besteht aus einer Strecke und einem Regler.
 \label{fig:Reglerstrecke}
 \end{figure}
 
-Die Aufgabe des Reglekreises ist, es die Regelgrösse konstant auf dem Wert der sogenannten Führungsgrösse zu halten. Bei einer Heizung wären dies beispielsweise die momentane Temperatur, die auf die gewünschte Temperatur zu regeln ist. Die Strecke wäre dabei der zu heizende Raum und der Regler die Heizung selbst.
+Die Aufgabe des Regelkreises ist, die Regelgrösse konstant auf dem Wert der Führungsgrösse zu halten. Bei einer Heizung ist dies beispielsweise die momentane Zimmer-Temperatur, die auf die gewünschte Soll-Temperatur zu regeln ist. Die Strecke ist dabei der zu heizende Raum.
 
-Um den Regelkreis beschreiben zu können braucht man zunächst die Schrittantwort der Strecke. Aus dieser kann man nun mithilfe der Wendetangentenmethode die Parameter $Ks$ (Verstärkungsfaktor), $Tu$ (Verzugszeit) und $Tg$ (Ausgleichszeit) auslesen.
+Um den Regelkreis zu beschreiben, braucht man zunächst die Schrittantwort der Strecke. Aus dieser kann man mithilfe der Wendetangentenmethode die Parameter $Ks$ (Verstärkungsfaktor), $Tu$ (Verzugszeit) und $Tg$ (Ausgleichszeit) auslesen.
 
 \begin{figure}[h]	%Quelle auf AD:T:\E1861_Unterrichte_EIT\E1861_2Ea\pro2E\Aufgabenstellung_vom_Auftraggeber\P2_FS_2015_Beispiele_Schrittantworten.pdf
 \centering
@@ -74,43 +74,50 @@ Um den Regelkreis beschreiben zu können braucht man zunächst die Schrittantwort 
 \label{fig:Wendetangente}
 \end{figure}
 
-Mithilfe dieser Werte und der Sani Methode, welche vom Auftraggeber in Form eines Matlab-Files zur Verfügung gestellt wurde, ist es einem nun möglich, die Ordnung der Strecke sowie die Zeitkonstanten $T1$ bis $Tz$ zu berechnen, wobei $Z$ die Ordnung der Strecke ist. Diese Zeitkonstanten werden schlussendlich dazu verwendet die Übertragungsfunktion $H(s)$ zu berechnen:
+Mithilfe dieser Werte und der Sani Methode, welche vom Auftraggeber in Form eines Matlab-Files zur Verfügung gestellt wurde, ist es nun möglich, die Ordnung der Strecke sowie die Zeitkonstanten $T1$ bis $T_m$ zu berechnen, wobei $m$ die Ordnung der Strecke ist. Diese Zeitkonstanten werden dazu verwendet, die Übertragungsfunktion $H(s)$ zu berechnen:
 
 \[
 s=j\cdot w
 \]
 
-\begin{equation}\label{Übertragungsfunktion}
-H(s)=\prod\limits_{i=1}^Z \frac{1}{(1+s\cdot T_{i})}
+\begin{equation}\label{eq:ÜbertragungsfunktionStrecke}
+H(s)=\prod\limits_{m=1}^Z \frac{1}{(1+s\cdot T_{m})}
 \end{equation}
 
-Für die Übertragungsfunktion eines PI/PID Reglers gilt es zu beachten, dass es zwei Darstellungsarten gibt, die Reglerkonforme, sowie die Bodekonforme. Diese sehen wie folgt aus: \\
+Für die Übertragungsfunktion eines PI/PID Reglers gilt es zu beachten, dass es zwei Darstellungsarten gibt, die reglerkonforme sowie die bodekonforme.\\
 
+Übertragungsfunktionen von I/PI/PID Reglern: \\
+
+I (Reglerkonform / Bodekonform beide gleich):
+
+\begin{equation}\label{eq:ITransmit}
+G_{R}(s) = \frac{1}{s\cdot Ti}
+\end{equation}
 
 PI Reglerkonform:
 
-\[
+\begin{equation}\label{eq:PITransmit}
 G_{R}(s) = K_{R}\left(1+\frac{1}{s\cdot Tn}\right)
-\]
+\end{equation}
 
 PI Bodekonform:
 
-\[
+\begin{equation}\label{eq:PITransmitBode}
 G_{R}(s) = K_{R}\left(\frac{1+s\cdot Tn}{s\cdot Tn}\right)
-\]
+\end{equation}
 
 PID Reglerkonform:
 
-\[
+\begin{equation}\label{eq:PIDTransmit}
 G_{R}(s) = K_{R}\left(1+\frac{1}{s\cdot Tn}+\frac{s\cdot Tv}{1+s\cdot Tp}\right)
-\]
+\end{equation}
 
 
 PID Bodekonform:
 
-\[
+\begin{equation}\label{eq:PIDTransmitBode}
 G_{R}(s) = K_{RK}\left(\frac{(1+s\cdot Tnk)(1+s\cdot Tvk)}{s\cdot Tnk(1+s\cdot Tp)}\right)
-\]
+\end{equation}
 
-Auf die Verwendung dieser Funktionen sowie deren Herleitung wird im Kapitel \ref{ZellwegerMethode}, Zellweger Methode sowie auch im Anhang \ref{Bodekonf} genauer eingegangen.
+Auf die Verwendung dieser Funktionen und deren Herleitung wird im Kapitel \ref{ZellwegerMethode}, Zellweger Methode wie auch im Anhang \ref{Bodekonf} genauer eingegangen.
 %\end{document}
