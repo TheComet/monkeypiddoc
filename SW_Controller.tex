@@ -56,13 +56,19 @@ Ist die \empth{CalculationCycle} abgeschlossen, wird mittels der Methode \empth{
 Wenn der Threadpool keine Jobs mehr hat, dann wird allen Listener mittels der Methode \empth{Model::notifySimulationComplete()} mitgeteilt, dass alle Berechnungen beendet sind.
 
 \textbf{11.} \\
-Im \empth{GraphDisplayPanel} kann mittels der Checkboxen ausgewählt werden, welche Schrittantworten visualisiert werden können, um so einen möglichst passenden provisorischen Regler zu finden. Das Anklicken der Checkboxen lösen den \emph{ActionListener} In unserem Beispiel ist dies der Graph des Reglers, welcher mit der Phasengang-Methode dimensioniert wurde.
-%Bitte mit fachlichem Teil ergänzen.
+Im \empth{GraphDisplayPanel} kann mittels der Checkboxen ausgewählt werden, welche Schrittantworten visualisiert werden können, um so einen möglichst passenden provisorischen Regler zu finden. Das Anklicken der Checkboxen löst den \emph{ActionListener} aus, die in der Klasse \emph{GraphDisplayPanel} die Methode \emph{actionPerformed} aufruft. Jenachdem ob das \emph{JCheckBox} aktiviert ist oder nicht, wird die vom \emph{Controller} gehörender Methode \emph{cbCheckAction} oder \emph{cbUncheckAction} aufgerufen.
+
+Der \emph{Controller} selektiert anhand der Methode \emph{Model::selectCalculation()} die entsprechende Berechnung aus und ruft dann entweder \emph{Model::showSelectedCalculation()} oder \emph{Model::hideSelectedCalculation} auf.
+
+Die Klasse \emph{Model} merkt sich mit einem Array von boolean-Werte welche Kurven sichtbar sind und welche Kurven unsichtbar sind, damit Kurven zwischen Simulationen ihre Sichtbarkeit behalten. Die Methoden \emph{Model::showSelectedCalculation()} und \emph{Model::hideSelectedCalculation()} ändern die entsprechende Werte im Array, und rufen dann \emph{Model::notifyShowCalculation()} oder \emph{Model::notifyHideCalculation()} auf. Diese Methoden teilen alle Listener mit, dass eine Berechnung sichtbar beziehungsweise unsichtbar gemacht werden sollte.
+
+Dies bewirkt, dass im \emph{GraphPanel} die Entsprechende Kurve im Plot unsichtbar beziehungsweise sichtbar gemacht wird.
 
 \textbf{12.} \\
-Der provisorisch ausgesuchte Regler soll nun weiter verbessert werden. Dazu wird der Regler nach der Phasengang-Methode in der \empth{JTable}-Tabelle im \empth{OutputPanel} ausgewählt und anschliessend auf den \empth{JButton} Übernehmen gedrückt, wodurch der \empth{ActionListener} mit der \empth{Controller}-Methode \empth{btAdoptAction} aktiviert wird.
-%Bitte mit fachlichem Teil ergänzen.
-
-\textbf{13.} \\
 Mittels der \empth{JSlider} können nun die Reglerparameter angepasst werden, wobei sich der Graph im \empth{GraphPanel} in Echtzeit den Einstellungen anpasst.
-%Bitte mit fachlichem Teil ergänzen.
+
+Der \emph{JSlider} löst den Listener-Callback \emph{stateChanged} in der Klasse \emph{OutputPanel} aus. Dieser ruft die vom \emph{Controller} gehörende Methode \emph{angleOfInflectionOffsetChanged()} auf, welche wiederum die Methode \emph{Model::updateZellweger()} aufruft.
+
+Das Model speichert für jede Simulation den Zellweger-\emph{CalculationCycle}-Objekt im Attribut \emph{currentZellwegerCalculationCycle} vom \emph{Model} damit es später leicht wieder neu berechnet werden kann.
+
+Mit diesem Objekt wird der neue Winkel im Phasengang dem \emph{AbstractZellweger}-Objekt mitgeteilt und die Schrittantwort wird ganz normal wie schon erklärt nochmal berechnet.
