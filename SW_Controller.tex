@@ -4,9 +4,9 @@
 %Lösung: Model und View bestimmen, welche Methoden der Controller enthalten muss.
 Der $Controller$ ist sehr schlank gehalten und ist ein Teil des Model-View-Controller-Pattern. Der Controller hat dabei mehrere Aufgaben:
 \begin{itemize}
-	\item Beim Drücken der Simulationsschaltfläche im \empth{InputPanel} werden die entsprechenden Methoden des Models aufgerufen, um die neuen Regler mit den neuen Eingabeparametern zu berechnen, die alten Simulationen zu löschen und neue Simulationen zu starten. 
-	\item Wenn der Trimm-Slider im \empth{OutputPanel} verändert wird, so wird die entsprechende Methode im Model aufgerufen. 
-	\item Wenn der Anwender eine Checkbox im \empth{GraphDisplayPanel} anklickt, wird die entsprechende Methode im Model aufgerufen, um eine Kurve ein- oder auszublenden.  
+	\item Beim Drücken der Simulationsschaltfläche im \em{InputPanel} werden die entsprechenden Methoden des Models aufgerufen, um die neuen Regler mit den neuen Eingabeparametern zu berechnen, die alten Simulationen zu löschen und neue Simulationen zu starten. 
+	\item Wenn der Trimm-Slider im \em{OutputPanel} verändert wird, so wird die entsprechende Methode im Model aufgerufen. 
+	\item Wenn der Anwender eine Checkbox im \em{GraphDisplayPanel} anklickt, wird die entsprechende Methode im Model aufgerufen, um eine Kurve ein- oder auszublenden.  
 \end{itemize}
 
 
@@ -20,55 +20,55 @@ Der $Controller$ ist sehr schlank gehalten und ist ein Teil des Model-View-Contr
 Im folgenden Abschnitt wird die Dimensionierung eines Reglers mit Easy-PID an einem Beispiel erklärt. Als Beispiel dient eine Regelstrecke mit den Kenngrössen $Tu=2$, $Tg=6$ und $Ks=1$, die parasitäre Zeitkonstante $Tp$ wird bei 10\% belassen, was der Standardeinstellung entspricht. Gewünscht ist ein PID-Regler mit einem maximalen Überschwingen von 8\%.
 
 \textbf{1.} \\
-Die Werte für $Tu$, $Tg$ und $Ks$ werden in den entsprechenden \empth{JFormattedDoubleTextField} eingegeben, für $Tp$ muss nichts eingegeben werden, da 10\% bereits die Standardeinstellung ist. Mit den beiden Dropdown-Menüs, welche mittels \empth{JComboBox} implementiert wurden, wird ausserdem der Reglertyp PID und das Überschwingen auf 8\% festgelegt.
+Die Werte für $Tu$, $Tg$ und $Ks$ werden in den entsprechenden \em{JFormattedDoubleTextField} eingegeben, für $Tp$ muss nichts eingegeben werden, da 10\% bereits die Standardeinstellung ist. Mit den beiden Dropdown-Menüs, welche mittels \em{JComboBox} implementiert wurden, wird ausserdem der Reglertyp PID und das Überschwingen auf 8\% festgelegt.
 
 \textbf{2.} \\
-Durch Drücken der Schaltfläche \empth{Simulieren} wird die Methode \empth{actionPerformed} aufgerufen, welche die Eingabeparameter in die entsprechenden Attribute speichert. Die Eingabeparameter werden im \empth{View} saniert, damit ungültige Einstellung möglichst früh erkannt werden können. Ist alles in Ordnung, wird die Methode \empth{Controller::btSimulateAction} aufgerufen. Bei nicht akzeptierten Eingabeparametern erscheint unter den Eingabefeldern ein \empth{JLabel} mit der entsprechenden Fehlermeldung. Bei akzeptierten Eingabeparametern wird die Simulation gestartet.
+Durch Drücken der Schaltfläche \em{Simulieren} wird die Methode \em{actionPerformed} aufgerufen, welche die Eingabeparameter in die entsprechenden Attribute speichert. Die Eingabeparameter werden im \em{View} saniert, damit ungültige Einstellung möglichst früh erkannt werden können. Ist alles in Ordnung, wird die Methode \em{Controller::btSimulateAction} aufgerufen. Bei nicht akzeptierten Eingabeparametern erscheint unter den Eingabefeldern ein \em{JLabel} mit der entsprechenden Fehlermeldung. Bei akzeptierten Eingabeparametern wird die Simulation gestartet.
 
 \textbf{3.} \\
-Der \empth{Controller} konfiguriert das \empth{Model}-Objekt mit den Eingabewerten mittels der Methoden \empth{Model::set\-Regulator\-Type()} - welche den Typ zu \empth{I}, \empth{PI} oder \empth{PID} setzt, \empth{Model::setPlant()} - welche ein neues \empth{Plant}-Objekt erstellt und als Attribut der Klasse \empth{Model} speichert, \empth{Model::set\-Parasitic\-Time\-ConstantFactor()} und \empth{Model::setOvershoot()}. Danach ruft sie die Methode \empth{Model::simulateAll()} auf, um die Simulation zu beginnen.
+Der \em{Controller} konfiguriert das \em{Model}-Objekt mit den Eingabewerten mittels der Methoden \em{Model::set\-Regulator\-Type()} - welche den Typ zu \em{I}, \em{PI} oder \em{PID} setzt, \em{Model::setPlant()} - welche ein neues \em{Plant}-Objekt erstellt und als Attribut der Klasse \em{Model} speichert, \em{Model::set\-Parasitic\-Time\-ConstantFactor()} und \em{Model::setOvershoot()}. Danach ruft sie die Methode \em{Model::simulateAll()} auf, um die Simulation zu beginnen.
 
 \textbf{4.} \\
-Das \empth{Model} baut sich mit Hilfe seines \empth{Plant}-Objekts, welches die vom Benutzer eingegebene Strecke beschreibt, eine Liste von \empth{CalculationCycle}-Objekten. Diese Objekte sind dazu fähig, eine gesamte Berechnung von der Reglerberechnung bis zur Schrittantwort durchzuführen. Welche Regler ausgerechnet werden ist abhängig von der Auswahl des Reglertyps, also \empth{I}, \empth{PI} oder \empth{PID}.
+Das \em{Model} baut sich mit Hilfe seines \em{Plant}-Objekts, welches die vom Benutzer eingegebene Strecke beschreibt, eine Liste von \em{CalculationCycle}-Objekten. Diese Objekte sind dazu fähig, eine gesamte Berechnung von der Reglerberechnung bis zur Schrittantwort durchzuführen. Welche Regler ausgerechnet werden ist abhängig von der Auswahl des Reglertyps, also \em{I}, \em{PI} oder \em{PID}.
 
-Es wird mittels \empth{Model::notifySimulationBegin()} allen Listener mitgeteilt, dass eine Simulation beginnt. Dies bewirkt unter anderem dass sich die verschiedene Panels auf die Resultate vorbereiten können, dies umfasst beispielsweise die Tabelle oder den Plot zu löschen.
+Es wird mittels \em{Model::notifySimulationBegin()} allen Listener mitgeteilt, dass eine Simulation beginnt. Dies bewirkt unter anderem dass sich die verschiedene Panels auf die Resultate vorbereiten können, dies umfasst beispielsweise die Tabelle oder den Plot zu löschen.
 
-Die \empth{CalculationCycle}-Klasse erbt von \empth{Runnable}. Es wird ein \empth{ThreadPool} erstellt und alle \empth{CalculationCycle}-Objekte werden parallel ausgeführt. Das Programm wartet, bis alle Berechnungen vollendet sind.
+Die \em{CalculationCycle}-Klasse erbt von \em{Runnable}. Es wird ein \em{ThreadPool} erstellt und alle \em{CalculationCycle}-Objekte werden parallel ausgeführt. Das Programm wartet, bis alle Berechnungen vollendet sind.
 
 \textbf{5.} \\
 Zu diesem Zeitpunkt teilt sich der Programmfluss in einer Unmenge kleiner Teilchen auf. Wir verfolgen nur einen Pfad, nämlich die Berechnung eines PID-Reglers mittels Zellweger Methode.
 
-Beim Instanziieren der Klasse \empth{CalculationCycle} wird ein \empth{AbstractControllerCalculator} übergeben. In diesem Fall ist das ein Objekt, dass als konkrete Klasse den \empth{ZellwegerPID} hat. Dieses Objekt wurde schon vom \empth{Model} konfiguriert und es muss nur \empth{AbstractControllerCalculator::run()} aufgerufen werden, um einen passenden Regler für die vom Benutzer definierte Strecke zu berechnen. 
+Beim Instanziieren der Klasse \em{CalculationCycle} wird ein \em{AbstractControllerCalculator} übergeben. In diesem Fall ist das ein Objekt, dass als konkrete Klasse den \em{ZellwegerPID} hat. Dieses Objekt wurde schon vom \em{Model} konfiguriert und es muss nur \em{AbstractControllerCalculator::run()} aufgerufen werden, um einen passenden Regler für die vom Benutzer definierte Strecke zu berechnen. 
 
 \textbf{6.} \\
-Die \empth{run()}-Methode führt dazu, dass die Methode \empth{ZellwegerPID::calculate()} ausgeführt wird. Der implementierte Algorithmus von Herrn Zellweger wird in dieser Methode gebraucht, um ein neues \empth{ControllerPID}-Objekt zu erstellen. Dieses Objekt beschreibt den Regler Anhand der Reglerparametern $T_n$, $T_v$, $K_r$ und $T_p$ sowie einer Übertragungsfunktion mit der Klasse \empth{TransferFunction}. Weiter berechnet das \empth{ZellwegerPID}-Objekt einen Minimal- und Maximalwert für $K_r$ aus, was später für das Approximieren des Überschwingens gebraucht wird.
+Die \em{run()}-Methode führt dazu, dass die Methode \em{ZellwegerPID::calculate()} ausgeführt wird. Der implementierte Algorithmus von Herrn Zellweger wird in dieser Methode gebraucht, um ein neues \em{ControllerPID}-Objekt zu erstellen. Dieses Objekt beschreibt den Regler Anhand der Reglerparametern $T_n$, $T_v$, $K_r$ und $T_p$ sowie einer Übertragungsfunktion mit der Klasse \em{TransferFunction}. Weiter berechnet das \em{ZellwegerPID}-Objekt einen Minimal- und Maximalwert für $K_r$ aus, was später für das Approximieren des Überschwingens gebraucht wird.
 
 \textbf{7.} \\
-Der Regler ist berechnet und kann in der \empth{CalculationCycle} mit \empth{AbstractControllerCalculator::getRegulator()} als \empth{AbstractController} geholt werden. Der Regler wird zusammen mit dem \empth{Plant}-Objekt zu einem \empth{ClosedLoop}-Objekt zusammengefügt. Das \empth{ClosedLoop}-Objekt berechnet aus der Strecke und dem Regler seine eigene \empth{TransferFunction} (Übertragungsfunktion).
+Der Regler ist berechnet und kann in der \em{CalculationCycle} mit \em{AbstractControllerCalculator::getRegulator()} als \em{AbstractController} geholt werden. Der Regler wird zusammen mit dem \em{Plant}-Objekt zu einem \em{ClosedLoop}-Objekt zusammengefügt. Das \em{ClosedLoop}-Objekt berechnet aus der Strecke und dem Regler seine eigene \em{TransferFunction} (Übertragungsfunktion).
 
 \textbf{8.} \\
-In der \empth{CalculationCycle} wird nun die Schrittantwort mit der Methode \empth{ClosedLoop::calculate\-Step\-Response()} ausgerechnet. Diese Methode Berechnet mittels Partialbruchzerlegung die Schrittantwort und misst auch gleich das maximale Überschwingen. Wenn der \empth{AbstractController} ein Minimal- und Maximalwert für $K_r$ ausgerechnet hat, was bei allen Zellweger der Fall ist, dann wird die Schrittantwort mehrmals ausgerechnet, bis das Überschwingen, welches mit der Methode \empth{ClosedLoop::getOvershoot()} geholt werden kann, mit dem vom Benutzer definierten Wert übereinstimmt.
+In der \em{CalculationCycle} wird nun die Schrittantwort mit der Methode \em{ClosedLoop::calculate\-Step\-Response()} ausgerechnet. Diese Methode Berechnet mittels Partialbruchzerlegung die Schrittantwort und misst auch gleich das maximale Überschwingen. Wenn der \em{AbstractController} ein Minimal- und Maximalwert für $K_r$ ausgerechnet hat, was bei allen Zellweger der Fall ist, dann wird die Schrittantwort mehrmals ausgerechnet, bis das Überschwingen, welches mit der Methode \em{ClosedLoop::getOvershoot()} geholt werden kann, mit dem vom Benutzer definierten Wert übereinstimmt.
 
 \textbf{9.} \\
-Ist die \empth{CalculationCycle} abgeschlossen, wird mittels der Methode \empth{CalculationCycle::notify\-Step\-Response\-Calculation\-Complete()} allen Listener mitgeteilt, dass die Berechnung einer Schrittantwort fertig ist. Dabei werden die Reglerparameter $K_r$, $T_n$, $T_v$, $T_p$ und das Überschwingen in einer Tabelle im \empth{OutputPanel} eingetragen und die Schrittantwort wird in einem 2D-Plot auf der rechten Seite des GUIs in der Klasse \empth{GraphPanel} gezeichnet.
+Ist die \em{CalculationCycle} abgeschlossen, wird mittels der Methode \em{CalculationCycle::notify\-Step\-Response\-Calculation\-Complete()} allen Listener mitgeteilt, dass die Berechnung einer Schrittantwort fertig ist. Dabei werden die Reglerparameter $K_r$, $T_n$, $T_v$, $T_p$ und das Überschwingen in einer Tabelle im \em{OutputPanel} eingetragen und die Schrittantwort wird in einem 2D-Plot auf der rechten Seite des GUIs in der Klasse \em{GraphPanel} gezeichnet.
 
 \textbf{10.} \\
-Wenn der Threadpool keine Jobs mehr hat, dann wird allen Listener mittels der Methode \empth{Model::notifySimulationComplete()} mitgeteilt, dass alle Berechnungen beendet sind.
+Wenn der Threadpool keine Jobs mehr hat, dann wird allen Listener mittels der Methode \em{Model::notifySimulationComplete()} mitgeteilt, dass alle Berechnungen beendet sind.
 
 \textbf{11.} \\
-Im \empth{GraphDisplayPanel} kann mittels der Checkboxen ausgewählt werden, welche Schrittantworten visualisiert werden können, um so einen möglichst passenden provisorischen Regler zu finden. Das Anklicken der Checkboxen löst den \emph{ActionListener} aus, die in der Klasse \emph{GraphDisplayPanel} die Methode \emph{actionPerformed} aufruft. Jenachdem ob das \emph{JCheckBox} aktiviert ist oder nicht, wird die vom \emph{Controller} gehörender Methode \emph{cbCheckAction} oder \emph{cbUncheckAction} aufgerufen.
+Im \em{GraphDisplayPanel} kann mittels der Checkboxen ausgewählt werden, welche Schrittantworten visualisiert werden können, um so einen möglichst passenden provisorischen Regler zu finden. Das Anklicken der Checkboxen löst den \em{ActionListener} aus, die in der Klasse \em{GraphDisplayPanel} die Methode \em{actionPerformed} aufruft. Jenachdem ob das \em{JCheckBox} aktiviert ist oder nicht, wird die vom \em{Controller} gehörender Methode \em{cbCheckAction} oder \em{cbUncheckAction} aufgerufen.
 
-Der \emph{Controller} selektiert anhand der Methode \emph{Model::selectCalculation()} die entsprechende Berechnung aus und ruft dann entweder \emph{Model::showSelectedCalculation()} oder \emph{Model::hideSelectedCalculation} auf.
+Der \em{Controller} selektiert anhand der Methode \em{Model::selectCalculation()} die entsprechende Berechnung aus und ruft dann entweder \em{Model::showSelectedCalculation()} oder \em{Model::hideSelectedCalculation} auf.
 
-Die Klasse \emph{Model} merkt sich mit einem Array von boolean-Werte welche Kurven sichtbar sind und welche Kurven unsichtbar sind, damit Kurven zwischen Simulationen ihre Sichtbarkeit behalten. Die Methoden \emph{Model::showSelectedCalculation()} und \emph{Model::hideSelectedCalculation()} ändern die entsprechende Werte im Array, und rufen dann \emph{Model::notifyShowCalculation()} oder \emph{Model::notifyHideCalculation()} auf. Diese Methoden teilen alle Listener mit, dass eine Berechnung sichtbar beziehungsweise unsichtbar gemacht werden sollte.
+Die Klasse \em{Model} merkt sich mit einem Array von boolean-Werte welche Kurven sichtbar sind und welche Kurven unsichtbar sind, damit Kurven zwischen Simulationen ihre Sichtbarkeit behalten. Die Methoden \em{Model::showSelectedCalculation()} und \em{Model::hideSelectedCalculation()} ändern die entsprechende Werte im Array, und rufen dann \em{Model::notifyShowCalculation()} oder \em{Model::notifyHideCalculation()} auf. Diese Methoden teilen alle Listener mit, dass eine Berechnung sichtbar beziehungsweise unsichtbar gemacht werden sollte.
 
-Dies bewirkt, dass im \emph{GraphPanel} die Entsprechende Kurve im Plot unsichtbar beziehungsweise sichtbar gemacht wird.
+Dies bewirkt, dass im \em{GraphPanel} die Entsprechende Kurve im Plot unsichtbar beziehungsweise sichtbar gemacht wird.
 
 \textbf{12.} \\
-Mittels der \empth{JSlider} können nun die Reglerparameter angepasst werden, wobei sich der Graph im \empth{GraphPanel} in Echtzeit den Einstellungen anpasst.
+Mittels der \em{JSlider} können nun die Reglerparameter angepasst werden, wobei sich der Graph im \em{GraphPanel} in Echtzeit den Einstellungen anpasst.
 
-Der \emph{JSlider} löst den Listener-Callback \emph{stateChanged} in der Klasse \emph{OutputPanel} aus. Dieser ruft die vom \emph{Controller} gehörende Methode \emph{angleOfInflectionOffsetChanged()} auf, welche wiederum die Methode \emph{Model::updateZellweger()} aufruft.
+Der \em{JSlider} löst den Listener-Callback \em{stateChanged} in der Klasse \em{OutputPanel} aus. Dieser ruft die vom \em{Controller} gehörende Methode \em{angleOfInflectionOffsetChanged()} auf, welche wiederum die Methode \em{Model::updateZellweger()} aufruft.
 
-Das Model speichert für jede Simulation den Zellweger-\emph{CalculationCycle}-Objekt im Attribut \emph{currentZellwegerCalculationCycle} vom \emph{Model} damit es später leicht wieder neu berechnet werden kann.
+Das Model speichert für jede Simulation den Zellweger-\em{CalculationCycle}-Objekt im Attribut \em{currentZellwegerCalculationCycle} vom \em{Model} damit es später leicht wieder neu berechnet werden kann.
 
-Mit diesem Objekt wird der neue Winkel im Phasengang dem \emph{AbstractZellweger}-Objekt mitgeteilt und die Schrittantwort wird ganz normal wie schon erklärt nochmal berechnet.
+Mit diesem Objekt wird der neue Winkel im Phasengang dem \em{AbstractZellweger}-Objekt mitgeteilt und die Schrittantwort wird ganz normal wie schon erklärt nochmal berechnet.
