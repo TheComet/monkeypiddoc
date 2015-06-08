@@ -18,6 +18,9 @@ Mittels Simulink und Matlab wurde der geschlossene Regelkreis simuliert.
 \subsection{Java Software}
 
 \subsubsection{Benutzeroberfläche}
+Das Java-Tool wurde jeweils nach einer Implementation eines Elementes und durch die Teammitglieder getestet. Neben gewöhnlichen Eingaben wurde versucht, die Eingabefelder mittels Sonderzeichen und speziellen Werten zu überlisten. Die Resultierenden Erkenntnisse flossen anschliessend in die Endversion des Java-Tools mit ein. 
+
+
 %Problem/Fragestellung:
 %- Wie können Probleme oder Konflikte bei der Benutzeroberfläche ausgeschlossen werden?
 %Mehrere unabhängige User testen die Software.
@@ -99,7 +102,7 @@ Ein Nachteil der IFFT Methode ist, dass ihre Komplexität quadratisch skaliert. D
 	\label{fig:ifft_vs_pbz_8192}
 \end{figure}
 
-In Realität braucht die Partialbruchzerlegungsmethode aber viel weniger als 2048 Punkte. Je nachdem was für eine Strecke vorliegt, ändern sich die Anzahl Punkte. Mit einer Strecke von $T_u=2$ und $T_g=6$ wurden in der Figur \ref{fig:pbz-single-vs-multi} nur 145 Punkte gebraucht, was zu einer Berechnungszeit von etwa 8ms führte. Die Berechnung kann mittels Multithreading weiter beschleunigt werden. In diesem Beispiel konnte sie auf weniger als 1ms reduziert werden, wie in Figur \ref{fig:pbz-single-vs-multi} auch zu sehen ist. Man beachte, dass nur 7 Berechnungen parallel liefen. Das heisst, es ist nicht auszuschliessen, dass Multithreading noch schneller sein könnte, wenn mehr Berechnungen vorhanden wären.
+In der Realität braucht die Partialbruchzerlegungsmethode aber viel weniger als 2048 Punkte. Je nachdem was für eine Strecke vorliegt, ändern sich die Anzahl Punkte. Mit einer Strecke von $T_u=2$ und $T_g=6$ wurden in der Figur \ref{fig:pbz-single-vs-multi} nur 145 Punkte gebraucht, was zu einer Berechnungszeit von etwa 8ms führte. Die Berechnung kann mittels Multithreading weiter beschleunigt werden. In diesem Beispiel konnte sie auf weniger als 1ms reduziert werden, wie in Figur \ref{fig:pbz-single-vs-multi} auch zu sehen ist. Man beachte, dass nur 7 Berechnungen parallel liefen. Das heisst, es ist nicht auszuschliessen, dass Multithreading noch schneller sein könnte, wenn mehr Berechnungen vorhanden wären.
 
 \begin{figure}[h]
 	\centering
@@ -109,7 +112,7 @@ In Realität braucht die Partialbruchzerlegungsmethode aber viel weniger als 2048
 \end{figure}
 
 
-\subsubsection{JUnit Tests}
+\subsubsection{JUnit-Tests}
 
 \textit{Unit Testing} ist in der Softwareentwicklung ein extrem hilfreiches Verfahren, das den Programmierer erlaubt, individuelle Methoden oder Funktionen isoliert vom Rest des Programms zu testen. Dabei kann für jede Methode ein \textit{Test Case} erstellt werden, indem ein Eingabewert und eine Erwartung deklariert werden kann. Das \textit{Unit Testing Framework} - zum Beispiel \textit{JUnit} - führt alle \textit{Test Cases} aus und überprüft dass die Erwarteten Ausgaben den wirklichen Ausgaben entsprechen. Ist dies nicht der Fall, wird ein Fehler generiert.
 
