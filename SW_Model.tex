@@ -11,29 +11,29 @@ Im folgenden werden wiederholt Ausschnitte des Klassendiagramms gezeigt, das kom
 
 %\subsection{Beschreibung eines Benutzungsfalls (Use-Case)}
 %
-%Unsere Reise beginnt in der Klasse \em{InputPanel} - ein Attribut der Klasse \em{View} - mit drei Eingabefelder, die den Benutzer erlauben, die Strecke anhand der drei Parameter $T_u$, $T_g$ und $K_r$ zu beschreiben.
+%Unsere Reise beginnt in der Klasse \textit{InputPanel} - ein Attribut der Klasse \textit{View} - mit drei Eingabefelder, die den Benutzer erlauben, die Strecke anhand der drei Parameter $T_u$, $T_g$ und $K_r$ zu beschreiben.
 %
-%Ist die Strecke beschrieben, so kann der Benutzer mit einer Drop-Down-Menu den gewünschten Regler selektieren. Zur Auswahl stehen \em{I}, \em{PI}, und \em{PID} zur Verfügung.
+%Ist die Strecke beschrieben, so kann der Benutzer mit einer Drop-Down-Menu den gewünschten Regler selektieren. Zur Auswahl stehen \textit{I}, \textit{PI}, und \textit{PID} zur Verfügung.
 %
 %Jenachdem welchen Regler der Benutzer auswählt, kann er weiter das gewünschte Überschwingen in Prozent eingeben und eine Parasitäre Zeitkonstantenfaktor definieren, welches zur Berechnung von $T_p$ gebraucht wird.
 %
 %Ist alles in Ordnung, so klickt der Benutzer auf den Button ``Simulieren'' und die erste Simulation wird initiiert.
 %
-%Die \em{View} nimmt die Eingabewerte des Benutzers und saniert sie, damit ungültige Einstellungen möglichst früh erkannt werden. Ist alles saniert, so werden die Werte an der Klasse \em{Controller} mittels der Methode \em{Controller::btSimulateAction()} übergeben.
+%Die \textit{View} nimmt die Eingabewerte des Benutzers und saniert sie, damit ungültige Einstellungen möglichst früh erkannt werden. Ist alles saniert, so werden die Werte an der Klasse \textit{Controller} mittels der Methode \textit{Controller::btSimulateAction()} übergeben.
 %
-%Der \em{Controller} konfiguriert das \em{Model}-Objekt mit den Eingabewerten mittels der Methoden \em{Model::setRegulatorType()} - welche den Typ zu \em{I}, \em{PI} oder \em{PID} setzt - \em{Model::setPlant()} - welche einen neuen \em{Plant}-Objekt erstellt und als Attribut der Klasse \em{Model} speichert - \em{Model::setParasiticTimeConstantFactor()}, und \em{Model::setOvershoot()}. Danach ruft sie die Methode \em{Model::simulateAll()} auf, um die Simulation zu beginnen.
+%Der \textit{Controller} konfiguriert das \textit{Model}-Objekt mit den Eingabewerten mittels der Methoden \textit{Model::setRegulatorType()} - welche den Typ zu \textit{I}, \textit{PI} oder \textit{PID} setzt - \textit{Model::setPlant()} - welche einen neuen \textit{Plant}-Objekt erstellt und als Attribut der Klasse \textit{Model} speichert - \textit{Model::setParasiticTimeConstantFactor()}, und \textit{Model::setOvershoot()}. Danach ruft sie die Methode \textit{Model::simulateAll()} auf, um die Simulation zu beginnen.
 %
-%Das \em{Model} baut sich zuerst mit Hilfe seiner \em{Plant}-Objekt - welche die vom Benutzer eingegebene Strecke beschreibt - eine Liste von \em{CalculationCycle}-Objekten. Diese Objekte sind dazu fähig, eine gesamte Berechnung von Reglerberechnung bis zur Schrittantwort durchzuführen. Welche Regler ausgerechnet werden ist abhängig vom Auswahl des Reglertyps, also \em{I}, \em{PI} oder \em{PID}.
+%Das \textit{Model} baut sich zuerst mit Hilfe seiner \textit{Plant}-Objekt - welche die vom Benutzer eingegebene Strecke beschreibt - eine Liste von \textit{CalculationCycle}-Objekten. Diese Objekte sind dazu fähig, eine gesamte Berechnung von Reglerberechnung bis zur Schrittantwort durchzuführen. Welche Regler ausgerechnet werden ist abhängig vom Auswahl des Reglertyps, also \textit{I}, \textit{PI} oder \textit{PID}.
 %
-%Es wird mittels \em{Model::notifySimulationBegin()} an alle Listener mitgeteilt, dass eine Simulation beginnt. Dies bewirkt unter anderem dass sich die verschiedene Panels auf die Resultate vorbereiten können, wie zum beispiel die Tabelle löschen oder den Plot löschen.
+%Es wird mittels \textit{Model::notifySimulationBegin()} an alle Listener mitgeteilt, dass eine Simulation beginnt. Dies bewirkt unter anderem dass sich die verschiedene Panels auf die Resultate vorbereiten können, wie zum beispiel die Tabelle löschen oder den Plot löschen.
 %
-%Die \em{CalculationCycle}-Klasse erbt von \em{Runnable}. Es wird ein \em{ThreadPool} erstellt und alle \em{CalculationCycle}-Objekte werden parallel ausgeführt. Das Programm wartet, bis alle Berechnungen vollendet sind.
+%Die \textit{CalculationCycle}-Klasse erbt von \textit{Runnable}. Es wird ein \textit{ThreadPool} erstellt und alle \textit{CalculationCycle}-Objekte werden parallel ausgeführt. Das Programm wartet, bis alle Berechnungen vollendet sind.
 %
 %Zu diesem Zeitpunkt teilt sich der Programmfluss in einer Unmenge kleiner Teilchen auf. Wir verfolgen nur einen Pfad, nämlich die Berechnung eines PID-Reglers mittels Zellweger Methode.
 %
-%Beim Instanziieren der Klasse \em{CalculationCycle} wird ein \em{AbstractControllerCalculator} übergeben - in diesem Fall ein Objekt, dass als Konkrete Klasse den \em{ZellwegerPID} hat. Dieses Objekt wurde schon vom \em{Model} konfiguriert, und es muss nur \em{AbstractControllerCalculator::run()} aufgerufen werden, um einen passenden Regler für die vom Benutzer definierte Strecke zu berechnen. 
+%Beim Instanziieren der Klasse \textit{CalculationCycle} wird ein \textit{AbstractControllerCalculator} übergeben - in diesem Fall ein Objekt, dass als Konkrete Klasse den \textit{ZellwegerPID} hat. Dieses Objekt wurde schon vom \textit{Model} konfiguriert, und es muss nur \textit{AbstractControllerCalculator::run()} aufgerufen werden, um einen passenden Regler für die vom Benutzer definierte Strecke zu berechnen. 
 %
-%Die \em{run()}-Methode führt dazu, dass die Methode \em{ZellwegerPID::calculate()} ausgeführt wird. Der implementierte Algorithmus von Herrn Zellweger wird in dieser Methode gebraucht, um ein neues \em{ControllerPID}-Objekt zu erstellen.
+%Die \textit{run()}-Methode führt dazu, dass die Methode \textit{ZellwegerPID::calculate()} ausgeführt wird. Der implementierte Algorithmus von Herrn Zellweger wird in dieser Methode gebraucht, um ein neues \textit{ControllerPID}-Objekt zu erstellen.
 
 \subsection{Model}
 
@@ -80,15 +80,15 @@ Die \textit{Model}-Klasse hat viele Methoden, die das Einstellen einer \textit{C
 Die Methode \textit{Model::setPlant()} erlaubt es dem Benutzer, die Strecke mit den
 Parametern $T_u$, $T_g$, und $K_r$ zu definieren.
 
-%Als nächstes kann der Reglertyp mit der Methode \em{Model::setRegulatorType()}
+%Als nächstes kann der Reglertyp mit der Methode \textit{Model::setRegulatorType()}
 %ausgewählt werden. Dabei kann entweder $I$, $PI$, oder $PID$ eingestellt werden.
 %Insgesammt unterstützt das Programm 15 verschiedene Methoden, einen Regler zu berechnen.
-%Mit \em{Model::setRegulatorType()} wird bei der Simulation die Liste von
+%Mit \textit{Model::setRegulatorType()} wird bei der Simulation die Liste von
 %Berechnungsarten nach dem spezifizierten Typ gefiltert, und es entstehen als Resultat nur
 %Schrittantworten, die mit dem ausgewählten Typ übereinstimmen.
 %
 %Das bevorzugte Überschwingen kann in Prozent mit der Methode
-%\em{Model::setOverswing()} angegeben werden. Dabei wird bei den Zellweger-Methoden
+%\textit{Model::setOverswing()} angegeben werden. Dabei wird bei den Zellweger-Methoden
 %der Parameter $K_r$ iterativ angepasst, bis das Überschwingen mit dem angegebenen Wert
 %übereinstimmt. Die Faustformeln werden dabei nicht beeinflusst.
 
