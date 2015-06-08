@@ -37,7 +37,7 @@ Im folgenden werden wiederholt Ausschnitte des Klassendiagramms gezeigt, das kom
 
 \subsection{Model}
 
-Das \em{Model} ist das Herzstück sämtlicher Berechnungen. Dazu führt es folgende Funktionen aus:
+Das \textit{Model} ist das Herzstück sämtlicher Berechnungen. Dazu führt es folgende Funktionen aus:
 
 \begin{itemize}
 	\item Die Koordination der unabhängigen und parallel verlaufenden Berechnungen der Reglertypen und deren Schrittantworten.
@@ -60,24 +60,24 @@ Das \em{Model} ist das Herzstück sämtlicher Berechnungen. Dazu führt es folgende
 \newpage
 Als erstes wird die zu Grunde liegende Terminologie erläutert:
 
-Unter einer \em{Calculation} versteht man den Prozess, einen Regler zu berechnen, einen geschlossenen Regelkreis zu erstellen und davon die Schrittantwort zu berechnen. Es gibt meistens mehrere \em{Calculations} für jede \em{Simulation}. Eine \em{Calculation} wird von der inneren Klasse \em{CalculationCycle} implementiert.
+Unter einer \textit{Calculation} versteht man den Prozess, einen Regler zu berechnen, einen geschlossenen Regelkreis zu erstellen und davon die Schrittantwort zu berechnen. Es gibt meistens mehrere \textit{Calculations} für jede \textit{Simulation}. Eine \textit{Calculation} wird von der inneren Klasse \textit{CalculationCycle} implementiert.
 
-Eine \em{Simulation} beinhaltet mehrere \em{Calculations} (nämlich genau soviele, wie es Reglertypen hat). Unter \em{Simulation} versteht man den Prozess, alle zu den entsprechenden Parametern gehörenden \em{Calculations} durchzuführen. Da die \em{Calculations} rechenintensiv, aber von einander unabhängig sind, implementiert die Klasse \em{CalculationCycle}
-das Interface \em{Runnable}, damit die Berechnungen mittels einem Thread-Pool parallel verlaufen können. Eine \em{Simulation} wird direkt von der \em{Model}-Klasse übernommen.
+Eine \textit{Simulation} beinhaltet mehrere \textit{Calculations} (nämlich genau soviele, wie es Reglertypen hat). Unter \textit{Simulation} versteht man den Prozess, alle zu den entsprechenden Parametern gehörenden \textit{Calculations} durchzuführen. Da die \textit{Calculations} rechenintensiv, aber von einander unabhängig sind, implementiert die Klasse \textit{CalculationCycle}
+das Interface \textit{Runnable}, damit die Berechnungen mittels einem Thread-Pool parallel verlaufen können. Eine \textit{Simulation} wird direkt von der \textit{Model}-Klasse übernommen.
 
-Der Prozess, die Schrittantwort eines geschlossenen Regelkreises zu berechnen, fängt mit der Erstellung eines \em{Plant}-Objektes an, welches die zu regelnde Strecke beschreibt. Es gibt sehr viele Möglichkeiten und Verfahren, einen passenden Regler für die Strecke
-zu berechnen, was auch von der komplexen Vererbungshierarchie der verschiedenen \em{AbstractControllerCalculator}-Klassen reflektiert wird. Was zwischen den Rechner-Klassen gemeinsam bleibt, ist, dass sie als Eingabe ein \em{Plant}-Objekt entgegennehmen und als Ausgabe ein \em{Controller}-Objekt herausgeben. Es kann zum Beispiel mit Hilfe der \em{ZellwegerPID}-Klasse ein PID \em{Controller}-Objekt mittels der Zellweger Methodik erstellt werden. Mit dem \em{Controller}-Objekt kann zusammen mit dem \em{Plant}-Objekt ein geschlossener Regelkreis mit der Klasse \em{ClosedLoop} erstellt werden. Diese Klasse erlaubt das Berechnen einer Schrittantwort. Somit ist der Ablauf einer \em{Calculation} beschrieben.
+Der Prozess, die Schrittantwort eines geschlossenen Regelkreises zu berechnen, fängt mit der Erstellung eines \textit{Plant}-Objektes an, welches die zu regelnde Strecke beschreibt. Es gibt sehr viele Möglichkeiten und Verfahren, einen passenden Regler für die Strecke
+zu berechnen, was auch von der komplexen Vererbungshierarchie der verschiedenen \textit{AbstractControllerCalculator}-Klassen reflektiert wird. Was zwischen den Rechner-Klassen gemeinsam bleibt, ist, dass sie als Eingabe ein \textit{Plant}-Objekt entgegennehmen und als Ausgabe ein \textit{Controller}-Objekt herausgeben. Es kann zum Beispiel mit Hilfe der \textit{ZellwegerPID}-Klasse ein PID \textit{Controller}-Objekt mittels der Zellweger Methodik erstellt werden. Mit dem \textit{Controller}-Objekt kann zusammen mit dem \textit{Plant}-Objekt ein geschlossener Regelkreis mit der Klasse \textit{ClosedLoop} erstellt werden. Diese Klasse erlaubt das Berechnen einer Schrittantwort. Somit ist der Ablauf einer \textit{Calculation} beschrieben.
 
 
-Die \em{Model}-Klasse hat viele Methoden, die das Einstellen einer \em{Calculation} beziehungsweise einer \em{Simulation} steuern kann. Die wichtigsten Methoden sind folgend aufgezählt:
+Die \textit{Model}-Klasse hat viele Methoden, die das Einstellen einer \textit{Calculation} beziehungsweise einer \textit{Simulation} steuern kann. Die wichtigsten Methoden sind folgend aufgezählt:
 
 \begin{itemize}
-	\item \em{Model::setPlant()}: Erlaubt es dem Benutzer, die Strecke mit den Parametern $T_u$, $T_g$ und $K_r$ zu definieren.
-	\item \em{Model::setRegulatorType()}: Mit dieser Methode kann der Reglertyp ausgewählt werden. Dabei kann zwischen $I$, $PI$ und $PID$ ausgewählt werden. Insgesamt unterstützt "`Easy-PID"' 15 Varianten, einen Regler zu berechnen. Diese Methode filtert dabei die Varianten, so dass nur die Regler berechnet werden, die mit dem ausgewählten Reglertyp übereinstimmen.
-	\item \em{Model::setOverswing}: Erlaubt es dem Benutzer, das gewünschte Überschwingen in Prozent einzugeben. Dabei wird bei der Zellweger-Methode der Parameter $K_r$ iterativ angepasst, bis das Überschwingen mit dem angegebenen Wert übereinstimmt. Die Faustformeln werden von dieser Methode nicht beeinflusst.
+	\item \textit{Model::setPlant()}: Erlaubt es dem Benutzer, die Strecke mit den Parametern $T_u$, $T_g$ und $K_r$ zu definieren.
+	\item \textit{Model::setRegulatorType()}: Mit dieser Methode kann der Reglertyp ausgewählt werden. Dabei kann zwischen $I$, $PI$ und $PID$ ausgewählt werden. Insgesamt unterstützt "`Easy-PID"' 15 Varianten, einen Regler zu berechnen. Diese Methode filtert dabei die Varianten, so dass nur die Regler berechnet werden, die mit dem ausgewählten Reglertyp übereinstimmen.
+	\item \textit{Model::setOverswing}: Erlaubt es dem Benutzer, das gewünschte Überschwingen in Prozent einzugeben. Dabei wird bei der Zellweger-Methode der Parameter $K_r$ iterativ angepasst, bis das Überschwingen mit dem angegebenen Wert übereinstimmt. Die Faustformeln werden von dieser Methode nicht beeinflusst.
 \end{itemize}
 
-Die Methode \em{Model::setPlant()} erlaubt es dem Benutzer, die Strecke mit den
+Die Methode \textit{Model::setPlant()} erlaubt es dem Benutzer, die Strecke mit den
 Parametern $T_u$, $T_g$, und $K_r$ zu definieren.
 
 %Als nächstes kann der Reglertyp mit der Methode \em{Model::setRegulatorType()}
@@ -98,8 +98,8 @@ Ausserdem kann die parasitäre Zeitkonstante angegeben werden. Die Zellweger-Regl
 
 \subsubsection{Regelstrecke}
 
-Eine Regelstrecke, im Programm vom Englischen als \em{Plant} benannt, beschreibt die zu regelnde Strecke anhand einer \em{TransferFunction} (Übertragungsfunktion), einer Liste von \em{timeConstants} (Zeitkonstanten) und natürlich anhand der Parameter
-$T_u$, $T_g$ und $K_r$. Bei der Instanzierung eines \em{Plant}-Objektes werden die drei Parameter zusammen mit einer Instanz der Klasse \em{SaniCurves} übergeben.
+Eine Regelstrecke, im Programm vom Englischen als \textit{Plant} benannt, beschreibt die zu regelnde Strecke anhand einer \textit{TransferFunction} (Übertragungsfunktion), einer Liste von \textit{timeConstants} (Zeitkonstanten) und natürlich anhand der Parameter
+$T_u$, $T_g$ und $K_r$. Bei der Instanzierung eines \textit{Plant}-Objektes werden die drei Parameter zusammen mit einer Instanz der Klasse \textit{SaniCurves} übergeben.
 
 \begin{figure}[h]
 	\centering
@@ -109,17 +109,17 @@ $T_u$, $T_g$ und $K_r$. Bei der Instanzierung eines \em{Plant}-Objektes werden d
 \end{figure}
 
 
-Die Sani-Kurven sind die Grundlage zur Berechnung der \em{TransferFunction} und die \em{TransferFunction} ist die Grundlage zur späteren Berechnung der Schrittantwort.
+Die Sani-Kurven sind die Grundlage zur Berechnung der \textit{TransferFunction} und die \textit{TransferFunction} ist die Grundlage zur späteren Berechnung der Schrittantwort.
 
 Die Sani-Kurven werden nicht vom Programm selbst berechnet, sondern werden zu Programmbeginn aus einer Text-Datei importiert, welche wiederum von Matlab exportiert wurde. Da die Kurven als diskrete Punkte gespeichert sind, werden sie beim Importieren in Java kubisch
-interpoliert, um eine höhere Auflösung zu ermöglichen. Das Interpolieren erfolgt mittels der \em{SplineNAK}-Klasse, welche von C in Java übersetzt wurde. (http://www.pcs.cnu.edu/~bbradie/cpp/interp.C). \\
+interpoliert, um eine höhere Auflösung zu ermöglichen. Das Interpolieren erfolgt mittels der \textit{SplineNAK}-Klasse, welche von C in Java übersetzt wurde. (http://www.pcs.cnu.edu/~bbradie/cpp/interp.C). \\
 Da diese Interpolationsmethode mit der in Matlab verwendeten übereinstimmt, wird ein stabiler Benchmark für Tests ermöglicht.
 %Die Interpolationsmethode ist die gleiche der in Matlab verwendet wird, was uns ein
 %stabiler Benchmark fürs Testen ermöblicht.
 
-Das \em{SaniCurves}-Objekt wird nur einmal im \em{Model} erstellt, um die Festplattenzugriffszeit zu minimieren. Das \em{Model}-Objekt hat zu jedem Zeitpunkt eine Referenz auf den aktuellen \em{Plant}.
+Das \textit{SaniCurves}-Objekt wird nur einmal im \textit{Model} erstellt, um die Festplattenzugriffszeit zu minimieren. Das \textit{Model}-Objekt hat zu jedem Zeitpunkt eine Referenz auf den aktuellen \textit{Plant}.
 
-Jedes Mal, wenn sich mindestens einer der drei Parameter $T_u$, $T_g$ oder $K_r$ im \em{Plant}-Objekt ändert, sei es durch eine Instanzierung oder durch Aufrufen der Methode \em{Plant::setParameters()}, werden mittels \em{SaniCurves} die Zeitkonstanten
+Jedes Mal, wenn sich mindestens einer der drei Parameter $T_u$, $T_g$ oder $K_r$ im \textit{Plant}-Objekt ändert, sei es durch eine Instanzierung oder durch Aufrufen der Methode \textit{Plant::setParameters()}, werden mittels \textit{SaniCurves} die Zeitkonstanten
 der Strecke und die Übertragungsfunktion neu berechnet.
 
 %Problem/Fragestellung:
@@ -131,11 +131,11 @@ der Strecke und die Übertragungsfunktion neu berechnet.
 
 \subsubsection{Regler}
 
-Der Regler, im Programm vom Englischen als \em{Controller} benannt, beschreibt den Regler der Strecke anhand einer \em{TransferFunction} (Übertragungsfunktion).
+Der Regler, im Programm vom Englischen als \textit{Controller} benannt, beschreibt den Regler der Strecke anhand einer \textit{TransferFunction} (Übertragungsfunktion).
 
 Nicht alle Regler haben gemeinsame Parameter. Bei den verschiedenen Reglertypen sind die Parameter anders benannt oder gar nicht vorhanden. Beispielsweise hat der PI-Regler die Parameter $T_u$ und $T_g$, aber es fehlen die PID-Parameter $T_v$ und $T_p$. Ausserdem wird abhängig vom Reglertyp die Übertragungsfunktion anders berechnet. Es gibt aber auch Gemeinsamkeiten, wie der Name oder die Farbe des Reglers und die Tatsache, dass die Parameter in einer Tabelle eingefügt werden müssen. Für den Rest des Programms ist ausserdem nicht ersichtlich, um was für einen Reglertyp es sich handelt. Für die Schrittantwort wird lediglich die Übertragungsfunktion verwendet.
 
-Aus diesen Gründen arbeiten wir hier mit Vererbung. Die Klassen \em{ControllerI}, \em{ControllerPI} und \em{ControllerPID} implementieren jeweils die Details der entsprechenden Reglertypen. Die Superklasse \em{AbstractController} stellt eine gemeinsame Schnittstelle zur Verfügung.
+Aus diesen Gründen arbeiten wir hier mit Vererbung. Die Klassen \textit{ControllerI}, \textit{ControllerPI} und \textit{ControllerPID} implementieren jeweils die Details der entsprechenden Reglertypen. Die Superklasse \textit{AbstractController} stellt eine gemeinsame Schnittstelle zur Verfügung.
 
 \begin{figure}[h]
 	\centering
@@ -145,13 +145,13 @@ Aus diesen Gründen arbeiten wir hier mit Vererbung. Die Klassen \em{ControllerI}
 \end{figure}
 
 
-Immer, wenn sich die Reglerparameter ändern, also dann wenn der Regler instanziert wird, wird seine Übertragungsfunktion berechnet. Diese ist mittels der Methode \em{AbstractController::getTransferFunction()} abrufbar.
+Immer, wenn sich die Reglerparameter ändern, also dann wenn der Regler instanziert wird, wird seine Übertragungsfunktion berechnet. Diese ist mittels der Methode \textit{AbstractController::getTransferFunction()} abrufbar.
 
-Jeder Regler definiert eine Farbe und einen Namen für den Plot. Auf diese Informationen kann mittels der Methoden \em{AbstractController::getName()} und \em{AbstractController::getColor()} zugegriffen werden.
+Jeder Regler definiert eine Farbe und einen Namen für den Plot. Auf diese Informationen kann mittels der Methoden \textit{AbstractController::getName()} und \textit{AbstractController::getColor()} zugegriffen werden.
 
-Die erbenden Klassen implementieren die Methode \em{getTableRowStrings()}, welche erlaubt, die Reglerparameter über die Superklasse in die Tabelle zu einzufügen ohne zu wissen, um was für einen Reglertypen es sich handelt.
+Die erbenden Klassen implementieren die Methode \textit{getTableRowStrings()}, welche erlaubt, die Reglerparameter über die Superklasse in die Tabelle zu einzufügen ohne zu wissen, um was für einen Reglertypen es sich handelt.
 
-Wurde der Regler mittels einer Zellwegermethode berechnet, kann ein Fenster für den Minimal- und den Maximalwert des Parameters $K_r$ über die Methoden \em{Abstract\-Controller::get\-Min\-Kr()} und \em{AbstractController::getMaxKr()} geholt werden. Dieses Fenster wird für das iterative Approximieren des Überschwingens verwendet. Alle anderen Berechnungsmethoden, also die Faustformeln, berechnen diese Fenster nicht.
+Wurde der Regler mittels einer Zellwegermethode berechnet, kann ein Fenster für den Minimal- und den Maximalwert des Parameters $K_r$ über die Methoden \textit{Abstract\-Controller::get\-Min\-Kr()} und \textit{AbstractController::getMaxKr()} geholt werden. Dieses Fenster wird für das iterative Approximieren des Überschwingens verwendet. Alle anderen Berechnungsmethoden, also die Faustformeln, berechnen diese Fenster nicht.
 
 
 
@@ -166,7 +166,7 @@ Wurde der Regler mittels einer Zellwegermethode berechnet, kann ein Fenster für 
 
 \subsubsection{Reglerberechung}
 
-Die Reglerberechnung ist hierarchisch und technisch das komplizierteste Teilstück des Programms. Es gibt insgesamt 15 verschiedene Klassen, die auf 15 verschiedene Arten einen passenden Regler für eine Strecke berechnen können. Alle erben von der Klasse \em{AbstractControllerCalculator}.
+Die Reglerberechnung ist hierarchisch und technisch das komplizierteste Teilstück des Programms. Es gibt insgesamt 15 verschiedene Klassen, die auf 15 verschiedene Arten einen passenden Regler für eine Strecke berechnen können. Alle erben von der Klasse \textit{AbstractControllerCalculator}.
 
 \begin{figure}[h]
 	\centering
@@ -176,8 +176,8 @@ Die Reglerberechnung ist hierarchisch und technisch das komplizierteste Teilstüc
 \end{figure}
 
 
-Grundlegend kann ein neues \em{ControllerCalculator}-Objekt mit einem \em{Plant}-Objekt (die Strecke) instanziert werden, es kann
-\em{AbstractControllerCalculator::run()} aufgerufen werden, und es kann mittels der Methode \em{AbstractControllerCalculator::getController()} der resultierende Regler als \em{AbstractController} geholt werden.
+Grundlegend kann ein neues \textit{ControllerCalculator}-Objekt mit einem \textit{Plant}-Objekt (die Strecke) instanziert werden, es kann
+\textit{AbstractControllerCalculator::run()} aufgerufen werden, und es kann mittels der Methode \textit{AbstractControllerCalculator::getController()} der resultierende Regler als \textit{AbstractController} geholt werden.
 
 Wie der Regler berechnet wird und welchem Typ der Regler angehört, ist dabei durch die Vererbung abstrahiert.
 
@@ -185,7 +185,7 @@ Wie der Regler berechnet wird und welchem Typ der Regler angehört, ist dabei dur
 
 \subsubsection{Regelkreis}
 
-Mit der Klasse \em{ClosedLoop} kann mit einem \em{Plant}-Objekt und einem \em{AbstractController}-Objekt ein geschlossener Regelkreis erstellt werden. Auch der \em{ClosedLoop} hat eine Übertragungsfunktion (ein \em{TransferFunction}-Objekt), welche aus den Übertragungsfunktionen der Strecke und des Reglers berechnet wird.
+Mit der Klasse \textit{ClosedLoop} kann mit einem \textit{Plant}-Objekt und einem \textit{AbstractController}-Objekt ein geschlossener Regelkreis erstellt werden. Auch der \textit{ClosedLoop} hat eine Übertragungsfunktion (ein \textit{TransferFunction}-Objekt), welche aus den Übertragungsfunktionen der Strecke und des Reglers berechnet wird.
 
 \begin{figure}[h]
 	\centering
@@ -195,11 +195,11 @@ Mit der Klasse \em{ClosedLoop} kann mit einem \em{Plant}-Objekt und einem \em{Ab
 \end{figure}
 
 
-Immer wenn sich das \em{Plant}-Objekt oder das \em{AbstractController}-Objekt ändern, sei es durch eine Instanzierung oder durch Aufrufen der Methode \em{ClosedLoop::setPlantAndController()}, wird aus den beiden Übertragungsfunktionen des \em{Plant}-Objektes und des \em{AbstractController}-Objektes die Übertragungsfunktion des geschlossenen Regelkreises berechnet.
+Immer wenn sich das \textit{Plant}-Objekt oder das \textit{AbstractController}-Objekt ändern, sei es durch eine Instanzierung oder durch Aufrufen der Methode \em{ClosedLoop::setPlantAndController()}, wird aus den beiden Übertragungsfunktionen des \textit{Plant}-Objektes und des \textit{AbstractController}-Objektes die Übertragungsfunktion des geschlossenen Regelkreises berechnet.
 
-Durch Aufrufen der Methode \em{ClosedLoop::calculateStepResponse()} wird die Sprungantwort mittels der Residuenmethode berechnet. Die resultierende Schrittantwort kann mit der Methode \em{ClosedLoop::getStepResponse()} als \em{XYSeries} für JFreeChart geholt werden. Die Residuenmethode wurde gewählt, da sie robuster und schneller ist als die Variante mit IFFT. Ein Vergleich dazu ist im Abschnitt Validierung unter \ref{residuenvsifft} aufgeführt.
+Durch Aufrufen der Methode \textit{ClosedLoop::calculateStepResponse()} wird die Sprungantwort mittels der Residuenmethode berechnet. Die resultierende Schrittantwort kann mit der Methode \textit{ClosedLoop::getStepResponse()} als \textit{XYSeries} für JFreeChart geholt werden. Die Residuenmethode wurde gewählt, da sie robuster und schneller ist als die Variante mit IFFT. Ein Vergleich dazu ist im Abschnitt Validierung unter \ref{residuenvsifft} aufgeführt.
 
-Weiter wird bei der Berechnung der Sprungantwort das maximale Überschwingen gemessen. Dieser Wert kann mit der Methode \em{ClosedLoop::getOverswing()} geholt werden.
+Weiter wird bei der Berechnung der Sprungantwort das maximale Überschwingen gemessen. Dieser Wert kann mit der Methode \textit{ClosedLoop::getOverswing()} geholt werden.
 
 
 
@@ -207,7 +207,7 @@ Weiter wird bei der Berechnung der Sprungantwort das maximale Überschwingen geme
 
 Die Resultate der Berechnungen sind die Reglerparameter $T_n$, $T_v$ und $K_r$, die parasitäre Zeitkonstante $T_p$, das Überschwingen, der Name der verwendeten Methode und die Schrittantwort. 
 
-Die Schrittantworten werden mit JFreeChart geplottet und die restlichen Parameter können mit der Methode \em{AbstractController::getTableRowStrings()} als String-Array geholt werden und werden im GUI in eine Tabelle eingefügt.
+Die Schrittantworten werden mit JFreeChart geplottet und die restlichen Parameter können mit der Methode \textit{AbstractController::getTableRowStrings()} als String-Array geholt werden und werden im GUI in eine Tabelle eingefügt.
 
 %Problem/Fragestellung:
 %- Was wird berechnet?
