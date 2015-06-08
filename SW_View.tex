@@ -2,7 +2,7 @@
 
 
 \subsection{View}
-Die Klasse \textit{View} und ihre Unterklassen sind zuständig für die Darstellung der Benutzeroberfläche. Am oberen Fensterrand befindet sich die \textit{MenuBar}, welche sich über die gesamte Breite erstreckt. Sie enthält Einstellungsmöglichkeiten und weiterführende Informationen. Auf der linken Seite befinden sich zwei Panels für die Ein- und Ausgabe. Im \textit{InputPanel} können die Eingabeparameter eingetragen, der gewünschte Regler und das Überschwingen gewählt und die Simulation mit einem Button gestartet werden. Das \textit{OutputPanel} stellt alle berechneten Graphen mit der Angabe ihrer Kennwerte in einer Tabelle dar und besitzt einen Trimmer für das manuelle justieren des Phasenwinkels. Auf der rechten Seite des Fensters werden die Graphen mit der Klasse \textit{GraphPanel} angezeigt. Unter diesem Plot befindet sich das \textit{GraphDisplayPanel} und das \textit{GraphSettingPanel}, welche beide für für die Auswahl der darzustellenden Kurven verantwortlich sind. Im folgenden Abschnitt wird die Darstellung des GUIs (Graphical User Interface) genauer erläutert.
+Die Klasse \em{View} und ihre Unterklassen sind zuständig für die Darstellung der Benutzeroberfläche. Am oberen Fensterrand befindet sich die \em{MenuBar}, welche sich über die gesamte Breite erstreckt. Sie enthält Einstellungsmöglichkeiten und weiterführende Informationen. Auf der linken Seite befinden sich zwei Panels für die Ein- und Ausgabe. Im \em{InputPanel} können die Eingabeparameter eingetragen, der gewünschte Regler und das Überschwingen gewählt und die Simulation mit einem Button gestartet werden. Das \em{OutputPanel} stellt alle berechneten Graphen mit der Angabe ihrer Kennwerte in einer Tabelle dar und besitzt einen Trimmer für das manuelle justieren des Phasenwinkels. Auf der rechten Seite des Fensters werden die Graphen mit der Klasse \em{GraphPanel} angezeigt. Unter diesem Plot befindet sich das \em{GraphDisplayPanel} und das \em{GraphSettingPanel}, welche beide für für die Auswahl der darzustellenden Kurven verantwortlich sind. Im folgenden Abschnitt wird die Darstellung des GUIs (Graphical User Interface) genauer erläutert.
 
 \subsubsection{Anforderungen an die Benutzeroberfläche}
 %Problem/Fragestellung:
@@ -49,16 +49,16 @@ Für die Erstellung der Benutzeroberfläche wurden hauptsächlich die Swing-Klassen
 Für die Platzierung der Komponenten gibt es in Java verschiedene Layoutmanager, um die Komponenten anzuordnen. Um einen kurzen Überblick über diese Manager zu geben, werden die verwendeten in der folgenden Aufzählung kurz beschrieben:
 
 \begin{enumerate}
-	\item \textit{GridBagLayout}: Er ist der mächtigste LayoutMangager aus dem Java AWT-Package und ermöglicht es, die Komponenten in ein anpassbares Raster (Grid) zu setzen. Die einzelnen Spalten können dabei unterschiedlich breit und die einzelnen Zeilen unterschiedlich hoch sein. Die Komponenten werden in eine Zelle gesetzt und können von dort in X- und Y-Richtung weitere Zellen überlappen. Weiter gibt es viele zusätzliche Anpassungsmöglichkeiten.
-	\item \textit{GridLayout}: Setzt die Komponenten in ein gleichmässiges Raster (Grid), bei dem alle Zellen die selbe Grösse haben.
-	\item \textit{BorderLayout}: Besitzt fünf Bereiche (Norden, Süden, Osten, Westen, Zentrum), in welche Komponenten platziert werden können.
-	\item \textit{WrapLayout}: Alle Komponenten werden nacheinander von links nach rechts eingefüllt. Beim Verändern der Fenstergrösse gibt es Zeilenumbrüche, falls die Breite des Panels nicht mehr ausreicht. Dieses Layout gehört nicht zu den Standard-Typen und wird bei der Erläuterung des \textit{GraphDisplayPanels} genauer beschrieben.
+	\item \em{GridBagLayout}: Er ist der mächtigste LayoutMangager aus dem Java AWT-Package und ermöglicht es, die Komponenten in ein anpassbares Raster (Grid) zu setzen. Die einzelnen Spalten können dabei unterschiedlich breit und die einzelnen Zeilen unterschiedlich hoch sein. Die Komponenten werden in eine Zelle gesetzt und können von dort in X- und Y-Richtung weitere Zellen überlappen. Weiter gibt es viele zusätzliche Anpassungsmöglichkeiten.
+	\item \em{GridLayout}: Setzt die Komponenten in ein gleichmässiges Raster (Grid), bei dem alle Zellen die selbe Grösse haben.
+	\item \em{BorderLayout}: Besitzt fünf Bereiche (Norden, Süden, Osten, Westen, Zentrum), in welche Komponenten platziert werden können.
+	\item \em{WrapLayout}: Alle Komponenten werden nacheinander von links nach rechts eingefüllt. Beim Verändern der Fenstergrösse gibt es Zeilenumbrüche, falls die Breite des Panels nicht mehr ausreicht. Dieses Layout gehört nicht zu den Standard-Typen und wird bei der Erläuterung des \em{GraphDisplayPanels} genauer beschrieben.
 \end{enumerate}
 
 Für weitere Informationen zu Layoutmanagern wird auf die Dokumentation von Oracle verwiesen \cite{OracleDoc}.
 
 \textbf{Aufbau der Benutzeroberfläche}\\
-Der Aufbau des GUIs wurde so erstellt, dass die gesamte grafische Benutzeroberfläche in einem JFrame platziert ist. Dieses Frame enthält jeweils eine Instanz der  Klasse \textit{MenuBar} und \textit{View}. Die \textit{View} besteht wiederum aus den vier JPanels \textit{InputOutputPanel}, \textit{GraphPanel}, \textit{GraphDisplayPanel} und \textit{GraphSettingPanel}. Das \textit{InputOutputPanel} fasst das \textit{InputPanel} und das \textit{OutputPanel} zu einem gemeinsamen JPanel zusammen. Auf die Layoutmanager wird bei der Beschreibung der einzelnen Panels genauer eingegangen. \\
+Der Aufbau des GUIs wurde so erstellt, dass die gesamte grafische Benutzeroberfläche in einem JFrame platziert ist. Dieses Frame enthält jeweils eine Instanz der  Klasse \em{MenuBar} und \em{View}. Die \em{View} besteht wiederum aus den vier JPanels \em{InputOutputPanel}, \em{GraphPanel}, \em{GraphDisplayPanel} und \em{GraphSettingPanel}. Das \em{InputOutputPanel} fasst das \em{InputPanel} und das \em{OutputPanel} zu einem gemeinsamen JPanel zusammen. Auf die Layoutmanager wird bei der Beschreibung der einzelnen Panels genauer eingegangen. \\
 
 In der folgenden Grafik wurde der gesamte Zusammenhang dargestellt: 
 
@@ -70,7 +70,7 @@ In der folgenden Grafik wurde der gesamte Zusammenhang dargestellt:
 \end{figure}
 \newpage
 \subsubsection{Aufgabe der einzelnen Panels}
-Die Benutzeroberfläche beinhaltet, wie vorhin beschrieben, mehrere Panels. Das \textit{Input\-Panel} dient zur Eingabe der Kenngrössen der Regelstrecke und das \textit{OutputPanel} zur Anzeige der berechneten Reglerparameter und zur nachträglichen Manipulation des Phasenwinkels. Das \textit{GraphPanel} visualisiert die Schrittantwort, das \textit{GraphDisplayPanel} ermöglicht die Auswahl der anzuzeigenden Kurven und das \textit{GraphSettingPanel} besitzt drei Buttons für die Einstellungen zum Graphen. Ein Grossteil der verwendeten Komponenten stammt aus der Swing Klasse von Java, alle zusätzlichen werden speziell erläutert. Folgend werden die Panels genauer beschrieben:\\
+Die Benutzeroberfläche beinhaltet, wie vorhin beschrieben, mehrere Panels. Das \em{Input\-Panel} dient zur Eingabe der Kenngrössen der Regelstrecke und das \em{OutputPanel} zur Anzeige der berechneten Reglerparameter und zur nachträglichen Manipulation des Phasenwinkels. Das \em{GraphPanel} visualisiert die Schrittantwort, das \em{GraphDisplayPanel} ermöglicht die Auswahl der anzuzeigenden Kurven und das \em{GraphSettingPanel} besitzt drei Buttons für die Einstellungen zum Graphen. Ein Grossteil der verwendeten Komponenten stammt aus der Swing Klasse von Java, alle zusätzlichen werden speziell erläutert. Folgend werden die Panels genauer beschrieben:\\
 
 \begin{figure}[h]
 	\centering
@@ -78,10 +78,11 @@ Die Benutzeroberfläche beinhaltet, wie vorhin beschrieben, mehrere Panels. Das \
 	\caption{Übersicht über das GUI}
 	\label{fig:Aufgabe der einzelnen Panels}
 \end{figure}
-\newpage
-\textbf{InputOutputPanel:} Die Aufgabe dieses im GridBagLayout erstellten Panels besteht einzig darin, das \textit{InputPanel} und das \textit{OutputPanel} in einem gemeinsamen Panel zu vereinen. Dieses Panel wurde erstellt, um die Handhabung im GridBagLayout der Klasse \textit{View} zu verbessern. \\
 
-\textbf{InputPanel:} Dieses Panel wurde im GridBagLayout erstellt und besitzt einen Rahmen mit dem Titel "`Eingabe"'. Es enthält zuoberst die drei Eingabefelder für die Parameter \textit{Tu} (1), \textit{Tg} (2) und \textit{Ks} (3) der Regelstrecke. Anschliessend folgt eine leere Zeile, die zu Beginn keinen Inhalt hat. Sie zeigt nach einer Simulation den Grad der Berechnung an und bei fehlerhaften Eingaben rote Hinweise für den Anwender. Als nächstes folgt das Dropdown-Menü für die Auswahl des Reglers (4) (\textit{I}, \textit{PI} oder \textit{PID}). In den nächsten beiden Textfeldern (4 und 5) kann das Überschwingen und die parasitäre Zeitkonstante eingetragen werden. Diese beiden Eingaben  sind abhängig von der Auswahl des Reglers und deshalb nicht für alle Regler aktiviert. Wenn die Felder deaktiviert sind, werden sie ausgegraut und es können keine Werte eingetragen werden. Beim I-Regler werden beide und beim PI-Regler nur das Feld für die parasitäre Zeitkonstante deaktiviert. Beim PID-Regler sind beide aktiviert. Am Ende dieses Panels befindet sich über die gesamte Breite die Schaltfläche zum Starten der Simulation (7).
+\newpage
+\textbf{InputOutputPanel:} Die Aufgabe dieses im GridBagLayout erstellten Panels besteht einzig darin, das \em{InputPanel} und das \em{OutputPanel} in einem gemeinsamen Panel zu vereinen. Dieses Panel wurde erstellt, um die Handhabung im GridBagLayout der Klasse \em{View} zu verbessern. \\
+
+\textbf{InputPanel:} Dieses Panel wurde im GridBagLayout erstellt und besitzt einen Rahmen mit dem Titel "`Eingabe"'. Es enthält zuoberst die drei Eingabefelder für die Parameter \em{Tu} (1), \em{Tg} (2) und \em{Ks} (3) der Regelstrecke. Anschliessend folgt eine leere Zeile, die zu Beginn keinen Inhalt hat. Sie zeigt nach einer Simulation den Grad der Berechnung an und bei fehlerhaften Eingaben rote Hinweise für den Anwender. Als nächstes folgt das Dropdown-Menü für die Auswahl des Reglers (4) (\em{I}, \em{PI} oder \em{PID}). In den nächsten beiden Textfeldern (4 und 5) kann das Überschwingen und die parasitäre Zeitkonstante eingetragen werden. Diese beiden Eingaben  sind abhängig von der Auswahl des Reglers und deshalb nicht für alle Regler aktiviert. Wenn die Felder deaktiviert sind, werden sie ausgegraut und es können keine Werte eingetragen werden. Beim I-Regler werden beide und beim PI-Regler nur das Feld für die parasitäre Zeitkonstante deaktiviert. Beim PID-Regler sind beide aktiviert. Am Ende dieses Panels befindet sich über die gesamte Breite die Schaltfläche zum Starten der Simulation (7).
 
 Alle Beschriftungen sind JLabels, alle Textfelder sind JFormatedDoubleTextfields, die Schaltfläche ist ein JButton und für die Wahl des Reglers wurde eine JComboBox verwendet. Weiter verfügen alle Textfelder über ToolTips (Zusatzinformationen bei Objekten), welche dem Nutzer zusätzliche Informationen bieten. 
 
@@ -94,16 +95,16 @@ Alle Beschriftungen sind JLabels, alle Textfelder sind JFormatedDoubleTextfields
 \newpage
 \textbf{OutputPanel:} Dieses Panel wurde im GridBagLayout erstellt und besitzt einen Rahmen mit dem Titel "`Ausgabe"'. In einer übersichtlichen Tabelle werden alle Kennwerte jeder simulierten Kurve aufgelistet. Diese Tabelle besteht aus den sechs Spalten mit den folgenden Inhalten:
 \begin{enumerate}
-	\item \textit{Name}: Als erstes steht ein grosser farbiger Kreis in der Farbe der dazugehörenden Kurve. Dadurch kann der Anwender den Zusammenhang zwischen Tabelle, Graph und Auswahl der Kurven leicht erkennen. Nach dem Kreis folgt im selben Feld der Name des Reglers. 
-	\item \textit{Kr}: Enthält den berechneten Wert für die Reglerverstärkung
-	\item \textit{Tn}: Enthält den berechneten Tn-Reglerparameter 
-	\item \textit{Tv}: Enthält den berechneten Tv-Reglerparameter
-	\item \textit{Tp}: Enthält den berechneten Tp-Reglerparameter
-	\item \textit{Überschwingen}: Enthält das gemessene Überschwingen in Prozent
+	\item \em{Name}: Als erstes steht ein grosser farbiger Kreis in der Farbe der dazugehörenden Kurve. Dadurch kann der Anwender den Zusammenhang zwischen Tabelle, Graph und Auswahl der Kurven leicht erkennen. Nach dem Kreis folgt im selben Feld der Name des Reglers. 
+	\item \em{Kr}: Enthält den berechneten Wert für die Reglerverstärkung
+	\item \em{Tn}: Enthält den berechneten Tn-Reglerparameter 
+	\item \em{Tv}: Enthält den berechneten Tv-Reglerparameter
+	\item \em{Tp}: Enthält den berechneten Tp-Reglerparameter
+	\item \em{Überschwingen}: Enthält das gemessene Überschwingen in Prozent
 \end{enumerate}
 
-Für die nachträgliche Optimierung folgt unter der Tabelle ein Slider (\textit{Trimm für Zellwegermethode}), mit dem der Phasenwinkel manuell verändert werden kann (7). 
-Die Tabelle des \textit{OutputPanels} ist eine JTable mit einem TableHeader und der Slider ein JSlider. 
+Für die nachträgliche Optimierung folgt unter der Tabelle ein Slider (\em{Trimm für Zellwegermethode}), mit dem der Phasenwinkel manuell verändert werden kann (7). 
+Die Tabelle des \em{OutputPanels} ist eine JTable mit einem TableHeader und der Slider ein JSlider. 
 \\
 
 \begin{figure}[h]
@@ -112,8 +113,9 @@ Die Tabelle des \textit{OutputPanels} ist eine JTable mit einem TableHeader und 
 	\caption{OutputPanel}
 	\label{fig:OutputPanel}
 \end{figure}
+
 \newpage
-\textbf{GraphPanel:} Das \textit{GraphPanel} stellt die Schrittantworten der im \textit{GraphDisplayPanel} ausgewählten Regler-Typen dar. Die Achsen werden dabei automatisch skaliert und falls im \textit{GraphDisplayPanel} Anpassungen vorgenommen wurden, werden die einzelnen Kurven ein- oder ausgeblendet. Für das Anzeigen des Graphen wird ein XYPlot der Klasse \textit{JFreeChart} verwendet, der im BorderLayout platziert wurde. \\
+\textbf{GraphPanel:} Das \em{GraphPanel} stellt die Schrittantworten der im \em{GraphDisplayPanel} ausgewählten Regler-Typen dar. Die Achsen werden dabei automatisch skaliert und falls im \em{GraphDisplayPanel} Anpassungen vorgenommen wurden, werden die einzelnen Kurven ein- oder ausgeblendet. Für das Anzeigen des Graphen wird ein XYPlot der Klasse \em{JFreeChart} verwendet, der im BorderLayout platziert wurde. \\
 
 \begin{figure}[h]
 	\centering
@@ -122,7 +124,7 @@ Die Tabelle des \textit{OutputPanels} ist eine JTable mit einem TableHeader und 
 	\label{fig:GraphPanel}
 \end{figure}
 
-\textbf{GraphDisplayPanel und GraphSettingPanel:} Im \textit{GraphDisplayPanel} können mit Hilfe der Checkboxen die Regler ausgewählt werden, welche im \textit{GraphPanel} angezeigt werden sollen (1). Rechts daneben wurde das \textit{GraphSettingPanel} platziert. Dieses zusätzliche Panel verfügt über drei Buttons mit den folgenden Funktionen:
+\textbf{GraphDisplayPanel und GraphSettingPanel:} Im \em{GraphDisplayPanel} können mit Hilfe der Checkboxen die Regler ausgewählt werden, welche im \em{GraphPanel} angezeigt werden sollen (1). Rechts daneben wurde das \em{GraphSettingPanel} platziert. Dieses zusätzliche Panel verfügt über drei Buttons mit den folgenden Funktionen:
 \begin{itemize}
 	\item (2) Zur Original-Ansicht wechseln (Zoom auf 100\%).
 	\item (3) Alle Kurven ein-/ausblenden.
@@ -139,7 +141,7 @@ Die Tabelle des \textit{OutputPanels} ist eine JTable mit einem TableHeader und 
 Alle Checkboxen sind JCheckBoxen der Swing-Klassen und die drei Button sind JButtons mit selbst erstellten Icons.
 
 \newpage
-Beim \textit{GraphDisplayPanel} wurde der \textit{WrapLayoutManager} verwendet. Dies ist kein Standard Layoutmanager und wurde auf einem Web-Blog gefunden \cite{WrapLayout}. Dieser Manager ist von der Funktion her vergleichbar mit dem FlowLayout und füllt alle Komponenten von links nach rechts in ein JPanel. Speziell an ihm ist jedoch, dass er beim Verändern der Fenstergrösse den Umbruch der Zeilen richtig handhabt, auch wenn das Panel in einem GridBagLayout platziert ist. 
+Beim \em{GraphDisplayPanel} wurde der \em{WrapLayoutManager} verwendet. Dies ist kein Standard Layoutmanager und wurde auf einem Web-Blog gefunden \cite{WrapLayout}. Dieser Manager ist von der Funktion her vergleichbar mit dem FlowLayout und füllt alle Komponenten von links nach rechts in ein JPanel. Speziell an ihm ist jedoch, dass er beim Verändern der Fenstergrösse den Umbruch der Zeilen richtig handhabt, auch wenn das Panel in einem GridBagLayout platziert ist. 
 
 %\begin{figure}[h]
 	%\centering
@@ -148,19 +150,19 @@ Beim \textit{GraphDisplayPanel} wurde der \textit{WrapLayoutManager} verwendet. 
 	%\label{fig:GraphDisplayPanel und GraphSettingPanel}
 %\end{figure}
 
-Ausserdem befindet sich am oberen Rand des Fensters die \textit{MenuBar} mit den beiden Schaltflächen \textit{Datei} und \textit{Hilfe}. Sie wurde direkt ins Frame gesetzt und wurde nicht in der Klasse \textit{View} hinzugefügt.\\
+Ausserdem befindet sich am oberen Rand des Fensters die \em{MenuBar} mit den beiden Schaltflächen \em{Datei} und \em{Hilfe}. Sie wurde direkt ins Frame gesetzt und wurde nicht in der Klasse \em{View} hinzugefügt.\\
 
-Das Menü \textit{Datei} besteht aus den folgenden Menüeinträgen:
+Das Menü \em{Datei} besteht aus den folgenden Menüeinträgen:
 \begin{itemize}
-	\item \textit{Zur Mini-Version wechseln}: Wechselt von der Gesamtansicht zur Mini-Version. Elemente wie das \textit{GraphPanel}, das \textit{GraphDisplayPanel} und der Trimmer werden dabei ausgeblendet. Der Name dieses Menüeintrages ändert sich von Mini-Version zu Normal-Version.
-	\item \textit{Export als PDF}: Öffnet ein Fenster, mit dem der Pfad und der Dokumentname ausgewählt werden kann. Nach der Bestätigung mit dem Button "`Speichern"' wird ein PDF generiert, welches die gesamte Ansicht des Tools exportiert.
-	\item \textit{Schliessen}: Beendet die gesamte Applikation.
+	\item \em{Zur Mini-Version wechseln}: Wechselt von der Gesamtansicht zur Mini-Version. Elemente wie das \em{GraphPanel}, das \em{GraphDisplayPanel} und der Trimmer werden dabei ausgeblendet. Der Name dieses Menüeintrages ändert sich von Mini-Version zu Normal-Version.
+	\item \em{Export als PDF}: Öffnet ein Fenster, mit dem der Pfad und der Dokumentname ausgewählt werden kann. Nach der Bestätigung mit dem Button "`Speichern"' wird ein PDF generiert, welches die gesamte Ansicht des Tools exportiert.
+	\item \em{Schliessen}: Beendet die gesamte Applikation.
 \end{itemize}
 
-Das Menü \textit{Hilfe} besteht aus den folgenden Menüeinträgen:
+Das Menü \em{Hilfe} besteht aus den folgenden Menüeinträgen:
 \begin{itemize}
-	\item \textit{Info}: Es öffnet sich ein Fenster mit Informationen zum Projekt und den Autoren.
-	\item \textit{Hilfreiche Links}: Mit ihnen können Links und PDF-Dokumente geöffnet werden, welche weiterführende Information zur Reglerdimensionierung und der Zellweger-Methode bieten.
+	\item \em{Info}: Es öffnet sich ein Fenster mit Informationen zum Projekt und den Autoren.
+	\item \em{Hilfreiche Links}: Mit ihnen können Links und PDF-Dokumente geöffnet werden, welche weiterführende Information zur Reglerdimensionierung und der Zellweger-Methode bieten.
 \end{itemize}
 
 Das gesamte Menü wurde mit Komponenten der Swing-Klassen erstellt.
@@ -169,7 +171,7 @@ Das gesamte Menü wurde mit Komponenten der Swing-Klassen erstellt.
 %- Lesen und ev. korrigieren.
 \newpage
 \subsubsection{Die Klasse View im Klassendiagramm}
-Im folgenden Ausschnitt aus dem Klassendiagramm ist der Zusammenhang der Klasse \textit{View} zu den Panels und den ganzen Swing-Komponenten dargestellt. Für das gesamte Klassendiagramm wird auf den Anhang \ref{klassendiagramm} verwiesen.
+Im folgenden Ausschnitt aus dem Klassendiagramm ist der Zusammenhang der Klasse \em{View} zu den Panels und den ganzen Swing-Komponenten dargestellt. Für das gesamte Klassendiagramm wird auf den Anhang \ref{klassendiagramm} verwiesen.
 
 \begin{figure}[h]
 	\centering
@@ -196,7 +198,7 @@ Für alle Textfelder wurden JDoubleTextFields verwendet. Diese Klasse bekamen wir
 \newpage
 \textbf{Fenstermanagement}\\
 Wenn das Tool gestartet wird, öffnet sich das Programm in der Normalansicht (alle Panels werden angezeigt) mit der kleinstmöglichen Fenstergrösse. Dazu wird das Frame so gepackt, dass alle Komponenten mit ihrer Minimalgrösse platziert werden. Um das Tool auch bei unterschiedlichen Bildschirmauflösungen verwenden zu können, wurden dafür keine absoluten Pixelwerte eingesetzt.\\
-Wenn die Fenstergrösse durch den Anwender verändert wird, hat dies einen unterschiedlichen Einfluss auf die einzelnen Panels. Das \textit{OutputPanel} wird nur in der Vertikalen und das \textit{GraphDisplayPanel} und die \textit{MenuBar} nur in der Horizontalen verändert. Weiter wird das \textit{GraphPanel} in beide Richtungen gestreckt oder gestaucht. Das \textit{InputPanel} und das \textit{GraphSettingPanel} bleiben dabei unverändert. Zur Veranschaulichung wurde dieses Verhalten in der folgenden Grafik dargestellt. Die roten Pfeile zeigen dabei, in welche Richtungen sich die Panels verändern können.
+Wenn die Fenstergrösse durch den Anwender verändert wird, hat dies einen unterschiedlichen Einfluss auf die einzelnen Panels. Das \em{OutputPanel} wird nur in der Vertikalen und das \em{GraphDisplayPanel} und die \em{MenuBar} nur in der Horizontalen verändert. Weiter wird das \em{GraphPanel} in beide Richtungen gestreckt oder gestaucht. Das \em{InputPanel} und das \em{GraphSettingPanel} bleiben dabei unverändert. Zur Veranschaulichung wurde dieses Verhalten in der folgenden Grafik dargestellt. Die roten Pfeile zeigen dabei, in welche Richtungen sich die Panels verändern können.
 
 \begin{figure}[h]
 	\centering
@@ -207,7 +209,7 @@ Wenn die Fenstergrösse durch den Anwender verändert wird, hat dies einen untersc
 
 \newpage
 \textbf{Mini-Version}\\
-Durch eine Schaltfläche in der \textit{MenuBar} kann zur Mini-Version gewechselt werden. Diese reduzierte Ansicht verzichtet auf den Graphen und die dazugehörigen Panels und wurde speziell für fortgeschrittene Anwender implementiert. Die folgende Grafik zeigt die Mini-Version des Tools.
+Durch eine Schaltfläche in der \em{MenuBar} kann zur Mini-Version gewechselt werden. Diese reduzierte Ansicht verzichtet auf den Graphen und die dazugehörigen Panels und wurde speziell für fortgeschrittene Anwender implementiert. Die folgende Grafik zeigt die Mini-Version des Tools.
 
 \begin{figure}[h]
 	\centering

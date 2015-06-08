@@ -33,7 +33,7 @@ Die Plausibilität der Schrittantworten konnte relativ einfach optisch mit den Gr
 \subsubsection{Performancevergleich von Partialbruchzerlegung und IFFT}\label{residuenvsifft}
 Es wurde festgestellt, dass das Berechnen der Schrittantwort mittels IFFT-Methode langsam ist, vor allem dann, als das iterative Approximieren des Überschwingens implementiert wurde, was dazu führte, dass die Schrittantwortberechnung mehrmals ausgeführt werden musste.
 
-Durch Reduzieren der Anzahl Punkte kann die Berechnung beschleunigt werden, jedoch geht dies auf Kosten von Genauigkeit, was anhand des immer zunehmenden Unterschwingens in den Figuren \ref{fig:ifft_genauigkeit} zu sehen ist. Weiter sind die Anzahl Punkte bei der IFFT-Methode auf Zahlen der Basis 2 limitiert, was eine genaue Optimierung der Anzahl Punkte unmöglich macht. Durch Experimentieren stellten wir fest, dass ein Minimum von 4096 Punkte für ein visuell genaues Resultat gebraucht wird. Dabei konnten wir auf 2048 Punkte für das iterative Approximieren des Überschwingens zurückgehen. Die Berechnungszeit war aber immer noch merkbar langsam.
+Durch Reduzieren der Anzahl Punkte kann die Berechnung beschleunigt werden, jedoch geht dies auf Kosten von Genauigkeit, was anhand des immer zunehmenden Unterschwingens in der Figur \ref{fig:ifft_genauigkeit} zu sehen ist. Weiter sind die Anzahl Punkte bei der IFFT-Methode auf Zahlen der Basis 2 limitiert, was eine genaue Optimierung der Anzahl Punkte unmöglich macht. Durch Experimentieren stellten wir fest, dass ein Minimum von 4096 Punkte für ein visuell genaues Resultat gebraucht wird. Dabei konnten wir auf 2048 Punkte für das iterative Approximieren des Überschwingens zurückgehen. Die Berechnungszeit war aber immer noch merkbar langsam.
 
 \begin{figure}[h]
 \centering
@@ -63,15 +63,15 @@ Es wurde entschieden, eine alternative Berechnungsmethode zu implementieren: Die
 
 Um die Berechnungsgeschwindigkeit beider Methoden messen und vergleichen zu können, wurden mehrere Tests durchgeführt, welche hier im Detail dargelegt werden.
 
-Die Berechnungszeit wurde mit der Methode \textit{System::currentTimeMillis()} gemessen. Weil die Messresultate stark variieren, wurde die Messung mehrmals mittels einer For-Schleife ausgeführt, wie im Java-Code in der Figur \ref{fig:code_for_timing_simulations} zu sehen ist.
+Die Berechnungszeit wurde mit der Methode \em{System::currentTimeMillis()} gemessen. Weil die Messresultate stark variieren, wurde die Messung mehrmals mittels einer For-Schleife ausgeführt, wie im Java-Code in der Figur \ref{fig:code_for_timing_simulations} zu sehen ist.
 
 \begin{figure}[h]
 	\includegraphics[scale=1]{./code_for_timing_simulations.png}
-	\caption{Zeitmessung der Methode \textit{Model::simulateAll()}}
+	\caption{Zeitmessung der Methode \em{Model::simulateAll()}}
 	\label{fig:code_for_timing_simulations}
 \end{figure}
 
-Wichtig zu bemerken ist, dass das Programm für jede Messung neu gestartet wurde, damit die \textit{Java Virtual Machine} (JVM) ``frisch'' bleibt.
+Wichtig zu bemerken ist, dass das Programm für jede Messung neu gestartet wurde, damit die \em{Java Virtual Machine} (JVM) ``frisch'' bleibt.
 
 Aus Gründen der Reproduzierbarkeit und/oder Vergleichsmöglichkeit wurden die Messungen auf einem System mit folgenden Eigenschaften ausgeführt.
 \begin{itemize}
