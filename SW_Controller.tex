@@ -15,50 +15,54 @@ Der $Controller$ ist sehr schlank gehalten und ist ein Teil des Model-View-Contr
 %- Korrigieren und ev. ergänzen.
 %- Falls möglich Text mit weiterem Inhalt ergänzen. Ev. die Methoden genauer beschreiben und auf die entsprechenden Methoden des Models referenzieren.
 
-%
-%\subsection{Ablauf einer Reglerberechnung}
-%Im folgenden Abschnitt wird die Dimensionierung eines Reglers mit Easy-PID an einem Beispiel erklärt. Als Beispiel dient eine Regelstrecke mit den Kenngrössen $Tu=??$, $Tg=??$ und $Ks=??$, die parasitäre Zeitkonstante $Tp$ wird bei 10\% belassen, was der Standardeinstellung entspricht. Gewünscht ist ein PID-Regler mit einem maximalen Überschwingen von 4.6\%.
-%
-%\textbf{1.} \\
-%Die Werte für $Tu$, $Tg$ und $Ks$ werden in den entsprechenden $JFormattedDoubleTextField$ eingegeben, für $Tp$ muss nichts eingegeben werden, da 10\% bereits die Standardeinstellung ist. Mit den beiden Dropdown-Menüs, welche mittels $JComboBox$ implementiert wurden, wird ausserdem der Reglertyp PID und das Überschwingen auf 4.6\% festgelegt.
-%
-%\textbf{2.} \\
-%Durch Drücken der Schaltfläche $Simulieren$ wird die Methode $actionPerformed$ aufgerufen, welche die Eingabeparameter in die entsprechenden Attribute speichert und die Methode $bt\-Simulate\-Action$ des $Controllers$ aufruft, welche wiederum die Methoden des Models aufruft. Bei nicht akzeptierten Eingabeparametern erscheint unter den Eingabefeldern ein $JLabel$ mit der entsprechenden Fehlermeldung. Bei akzeptierten Eingabeparametern wird die Simulation gestartet und es werden mit den Faustformeln und der Phasengangmethode die entsprechenden Regler berechnet. Die Schrittantworten der jeweiligen Regler erscheint im $GraphPanel$ auf der rechten Seite.
-%
-%\textbf{3.} \\
-%Im $GraphDisplayPanel$ kann mittels der Checkboxen ausgewählt werden, welche Schrittantworten visualisiert werden können, um so einen möglichst passenden provisorischen Regler zu finden. In unserem Beispiel ist dies der Graph des Reglers, welcher mit der Phasengang-Methode dimensioniert wurde.
-%%Bitte mit fachlichem Teil ergänzen.
-%
-%\textbf{4.} \\
-%Der provisorisch ausgesuchte Regler soll nun weiter verbessert werden. Dazu wird der Regler nach der Phasengang-Methode in der $JTable$-Tabelle im $OutputPanel$ ausgewählt und anschliessend auf den $JButton$ Übernehmen gedrückt, wodurch der $ActionListener$ mit der $Controller$-Methode $btAdoptAction$ aktiviert wird.
-%%Bitte mit fachlichem Teil ergänzen.
-%
-%\textbf{5.} \\
-%Mittels der $JSlider$ können nun die Reglerparameter angepasst werden, wobei sich der Graph im $GraphPanel$ in Echtzeit den Einstellungen anpasst.
-%%Bitte mit fachlichem Teil ergänzen.
 
-\subsection{Beschreibung eines Benutzungsfalls (Use-Case)}
+\subsection{Ablauf einer Reglerberechnung}
+Im folgenden Abschnitt wird die Dimensionierung eines Reglers mit Easy-PID an einem Beispiel erklärt. Als Beispiel dient eine Regelstrecke mit den Kenngrössen $Tu=2$, $Tg=6$ und $Ks=1$, die parasitäre Zeitkonstante $Tp$ wird bei 10\% belassen, was der Standardeinstellung entspricht. Gewünscht ist ein PID-Regler mit einem maximalen Überschwingen von 8\%.
 
-Unsere Reise beginnt in der Klasse \textit{InputPanel} - ein Attribut der Klasse \textit{View} - mit drei Eingabefelder, die den Benutzer erlauben, die Strecke anhand der drei Parameter $T_u$, $T_g$ und $K_r$ zu beschreiben.
+\textbf{1.} \\
+Die Werte für $Tu$, $Tg$ und $Ks$ werden in den entsprechenden \textit{JFormattedDoubleTextField} eingegeben, für $Tp$ muss nichts eingegeben werden, da 10\% bereits die Standardeinstellung ist. Mit den beiden Dropdown-Menüs, welche mittels \textit{JComboBox} implementiert wurden, wird ausserdem der Reglertyp PID und das Überschwingen auf 8\% festgelegt.
 
-Ist die Strecke beschrieben, so kann der Benutzer mit einer Drop-Down-Menu den gewünschten Regler selektieren. Zur Auswahl stehen \textit{I}, \textit{PI}, und \textit{PID} zur Verfügung.
+\textbf{2.} \\
+Durch Drücken der Schaltfläche \textit{Simulieren} wird die Methode \textit{actionPerformed} aufgerufen, welche die Eingabeparameter in die entsprechenden Attribute speichert. Die Eingabeparameter werden im \textit{View} saniert, damit ungültige Einstellung möglichst früh erkannt werden können. Ist alles in Ordnung, wird die Methode \textit{Controller::btSimulateAction} aufgerufen. Bei nicht akzeptierten Eingabeparametern erscheint unter den Eingabefeldern ein \textit{JLabel} mit der entsprechenden Fehlermeldung. Bei akzeptierten Eingabeparametern wird die Simulation gestartet.
 
-Jenachdem welchen Regler der Benutzer auswählt, kann er weiter das gewünschte Überschwingen in Prozent eingeben und eine Parasitäre Zeitkonstantenfaktor definieren, welches zur Berechnung von $T_p$ gebraucht wird.
+\textbf{3.} \\
+Der \textit{Controller} konfiguriert das \textit{Model}-Objekt mit den Eingabewerten mittels der Methoden \textit{Model::set\-Regulator\-Type()} - welche den Typ zu \textit{I}, \textit{PI} oder \textit{PID} setzt, \textit{Model::setPlant()} - welche ein neues \textit{Plant}-Objekt erstellt und als Attribut der Klasse \textit{Model} speichert, \textit{Model::set\-Parasitic\-Time\-ConstantFactor()} und \textit{Model::setOvershoot()}. Danach ruft sie die Methode \textit{Model::simulateAll()} auf, um die Simulation zu beginnen.
 
-Ist alles in Ordnung, so klickt der Benutzer auf den Button ``Simulieren'' und die erste Simulation wird initiiert.
+\textbf{4.} \\
+Das \textit{Model} baut sich mit Hilfe seines \textit{Plant}-Objekts, welches die vom Benutzer eingegebene Strecke beschreibt, eine Liste von \textit{CalculationCycle}-Objekten. Diese Objekte sind dazu fähig, eine gesamte Berechnung von der Reglerberechnung bis zur Schrittantwort durchzuführen. Welche Regler ausgerechnet werden ist abhängig von der Auswahl des Reglertyps, also \textit{I}, \textit{PI} oder \textit{PID}.
 
-Die \textit{View} nimmt die Eingabewerte des Benutzers und saniert sie, damit ungültige Einstellungen möglichst früh erkannt werden. Ist alles saniert, so werden die Werte an der Klasse \textit{Controller} mittels der Methode \textit{Controller::btSimulateAction()} übergeben.
-
-Der \textit{Controller} konfiguriert das \textit{Model}-Objekt mit den Eingabewerten mittels der Methoden \textit{Model::setRegulatorType()} - welche den Typ zu \textit{I}, \textit{PI} oder \textit{PID} setzt - \textit{Model::setPlant()} - welche einen neuen \textit{Plant}-Objekt erstellt und als Attribut der Klasse \textit{Model} speichert - \textit{Model::setParasiticTimeConstantFactor()}, und \textit{Model::setOvershoot()}. Danach ruft sie die Methode \textit{Model::simulateAll()} auf, um die Simulation zu beginnen.
-
-Das \textit{Model} baut sich zuerst mit Hilfe seiner \textit{Plant}-Objekt - welche die vom Benutzer eingegebene Strecke beschreibt - eine Liste von \textit{CalculationCycle}-Objekten. Diese Objekte sind dazu fähig, eine gesamte Berechnung von Reglerberechnung bis zur Schrittantwort durchzuführen. Welche Regler ausgerechnet werden ist abhängig vom Auswahl des Reglertyps, also \textit{I}, \textit{PI} oder \textit{PID}.
-
-Es wird mittels \textit{Model::notifySimulationBegin()} an alle Listener mitgeteilt, dass eine Simulation beginnt. Dies bewirkt unter anderem dass sich die verschiedene Panels auf die Resultate vorbereiten können, wie zum beispiel die Tabelle löschen oder den Plot löschen.
+Es wird mittels \textit{Model::notifySimulationBegin()} allen Listener mitgeteilt, dass eine Simulation beginnt. Dies bewirkt unter anderem dass sich die verschiedene Panels auf die Resultate vorbereiten können, dies umfasst beispielsweise die Tabelle oder den Plot zu löschen.
 
 Die \textit{CalculationCycle}-Klasse erbt von \textit{Runnable}. Es wird ein \textit{ThreadPool} erstellt und alle \textit{CalculationCycle}-Objekte werden parallel ausgeführt. Das Programm wartet, bis alle Berechnungen vollendet sind.
 
+\textbf{5.} \\
 Zu diesem Zeitpunkt teilt sich der Programmfluss in einer Unmenge kleiner Teilchen auf. Wir verfolgen nur einen Pfad, nämlich die Berechnung eines PID-Reglers mittels Zellweger Methode.
 
-Beim Instanziieren der Klasse \textit{CalculationCycle} wird ein \textit{AbstractControllerCalculator} übergeben - in diesem Fall ein Objekt, dass als Konkrete Klasse den \textit{ZellwegerPID} hat. Dieses Objekt wurde schon vom \textit{Model} konfiguriert, und es muss nur \textit{AbstractControllerCalculator::run()} aufgerufen werden, um einen passenden Regler für die vom Benutzer definierte Strecke zu berechnen. 
+Beim Instanziieren der Klasse \textit{CalculationCycle} wird ein \textit{AbstractControllerCalculator} übergeben. In diesem Fall ist das ein Objekt, dass als konkrete Klasse den \textit{ZellwegerPID} hat. Dieses Objekt wurde schon vom \textit{Model} konfiguriert und es muss nur \textit{AbstractControllerCalculator::run()} aufgerufen werden, um einen passenden Regler für die vom Benutzer definierte Strecke zu berechnen. 
 
-Die \textit{run()}-Methode führt dazu, dass die Methode \textit{ZellwegerPID::calculate()} ausgeführt wird. Der implementierte Algorithmus von Herrn Zellweger wird in dieser Methode gebraucht, um ein neues \textit{ControllerPID}-Objekt zu erstellen.
+\textbf{6.} \\
+Die \textit{run()}-Methode führt dazu, dass die Methode \textit{ZellwegerPID::calculate()} ausgeführt wird. Der implementierte Algorithmus von Herrn Zellweger wird in dieser Methode gebraucht, um ein neues \textit{ControllerPID}-Objekt zu erstellen. Dieses Objekt beschreibt den Regler Anhand der Reglerparametern $T_n$, $T_v$, $K_r$ und $T_p$ sowie einer Übertragungsfunktion mit der Klasse \textit{TransferFunction}. Weiter berechnet das \textit{ZellwegerPID}-Objekt einen Minimal- und Maximalwert für $K_r$ aus, was später für das Approximieren des Überschwingens gebraucht wird.
+
+\textbf{7.} \\
+Der Regler ist berechnet und kann in der \textit{CalculationCycle} mit \textit{AbstractControllerCalculator::getRegulator()} als \textit{AbstractController} geholt werden. Der Regler wird zusammen mit dem \textit{Plant}-Objekt zu einem \textit{ClosedLoop}-Objekt zusammengefügt. Das \textit{ClosedLoop}-Objekt berechnet aus der Strecke und dem Regler seine eigene \textit{TransferFunction} (Übertragungsfunktion).
+
+\textbf{8.} \\
+In der \textit{CalculationCycle} wird nun die Schrittantwort mit der Methode \textit{ClosedLoop::calculate\-Step\-Response()} ausgerechnet. Diese Methode Berechnet mittels Partialbruchzerlegung die Schrittantwort und misst auch gleich das maximale Überschwingen. Wenn der \textit{AbstractController} ein Minimal- und Maximalwert für $K_r$ ausgerechnet hat, was bei allen Zellweger der Fall ist, dann wird die Schrittantwort mehrmals ausgerechnet, bis das Überschwingen, welches mit der Methode \textit{ClosedLoop::getOvershoot()} geholt werden kann, mit dem vom Benutzer definierten Wert übereinstimmt.
+
+\textbf{9.} \\
+Ist die \textit{CalculationCycle} abgeschlossen, wird mittels der Methode \textit{CalculationCycle::notify\-Step\-Response\-Calculation\-Complete()} allen Listener mitgeteilt, dass die Berechnung einer Schrittantwort fertig ist. Dabei werden die Reglerparameter $K_r$, $T_n$, $T_v$, $T_p$ und das Überschwingen in einer Tabelle im \textit{OutputPanel} eingetragen und die Schrittantwort wird in einem 2D-Plot auf der rechten Seite des GUIs in der Klasse \textit{GraphPanel} gezeichnet.
+
+\textbf{10.} \\
+Wenn der Threadpool keine Jobs mehr hat, dann wird allen Listener mittels der Methode \textit{Model::notifySimulationComplete()} mitgeteilt, dass alle Berechnungen beendet sind.
+
+\textbf{11.} \\
+Im \textit{GraphDisplayPanel} kann mittels der Checkboxen ausgewählt werden, welche Schrittantworten visualisiert werden können, um so einen möglichst passenden provisorischen Regler zu finden. In unserem Beispiel ist dies der Graph des Reglers, welcher mit der Phasengang-Methode dimensioniert wurde.
+%Bitte mit fachlichem Teil ergänzen.
+
+\textbf{12.} \\
+Der provisorisch ausgesuchte Regler soll nun weiter verbessert werden. Dazu wird der Regler nach der Phasengang-Methode in der \textit{JTable}-Tabelle im \textit{OutputPanel} ausgewählt und anschliessend auf den \textit{JButton} Übernehmen gedrückt, wodurch der \textit{ActionListener} mit der \textit{Controller}-Methode \textit{btAdoptAction} aktiviert wird.
+%Bitte mit fachlichem Teil ergänzen.
+
+\textbf{13.} \\
+Mittels der \textit{JSlider} können nun die Reglerparameter angepasst werden, wobei sich der Graph im \textit{GraphPanel} in Echtzeit den Einstellungen anpasst.
+%Bitte mit fachlichem Teil ergänzen.
