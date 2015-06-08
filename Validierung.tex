@@ -63,15 +63,15 @@ Es wurde entschieden, eine alternative Berechnungsmethode zu implementieren: Die
 
 Um die Berechnungsgeschwindigkeit beider Methoden messen und vergleichen zu können, wurden mehrere Tests durchgeführt, welche hier im Detail dargelegt werden.
 
-Die Berechnungszeit wurde mit der Methode \textit{System::currentTimeMillis()} gemessen. Weil die Messresultate stark variieren, wurde die Messung mehrmals mittels einer For-Schleife ausgeführt, wie im Java-Code in der Figur \ref{fig:code_for_timing_simulations} zu sehen ist.
+Die Berechnungszeit wurde mit der Methode \empth{System::currentTimeMillis()} gemessen. Weil die Messresultate stark variieren, wurde die Messung mehrmals mittels einer For-Schleife ausgeführt, wie im Java-Code in der Figur \ref{fig:code_for_timing_simulations} zu sehen ist.
 
 \begin{figure}[h]
 	\includegraphics[scale=1]{./code_for_timing_simulations.png}
-	\caption{Zeitmessung der Methode \textit{Model::simulateAll()}}
+	\caption{Zeitmessung der Methode \empth{Model::simulateAll()}}
 	\label{fig:code_for_timing_simulations}
 \end{figure}
 
-Wichtig zu bemerken ist, dass das Programm für jede Messung neu gestartet wurde, damit die \textit{Java Virtual Machine} (JVM) ``frisch'' bleibt.
+Wichtig zu bemerken ist, dass das Programm für jede Messung neu gestartet wurde, damit die \empth{Java Virtual Machine} (JVM) ``frisch'' bleibt.
 
 Aus Gründen der Reproduzierbarkeit und/oder Vergleichsmöglichkeit wurden die Messungen auf einem System mit folgenden Eigenschaften ausgeführt.
 \begin{itemize}
