@@ -17,10 +17,10 @@ Der $Controller$ ist sehr schlank gehalten und ist ein Teil des Model-View-Contr
 
 
 \subsection{Ablauf einer Reglerberechnung}
-Im folgenden Abschnitt wird die Dimensionierung eines Reglers mit Easy-PID an einem Beispiel erklärt. Als Beispiel dient eine Regelstrecke mit den Kenngrössen $Tu=2$, $Tg=6$ und $Ks=1$, die parasitäre Zeitkonstante $Tp$ wird bei 10\% belassen, was der Standardeinstellung entspricht. Gewünscht ist ein PID-Regler mit einem maximalen Überschwingen von 4.6\%.
+Im folgenden Abschnitt wird die Dimensionierung eines Reglers mit Easy-PID an einem Beispiel erklärt. Als Beispiel dient eine Regelstrecke mit den Kenngrössen $Tu=2$, $Tg=6$ und $Ks=1$, die parasitäre Zeitkonstante $Tp$ wird bei 10\% belassen, was der Standardeinstellung entspricht. Gewünscht ist ein PID-Regler mit einem maximalen Überschwingen von 8\%.
 
 \textbf{1.} \\
-Die Werte für $Tu$, $Tg$ und $Ks$ werden in den entsprechenden \textit{JFormattedDoubleTextField} eingegeben, für $Tp$ muss nichts eingegeben werden, da 10\% bereits die Standardeinstellung ist. Mit den beiden Dropdown-Menüs, welche mittels \textit{JComboBox} implementiert wurden, wird ausserdem der Reglertyp PID und das Überschwingen auf 4.6\% festgelegt.
+Die Werte für $Tu$, $Tg$ und $Ks$ werden in den entsprechenden \textit{JFormattedDoubleTextField} eingegeben, für $Tp$ muss nichts eingegeben werden, da 10\% bereits die Standardeinstellung ist. Mit den beiden Dropdown-Menüs, welche mittels \textit{JComboBox} implementiert wurden, wird ausserdem der Reglertyp PID und das Überschwingen auf 8\% festgelegt.
 
 \textbf{2.} \\
 Durch Drücken der Schaltfläche \textit{Simulieren} wird die Methode \textit{actionPerformed} aufgerufen, welche die Eingabeparameter in die entsprechenden Attribute speichert. Die Eingabeparameter werden im \textit{View} saniert, damit ungültige Einstellung möglichst früh erkannt werden können. Ist alles in Ordnung, wird die Methode \textit{Controller::btSimulateAction} aufgerufen. Bei nicht akzeptierten Eingabeparametern erscheint unter den Eingabefeldern ein \textit{JLabel} mit der entsprechenden Fehlermeldung. Bei akzeptierten Eingabeparametern wird die Simulation gestartet.
