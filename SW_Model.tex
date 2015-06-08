@@ -1,10 +1,10 @@
 \section{Software}
 
-Im folgenden Abschnitt wird der Aufbau der Software beschrieben. Die Software basiert auf dem Model-View-Controller Entwurfsmuster, welches für GUI-Applikationen aufgrund seiner hohen Flexibilität und Wiederverwendbarkeit als Standard gilt. Das Model-View-Controller Prinzip basiert auf den drei Hauptklassen $Model$, $View$ und $Controller$, welche kurz erläutert werden:
+Im folgenden Abschnitt wird der Aufbau der Software beschrieben. Die Software basiert auf dem Model-View-Controller Entwurfsmuster, welches für GUI-Applikationen aufgrund seiner hohen Flexibilität und Wiederverwendbarkeit als Standard gilt. Das Model-View-Controller Prinzip basiert auf den drei Hauptklassen \textit{Model}, \textit{View} und \textit{Controller}, welche kurz erläutert werden:
 
-\textbf{Model:} Das $Model$ enthält die Daten und Berechnungsmethoden, welche für die Software benötigt werden. Diese Daten sind unabhängig von der grafischen Darstellung der Software. Falls Daten im $Model$ geändert werden, informiert das $Model$ die Klasse $View$, welche die Daten für den Benutzer darstellt. \\
-\textbf{View:} Die $View$ beinhaltet und visualisiert die Benutzeroberfläche. Sie erhält dazu die Daten der Klasse $Model$, welche grafisch dargestellt werden und leitet Eingaben an die Klasse $Controller$ weiter. In der Klasse $View$ werden keine Berechnungen durchgeführt. Das Model ist mit der $View$ mittels Observable-Observer Entwurfsmuster verknüpft, wobei das $Model$ als Observable und die $View$ als Observer agiert.\\
-\textbf{Controller:} Der $Controller$ überprüft die Benutzereingaben und leitet diese, falls sie korrekt sind, zur weiteren Berechnung an das $Model$ weiter.
+\textbf{Model:} Das \textit{Model} enthält die Daten und Berechnungsmethoden, welche für die Software benötigt werden. Diese Daten sind unabhängig von der grafischen Darstellung der Software. Falls Daten im \textit{Model} geändert werden, informiert das \textit{Model} die Klasse \textit{View}, welche die Daten für den Benutzer darstellt. \\
+\textbf{View:} Die \textit{View} beinhaltet und visualisiert die Benutzeroberfläche. Sie erhält dazu die Daten der Klasse \textit{Model}, welche grafisch dargestellt werden und leitet Eingaben an die Klasse \textit{Controller} weiter. In der Klasse \textit{View} werden keine Berechnungen durchgeführt. Das Model ist mit der \textit{View} mittels Observable-Observer Entwurfsmuster verknüpft, wobei das \textit{Model} als Observable und die \textit{View} als Observer agiert.\\
+\textbf{Controller:} Der \textit{Controller} überprüft die Benutzereingaben und leitet diese, falls sie korrekt sind, zur weiteren Berechnung an das \textit{Model} weiter.
 
 Im folgenden werden wiederholt Ausschnitte des Klassendiagramms gezeigt, das komplette Klassendiagramm findet sich im Anhang \ref{klassendiagramm}.
 
