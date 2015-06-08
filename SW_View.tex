@@ -55,7 +55,7 @@ Für die Platzierung der Komponenten gibt es in Java verschiedene Layoutmanager, 
 	\item \textit{WrapLayout}: Alle Komponenten werden nacheinander von links nach rechts eingefüllt. Beim Verändern der Fenstergrösse gibt es Zeilenumbrüche, falls die Breite des Panels nicht mehr ausreicht. Dieses Layout gehört nicht zu den Standard-Typen und wird bei der Erläuterung des \textit{GraphDisplayPanels} genauer beschrieben.
 \end{enumerate}
 
-Für weitere Informationen zu Layoutmanagern wird auf die Dokumentation von Oracle verwiesen (QUELLE https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html).
+Für weitere Informationen zu Layoutmanagern wird auf die Dokumentation von Oracle verwiesen \cite{OracleDoc}.
 
 \textbf{Aufbau der Benutzeroberfläche}\\
 Der Aufbau des GUIs wurde so erstellt, dass die gesamte grafische Benutzeroberfläche in einem JFrame platziert ist. Dieses Frame enthält jeweils eine Instanz der  Klasse \textit{MenuBar} und \textit{View}. Die \textit{View} besteht wiederum aus den vier JPanels \textit{InputOutputPanel}, \textit{GraphPanel}, \textit{GraphDisplayPanel} und \textit{GraphSettingPanel}. Das \textit{InputOutputPanel} fasst das \textit{InputPanel} und das \textit{OutputPanel} zu einem gemeinsamen JPanel zusammen. Auf die Layoutmanager wird bei der Beschreibung der einzelnen Panels genauer eingegangen. \\
@@ -131,7 +131,7 @@ Die Tabelle des \textit{OutputPanels} ist eine JTable mit einem TableHeader und 
 
 Alle Checkboxen sind JCheckBoxen der Swing-Klassen und die drei Button sind JButtons mit selbst erstellten Icons.
 
-Beim \textit{GraphDisplayPanel} wurde der \textit{WrapLayoutManager} verwendet. Dies ist kein Standard Layoutmanager und wurde auf einem Web-Blog gefunden (QUELLE https://tips4java.wordpress.com/2008/11/06/wrap-layout/). Dieser Manager ist von der Funktion her vergleichbar mit dem FlowLayout und füllt alle Komponenten von links nach rechts in ein JPanel. Speziell an ihm ist jedoch, dass er beim Verändern der Fenstergrösse den Umbruch der Zeilen richtig handhabt, auch wenn das Panel in einem GridBagLayout platziert ist. 
+Beim \textit{GraphDisplayPanel} wurde der \textit{WrapLayoutManager} verwendet. Dies ist kein Standard Layoutmanager und wurde auf einem Web-Blog gefunden \cite{WrapLayout}. Dieser Manager ist von der Funktion her vergleichbar mit dem FlowLayout und füllt alle Komponenten von links nach rechts in ein JPanel. Speziell an ihm ist jedoch, dass er beim Verändern der Fenstergrösse den Umbruch der Zeilen richtig handhabt, auch wenn das Panel in einem GridBagLayout platziert ist. 
 
 \begin{figure}[h]
 	\centering
