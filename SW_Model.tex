@@ -195,7 +195,7 @@ Mit der Klasse \textit{ClosedLoop} kann mit einem \textit{Plant}-Objekt und eine
 \end{figure}
 
 
-Immer wenn sich das \textit{Plant}-Objekt oder das \textit{AbstractController}-Objekt ändern, sei es durch eine Instanzierung oder durch Aufrufen der Methode \em{ClosedLoop::setPlantAndController()}, wird aus den beiden Übertragungsfunktionen des \textit{Plant}-Objektes und des \textit{AbstractController}-Objektes die Übertragungsfunktion des geschlossenen Regelkreises berechnet.
+Immer wenn sich das \textit{Plant}-Objekt oder das \textit{AbstractController}-Objekt ändern, sei es durch eine Instanzierung oder durch Aufrufen der Methode \textit{ClosedLoop::setPlantAndController()}, wird aus den beiden Übertragungsfunktionen des \textit{Plant}-Objektes und des \textit{AbstractController}-Objektes die Übertragungsfunktion des geschlossenen Regelkreises berechnet.
 
 Durch Aufrufen der Methode \textit{ClosedLoop::calculateStepResponse()} wird die Sprungantwort mittels der Residuenmethode berechnet. Die resultierende Schrittantwort kann mit der Methode \textit{ClosedLoop::getStepResponse()} als \textit{XYSeries} für JFreeChart geholt werden. Die Residuenmethode wurde gewählt, da sie robuster und schneller ist als die Variante mit IFFT. Ein Vergleich dazu ist im Abschnitt Validierung unter \ref{residuenvsifft} aufgeführt.
 
