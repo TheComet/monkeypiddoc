@@ -112,7 +112,7 @@ $T_u$, $T_g$ und $K_r$. Bei der Instanzierung eines \textit{Plant}-Objektes werd
 Die Sani-Kurven sind die Grundlage zur Berechnung der \textit{TransferFunction} und die \textit{TransferFunction} ist die Grundlage zur späteren Berechnung der Schrittantwort.
 
 Die Sani-Kurven werden nicht vom Programm selbst berechnet, sondern werden zu Programmbeginn aus einer Text-Datei importiert, welche wiederum von Matlab exportiert wurde. Da die Kurven als diskrete Punkte gespeichert sind, werden sie beim Importieren in Java kubisch
-interpoliert, um eine höhere Auflösung zu ermöglichen. Das Interpolieren erfolgt mittels der \textit{SplineNAK}-Klasse, welche von C in Java übersetzt wurde. (http://www.pcs.cnu.edu/~bbradie/cpp/interp.C). \\
+interpoliert, um eine höhere Auflösung zu ermöglichen. Das Interpolieren erfolgt mittels der \textit{SplineNAK}-Klasse, welche von C in Java übersetzt wurde. \cite{CQuellCode}\\
 Da diese Interpolationsmethode mit der in Matlab verwendeten übereinstimmt, wird ein stabiler Benchmark für Tests ermöglicht.
 %Die Interpolationsmethode ist die gleiche der in Matlab verwendet wird, was uns ein
 %stabiler Benchmark fürs Testen ermöblicht.
