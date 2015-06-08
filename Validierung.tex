@@ -107,3 +107,21 @@ In Realität braucht die Partialbruchzerlegungsmethode aber viel weniger als 2048
 	\caption{Single Threaded vs Multi Threaded: Partialbruchzerlegung mit variabler Anzahl Samples}
 	\label{fig:pbz-single-vs-multi}
 \end{figure}
+
+
+\subsubsection{JUnit Tests}
+
+\em{Unit Testing} ist in der Softwareentwicklung ein extrem hilfreiches Verfahren, das den Programmierer erlaubt, individuelle Methoden oder Funktionen isoliert vom Rest des Programms zu testen. Dabei kann für jede Methode ein \textit{Test Case} erstellt werden, indem ein Eingabewert und eine Erwartung deklariert werden kann. Das \textit{Unit Testing Framework} - zum Beispiel \textit{JUnit} - führt alle \textit{Test Cases} aus und überprüft dass die Erwarteten Ausgaben den wirklichen Ausgaben entsprechen. Ist dies nicht der Fall, wird ein Fehler generiert.
+
+Der Programmierer kann somit sehr einfach und vorallem schnell schwierige Methoden für Richtigkeit überprüfen. Der Vorteil von \textit{Unit Testing} liegt darin, dass Methoden nicht nur auf ``richtige'' Eingaben geprüft werden können, sondern auch auf unmögliche, vielleicht sogar maliziöse Eingaben getested werden können. Sind die Tests robust, so kann davon ausgegangen werden, dass der Rest des Programms auch robust sein wird.
+
+In den folgenden Bereichen wurde \textit{Unit Testing} anhand des Frameworks \textit{JUnit4} verwendet.
+
+\begin{itemize}
+	\item \textbf{ClosedLoop:} Die Schrittantwort wurde direkt mit dem Resultat von Matlab verglichen. Dabei wurde die Kurve von Matlab exportiert und als Liste von XY-Punkte in Java importiert, und mit dem Resultat von \textit{ClosedLoop::calculateStepRespose()} verglichen.
+	\item \textbf{In der Klasse \textit{MathStuff}:} Alle Mathematikfunktionen, die von Matlab portiert wurden, sowie zusätzliche Mathematikfunktionen, die im Laufe des Projekts hinzugefügt wurden.
+	\item \textbf{Faustformeln:} Die von Hand ausgerechnete Resultate wurden mit allen Faustformel-Klassen verglichen.
+	\item \textbf{Regler:} Alle Reglerklassen - \textit{ControllerI}, \textit{ControllerPI} und \textit{ControllerPID} - sind mit Matlab verglichen.
+	\item \textbf{Strecke:} Die Strecke und deren Übertragungsfunktion wurde mit Matlab verglichen.
+	\item \textbf{Sani:} Die Sani-Kurven wurden mit Matlab verglichen.
+\end{itemize}
