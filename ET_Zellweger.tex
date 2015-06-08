@@ -63,11 +63,11 @@ Phasengang kann aus der Übertragungsfunktion $H(s)$ (Formel \eqref{eq:Übertragun
 Folgend werden die dazu verwendeten Formeln aufgeführt:
 
 \[ %\label{Amplitudengang}
-\text{Amplitudengang Strecke}~A_{S}(\omega)= Ks\cdot\prod\limits_{m=1}^Z\frac{1}{\sqrt{1+{(\omega\cdot T_{m})}^{2}}}
+\text{Amplitudengang Strecke}~A_{S}(\omega)= Ks\cdot\prod\limits_{m=1}^N\frac{1}{\sqrt{1+{(\omega\cdot T_{m})}^{2}}}
 \]
 
 \[ %\label{Phasengang}
-\text{Phasengang Strecke}~\phi_{S}(\omega)=-1\cdot\sum\limits_{m=1}^Z\arctan \left( \omega\cdot T_{m}\right)
+\text{Phasengang Strecke}~\phi_{S}(\omega)=-1\cdot\sum\limits_{m=1}^N\arctan \left( \omega\cdot T_{m}\right)
 \]
 
 Gemäss Zellweger wird nun nach folgendem Rezept vorgegangen:
@@ -189,7 +189,7 @@ reglerkonformen Darstellung umgerechnet werden.
 benötigt. Folgend wird die Berechnung davon aufgeführt:
 
 \[
-\frac{2\cdot \beta}{1+\beta^{2}}-w_{PID} \cdot  \sum \limits_{m=1}^{n} \frac{T_m}{1+ (w_{PID} \cdot T_m)^2} =-0.5
+\frac{2\cdot \beta}{1+\beta^{2}}-w_{PID} \cdot  \sum \limits_{m=1}^{N} \frac{T_m}{1+ (w_{PID} \cdot T_m)^2} =-0.5
 \]
 
 Folgendes wird mit $Z$ substituiert:
@@ -199,7 +199,7 @@ Z=\frac{2\cdot \beta}{1+\beta^{2}}
 \]
 
 \[
-Z=w_{PID} \cdot  \sum \limits_{m=1}^{n} \frac{T_m}{1+ (w_{PID} \cdot T_m)^2} -0.5
+Z=w_{PID} \cdot  \sum \limits_{m=1}^{N} \frac{T_m}{1+ (w_{PID} \cdot T_m)^2} -0.5
 \]
 
 $\beta$ kann nun durch folgende Gleichung beschrieben werden:

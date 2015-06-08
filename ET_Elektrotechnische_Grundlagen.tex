@@ -74,14 +74,16 @@ Um den Regelkreis zu beschreiben, braucht man zunächst die Schrittantwort der St
 \label{fig:Wendetangente}
 \end{figure}
 
-Mithilfe dieser Werte und der Sani Methode, welche vom Auftraggeber in Form eines Matlab-Files zur Verfügung gestellt wurde, ist es nun möglich, die Ordnung der Strecke sowie die Zeitkonstanten $T1$ bis $T_m$ zu berechnen, wobei $m$ die Ordnung der Strecke ist. Diese Zeitkonstanten werden dazu verwendet, die Übertragungsfunktion $H(s)$ zu berechnen:
+Für das weitere Vorgehen wird die Sani Methode verwendet, die vom Auftraggeber in Form eines Matlab-Files zur Verfügung gestellt wurde. Die Sani Methode funktioniert ähnlich wie die früher verwendete Hudzovik Methode. Mit dieser können die Ordnung der Strecke sowie die Zeitkonstanten $T1$ bis $T_{m}$ berechnet werden, wobei $N$ die Ordnung der Strecke ist und die Anzahl der Zeitkonstanten $N$ entspricht. Die berechneten Zeitkonstanten werden dazu verwendet, die Übertragungsfunktion der Strecke $H(s)$ zu berechnen:
+
+%Mithilfe dieser Werte und der Sani Methode, welche vom Auftraggeber in Form eines Matlab-Files zur Verfügung gestellt wurde, ist es nun möglich, die Ordnung der Strecke sowie die Zeitkonstanten $T1$ bis $T_m$ zu berechnen, wobei $m$ die Ordnung der Strecke ist. Die Sani Methode funktioniert ähnlich wie die früher verwendete Hudzovik Methode. Die damit berechneten Zeitkonstanten werden dazu verwendet, die Übertragungsfunktion $H(s)$ zu berechnen:
 
 \[
 s=j\cdot w
 \]
 
 \begin{equation}\label{eq:ÜbertragungsfunktionStrecke}
-H(s)=\prod\limits_{m=1}^Z \frac{1}{(1+s\cdot T_{m})}
+H(s)=\prod\limits_{m=1}^N \frac{1}{(1+s\cdot T_{m})}
 \end{equation}
 
 Für die Übertragungsfunktion eines PI/PID Reglers gilt es zu beachten, dass es zwei Darstellungsarten gibt, die reglerkonforme sowie die bodekonforme.\\
