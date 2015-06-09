@@ -42,8 +42,4 @@ Im \textit{GraphDisplayPanel} kann mittels der Checkboxen ausgewählt werden, wel
 %Bitte mit fachlichem Teil ergänzen.
 
 \textbf{12.} \\
-Der provisorisch ausgesuchte Regler soll nun weiter verbessert werden. Dazu wird der Regler nach der Phasengang-Methode in der \textit{JTable}-Tabelle im \textit{OutputPanel} ausgewählt und anschliessend auf den \textit{JButton} Übernehmen gedrückt, wodurch der \textit{ActionListener} mit der \textit{Controller}-Methode \textit{btAdoptAction} aktiviert wird.
-%Bitte mit fachlichem Teil ergänzen.
-
-\textbf{13.} \\
-Mittels der \textit{JSlider} können nun die Reglerparameter angepasst werden, wobei sich der Graph im \textit{GraphPanel} in Echtzeit den Einstellungen anpasst.
+Mittels eines \textit{JSliders} kann die Phasengangmethode nachträglich optimiert werden. Dazu wird die Methode \textit{OutputPanel::stateChanged} aufgerufen, welche \textit{Controller::angleOfInflectionChanged} aufruft. Anschliessend wird die Methode \textit{Model::updateZellweger} aufgerufen. Diese Methode verändert den Offset des Phasenrandes und simuliert den Regler anschliessend neu.
