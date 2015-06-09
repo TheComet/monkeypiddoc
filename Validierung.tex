@@ -18,7 +18,7 @@ Mittels Simulink und Matlab wurde der geschlossene Regelkreis simuliert.
 \subsection{Java Software}
 
 \subsubsection{Benutzeroberfläche}
-Das Java-Tool wurde jeweils nach einer Implementation eines Elementes und durch die Teammitglieder getestet. Neben gewöhnlichen Eingaben wurde versucht, die Eingabefelder mittels Sonderzeichen und speziellen Werten zu überlisten. Die Resultierenden Erkenntnisse flossen anschliessend in die Endversion des Java-Tools mit ein. 
+Das Java-Tool wurde jeweils nach der Implementation eines Elementes auf richtige Funktionsweise geprüft. Weiter wurde das Programm am Ende durch die Teammitglieder getestet. Neben gewöhnlichen Eingaben wurde versucht, die Eingabefelder mittels Sonderzeichen und speziellen Werten zu überlisten. Die Resultierenden Erkenntnisse flossen anschliessend in die Endversion des Java-Tools mit ein. Für eine zusätzliche Überprüfung wurde eine Testversion an den Auftraggeber gesendet.
 
 
 %Problem/Fragestellung:
@@ -75,12 +75,13 @@ Die Berechnungszeit wurde mit der Methode \textit{System::currentTimeMillis()} g
 \end{figure}
 
 Wichtig zu bemerken ist, dass das Programm für jede Messung neu gestartet wurde, damit die \textit{Java Virtual Machine} (JVM) ``frisch'' bleibt.
-
-Aus Gründen der Reproduzierbarkeit und/oder Vergleichsmöglichkeit wurden die Messungen auf einem System mit folgenden Eigenschaften ausgeführt.
+\newpage
+Aus Gründen der Reproduzierbarkeit und/oder Vergleichsmöglichkeit wurden die Messungen auf einem System mit folgenden Eigenschaften ausgeführt:
 \begin{itemize}
 	\item \textbf{OS:} Linux twilight 3.18.12-gentoo
 	\item \textbf{Arch:} x86\textunderscore 64
-	\item \textbf{CPU:} AMD Phenom(tm) II X6 1090T Processor
+	\item \textbf{CPU:} AMD Phenom(tm) II X6 1090T Processor, 4.2GHz
+	\item \textbf{RAM:} $4\cdot 2$GB Dual channel, 1.6GHz
 	\item \textbf{Java:} Oracle JDK 1.8.0.45, Java HotSpot(TM) 64-Bit Server VM
 \end{itemize}
 
@@ -88,16 +89,16 @@ Als erstes wurden beide Methoden mit fix 2048 Punkten verglichen. Das sind bei d
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=.8\linewidth]{./ifft-vs-partialbruchzerlegung-2048-single-threaded.png}
+	\includegraphics[width=.7\linewidth]{./ifft-vs-partialbruchzerlegung-2048-single-threaded.png}
 	\caption{IFFT vs Partialbruchzerlegung mit fix 2048 Samples und keinem Threadpool. Partialbruchzerlegung ist etwa zweimal schneller.}
 	\label{fig:ifft_vs_pbz_2048}
 \end{figure}
 
 Ein Nachteil der IFFT Methode ist, dass ihre Komplexität $\mathcal{O}(n\log{}n)$ skaliert. Die Partialbruchzerlegungsmethode hingegen skaliert nur linear mit $\mathcal{O}(n)$. Dies ist gut ersichtlich, wenn man Figur \ref{fig:ifft_vs_pbz_2048} und \ref{fig:ifft_vs_pbz_8192} vergleicht.
-
+\newpage
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=.8\linewidth]{./ifft-vs-partialbruchzerlegung-8192-single-threaded.png}
+	\includegraphics[width=.7\linewidth]{./ifft-vs-partialbruchzerlegung-8192-single-threaded.png}
 	\caption{IFFT vs Partialbruchzerlegung mit 8192 Samples und keinem Threadpool. Berechnungszeit von IFFT skaliert quadratisch, Partialbruchzerlegung nur linear.}
 	\label{fig:ifft_vs_pbz_8192}
 \end{figure}
@@ -106,22 +107,22 @@ In der Realität braucht die Partialbruchzerlegungsmethode aber viel weniger als 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=.8\linewidth]{./partialbruchzerlegung-145-single-vs-multi.png}
+	\includegraphics[width=.7\linewidth]{./partialbruchzerlegung-145-single-vs-multi.png}
 	\caption{Single Threaded vs Multi Threaded: Partialbruchzerlegung mit variabler Anzahl Samples}
 	\label{fig:pbz-single-vs-multi}
 \end{figure}
 
-
+\newpage
 \subsubsection{JUnit-Tests}
 
-\textit{Unit Testing} ist in der Softwareentwicklung ein extrem hilfreiches Verfahren, das den Programmierer erlaubt, individuelle Methoden oder Funktionen isoliert vom Rest des Programms zu testen. Dabei kann für jede Methode ein \textit{Test Case} erstellt werden, indem ein Eingabewert und eine Erwartung deklariert werden kann. Das \textit{Unit Testing Framework} - zum Beispiel \textit{JUnit} - führt alle \textit{Test Cases} aus und überprüft dass die Erwarteten Ausgaben den wirklichen Ausgaben entsprechen. Ist dies nicht der Fall, wird ein Fehler generiert.
+\textit{Unit Testing} ist in der Softwareentwicklung ein extrem hilfreiches Verfahren, das dem Programmierer erlaubt, individuelle Methoden oder Funktionen isoliert vom Rest des Programms zu testen. Dabei kann für jede Methode ein \textit{Test Case} erstellt werden, indem ein Eingabewert und eine Erwartung deklariert werden kann. Das \textit{Unit Testing Framework} - zum Beispiel \textit{JUnit} - führt alle \textit{Test Cases} aus und überprüft, dass die Ausgaben den erwarteten Werten entsprechen. Ist dies nicht der Fall, wird ein Fehlermeldung generiert.
 
-Der Programmierer kann somit sehr einfach und vorallem schnell schwierige Methoden für Richtigkeit überprüfen. Der Vorteil von \textit{Unit Testing} liegt darin, dass Methoden nicht nur auf ``richtige'' Eingaben geprüft werden können, sondern auch auf unmögliche, vielleicht sogar maliziöse Eingaben getested werden können. Sind die Tests robust, so kann davon ausgegangen werden, dass der Rest des Programms auch robust sein wird.
+Der Programmierer kann somit sehr einfach und vor allem schnell schwierige Methoden auf ihre Richtigkeit überprüfen. Der Vorteil von \textit{Unit Testing} liegt darin, dass Methoden nicht nur auf ''richtige'' Eingaben geprüft werden können, sondern auch auf unmögliche, vielleicht sogar maliziöse Eingaben getested werden können. Sind die Tests robust, so kann davon ausgegangen werden, dass der Rest des Programms auch robust sein wird.
 
-In den folgenden Bereichen wurde \textit{Unit Testing} anhand des Frameworks \textit{JUnit4} verwendet.
+In den folgenden Bereichen wurde \textit{Unit Testing} anhand des Frameworks \textit{JUnit4} verwendet:
 
 \begin{itemize}
-	\item \textbf{ClosedLoop:} Die Schrittantwort wurde direkt mit dem Resultat von Matlab verglichen. Dabei wurde die Kurve von Matlab exportiert und als Liste von XY-Punkte in Java importiert, und mit dem Resultat von \textit{ClosedLoop::calculateStepRespose()} verglichen.
+	\item \textbf{ClosedLoop:} Die Schrittantwort wurde direkt mit dem Resultat von Matlab verglichen. Dabei wurde die Kurve von Matlab exportiert und als Liste von XY-Punkte in Java importiert und mit dem Resultat von \textit{ClosedLoop::calculateStepRespose()} verglichen.
 	\item \textbf{In der Klasse \textit{MathStuff}:} Alle Mathematikfunktionen, die von Matlab portiert wurden, sowie zusätzliche Mathematikfunktionen, die im Laufe des Projekts hinzugefügt wurden.
 	\item \textbf{Faustformeln:} Die von Hand ausgerechnete Resultate wurden mit allen Faustformel-Klassen verglichen.
 	\item \textbf{Regler:} Alle Reglerklassen - \textit{ControllerI}, \textit{ControllerPI} und \textit{ControllerPID} - sind mit Matlab verglichen.
