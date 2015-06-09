@@ -2,7 +2,7 @@
 
 
 \subsection{View}
-Die Klasse \textit{View} und ihre Unterklassen sind zuständig für die Darstellung der Benutzeroberfläche. Am oberen Fensterrand befindet sich die \textit{MenuBar}, welche sich über die gesamte Breite erstreckt. Sie enthält Einstellungsmöglichkeiten und weiterführende Informationen. Auf der linken Seite befinden sich zwei Panels für die Ein- und Ausgabe. Im \textit{InputPanel} können die Eingabeparameter eingetragen, der gewünschte Regler und das Überschwingen gewählt und die Simulation mit einem Button gestartet werden. Das \textit{OutputPanel} stellt alle berechneten Graphen mit der Angabe ihrer Kennwerte in einer Tabelle dar und besitzt einen Trimmer für das manuelle justieren des Phasenwinkels. Auf der rechten Seite des Fensters werden die Graphen mit der Klasse \textit{GraphPanel} angezeigt. Unter diesem Plot befindet sich das \textit{GraphDisplayPanel} und das \textit{GraphSettingPanel}, welche beide für für die Auswahl der darzustellenden Kurven verantwortlich sind. Im folgenden Abschnitt wird die Darstellung des GUIs (Graphical User Interface) genauer erläutert.
+Die Klasse \textit{View} und ihre Unterklassen sind zuständig für die Darstellung der Benutzeroberfläche. Am oberen Fensterrand befindet sich die \textit{MenuBar}, welche sich über die gesamte Breite erstreckt. Sie enthält Einstellungsmöglichkeiten und weiterführende Informationen. Auf der linken Seite befinden sich zwei Panels für die Ein- und Ausgabe. Im \textit{InputPanel} können die Eingabeparameter eingetragen, der gewünschte Regler und das Überschwingen gewählt und die Simulation mit einem Button gestartet werden. Das \textit{OutputPanel} stellt alle berechneten Graphen mit der Angabe ihrer Kennwerte in einer Tabelle dar und besitzt einen Trimmer für das manuelle justieren des Phasenwinkels. Auf der rechten Seite des Fensters werden die Graphen mit der Klasse \textit{GraphPanel} angezeigt. Unter diesem Plot befindet sich das \textit{GraphDisplayPanel} und das \textit{GraphSettingPanel}, welche beide für die Auswahl der darzustellenden Kurven verantwortlich sind. Im folgenden Abschnitt wird die Darstellung des GUIs (Graphical User Interface) genauer erläutert.
 
 \subsubsection{Anforderungen an die Benutzeroberfläche}
 %Problem/Fragestellung:
@@ -64,13 +64,13 @@ In der folgenden Grafik wurde der gesamte Zusammenhang dargestellt:
 
 \begin{figure}[h]
 	\centering
-		\includegraphics[width=12cm]{Panels.png}
+		\includegraphics[width=14cm]{Panels.png}
 	\caption{Aufbau des GUIs}
 	\label{fig:Aufbau der Benutzerfläche}
 \end{figure}
 \newpage
 \subsubsection{Aufgabe der einzelnen Panels}
-Die Benutzeroberfläche beinhaltet, wie vorhin beschrieben, mehrere Panels. Das \textit{Input\-Panel} dient zur Eingabe der Kenngrössen der Regelstrecke und das \textit{OutputPanel} zur Anzeige der berechneten Reglerparameter und zur nachträglichen Manipulation des Phasenwinkels. Das \textit{GraphPanel} visualisiert die Schrittantwort, das \textit{GraphDisplayPanel} ermöglicht die Auswahl der anzuzeigenden Kurven und das \textit{GraphSettingPanel} besitzt drei Buttons für die Einstellungen zum Graphen. Ein Grossteil der verwendeten Komponenten stammt aus der Swing Klasse von Java, alle zusätzlichen werden speziell erläutert. Folgend werden die Panels genauer beschrieben:\\
+Die Benutzeroberfläche beinhaltet, wie vorhin beschrieben, mehrere Panels. Das \textit{Input\-Panel} dient zur Eingabe der Kenngrössen der Regelstrecke und das \textit{OutputPanel} zur Anzeige der berechneten Reglerparameter und zur nachträglichen Manipulation des Phasenwinkels. Das \textit{GraphPanel} visualisiert die Schrittantwort, das \textit{GraphDisplayPanel} ermöglicht die Auswahl der anzuzeigenden Kurven und das \textit{GraphSettingPanel} besitzt drei Buttons für die Einstellungen zum Graphen. Ein Grossteil der verwendeten Komponenten stammt aus der Swing Klasse von Java, alle zusätzlichen Elemente werden speziell erläutert. Folgend werden die Panels genauer beschrieben:\\
 
 \begin{figure}[h]
 	\centering
@@ -93,7 +93,7 @@ Alle Beschriftungen sind JLabels, alle Textfelder sind JFormatedDoubleTextfields
 	\label{fig:InputPanel}
 \end{figure}
 \newpage
-\textbf{OutputPanel:} Dieses Panel wurde im GridBagLayout erstellt und besitzt einen Rahmen mit dem Titel "`Ausgabe"'. In einer übersichtlichen Tabelle werden alle Kennwerte jeder simulierten Kurve aufgelistet. Diese Tabelle besteht aus den sechs Spalten mit den folgenden Inhalten:
+\textbf{OutputPanel:} Dieses Panel wurde im GridBagLayout erstellt und besitzt einen Rahmen mit dem Titel "`Ausgabe"'. In einer übersichtlichen Tabelle werden die Kennwerte jeder simulierten Kurve aufgelistet. Diese Tabelle besteht aus den sechs Spalten mit den folgenden Inhalten:
 \begin{enumerate}
 	\item \textit{Name}: Als erstes steht ein grosser farbiger Kreis in der Farbe der dazugehörenden Kurve. Dadurch kann der Anwender den Zusammenhang zwischen Tabelle, Graph und Auswahl der Kurven leicht erkennen. Nach dem Kreis folgt im selben Feld der Name des Reglers. 
 	\item \textit{Kr}: Enthält den berechneten Wert für die Reglerverstärkung
@@ -133,7 +133,7 @@ Die Tabelle des \textit{OutputPanels} ist eine JTable mit einem TableHeader und 
 
 \begin{figure}[h]
 	\centering
-		\includegraphics[width=12cm]{GraphDisplayPanel.png}
+		\includegraphics[width=14cm]{GraphDisplayPanel.png}
 	\caption{GraphDisplayPanel}
 	\label{fig:GraphDisplayPanel und GraphSettingPanel}
 \end{figure}
@@ -175,11 +175,11 @@ Im folgenden Ausschnitt aus dem Klassendiagramm ist der Zusammenhang der Klasse 
 
 \begin{figure}[h]
 	\centering
-		\includegraphics[width=12cm]{Klassendiagramm_View.png}
+		\includegraphics[width=1.00\textwidth]{Klassendiagramm_View.png}
 	\caption{Klasse View und ihre Unterklassen}
 	\label{fig:Klassendiagramm_View}
 \end{figure}
-
+\newpage
 \subsubsection{Funktionalität der Benutzeroberfläche}
 %Problem/Fragestellung:
 %- Was sind die erlaubten Eingaben in den Textfeldern und wie werden falsche Eingaben gehandhabt?
@@ -195,14 +195,13 @@ Für alle Textfelder wurden JDoubleTextFields verwendet. Diese Klasse bekamen wir
 	\item Die Fehlermeldung direkt im Textfeld wurde deaktiviert. Fehler werden in diesem Tool auf einer extra Zeile dargestellt.  
 \end{enumerate}
 
-\newpage
 \textbf{Fenstermanagement}\\
 Wenn das Tool gestartet wird, öffnet sich das Programm in der Normalansicht (alle Panels werden angezeigt) mit der kleinstmöglichen Fenstergrösse. Dazu wird das Frame so gepackt, dass alle Komponenten mit ihrer Minimalgrösse platziert werden. Um das Tool auch bei unterschiedlichen Bildschirmauflösungen verwenden zu können, wurden dafür keine absoluten Pixelwerte eingesetzt.\\
 Wenn die Fenstergrösse durch den Anwender verändert wird, hat dies einen unterschiedlichen Einfluss auf die einzelnen Panels. Das \textit{OutputPanel} wird nur in der Vertikalen und das \textit{GraphDisplayPanel} und die \textit{MenuBar} nur in der Horizontalen verändert. Weiter wird das \textit{GraphPanel} in beide Richtungen gestreckt oder gestaucht. Das \textit{InputPanel} und das \textit{GraphSettingPanel} bleiben dabei unverändert. Zur Veranschaulichung wurde dieses Verhalten in der folgenden Grafik dargestellt. Die roten Pfeile zeigen dabei, in welche Richtungen sich die Panels verändern können.
 
 \begin{figure}[h]
 	\centering
-		\includegraphics[width=12cm]{ResizeFrame.png}
+		\includegraphics[width=14cm]{ResizeFrame.png}
 	\caption{Verändern der Fenstergrösse}
 	\label{fig:Verändern der Fenstergrösse}
 \end{figure}
@@ -213,7 +212,7 @@ Durch eine Schaltfläche in der \textit{MenuBar} kann zur Mini-Version gewechselt
 
 \begin{figure}[h]
 	\centering
-		\includegraphics[width=8cm]{Mini-Version.png}
+		\includegraphics[width=10cm]{Mini-Version.png}
 	\caption{Ansicht der Mini-Version}
 	\label{fig:Ansicht der Mini-Version}
 \end{figure}
