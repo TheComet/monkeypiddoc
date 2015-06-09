@@ -93,7 +93,7 @@ Als erstes wurden beide Methoden mit fix 2048 Punkten verglichen. Das sind bei d
 	\label{fig:ifft_vs_pbz_2048}
 \end{figure}
 
-Ein Nachteil der IFFT Methode ist, dass ihre Komplexität quadratisch skaliert. Die Partialbruchzerlegungsmethode hingegen skaliert nur linear. Dies ist gut ersichtlich, wenn man Figur \ref{fig:ifft_vs_pbz_2048} und \ref{fig:ifft_vs_pbz_8192} vergleicht.
+Ein Nachteil der IFFT Methode ist, dass ihre Komplexität $\mathcal{O}(n\log{}n)$ skaliert. Die Partialbruchzerlegungsmethode hingegen skaliert nur linear mit $\mathcal{O}(n)$. Dies ist gut ersichtlich, wenn man Figur \ref{fig:ifft_vs_pbz_2048} und \ref{fig:ifft_vs_pbz_8192} vergleicht.
 
 \begin{figure}[h]
 	\centering
